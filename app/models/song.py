@@ -10,7 +10,7 @@ class Song(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     title = db.Column(db.String(255), nullable=False)
-    artist = db.Column(db.String, nullable=False)
+    artist = db.Column(db.String(255), nullable=False)
     songUrl = db.Column(db.String, nullable=False)
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
@@ -24,7 +24,6 @@ class Song(db.Model):
             "title": self.title,
             "artist": self.artist,
             "songUrl": self.songUrl,
-            "user": self.user.to_dict(),
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt
        }

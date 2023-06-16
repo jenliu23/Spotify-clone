@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-function HomeLogo( ){
+function HomeBar( ){
 	
 	return (
 		<div>
@@ -12,4 +12,4 @@ function HomeLogo( ){
 	);
 }
 
-export default HomeLogo;
+export default HomeBar;
