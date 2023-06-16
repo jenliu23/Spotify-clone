@@ -1,21 +1,24 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
-
+	
 	return (
-		<ul>
-			{/* <li>
-				<NavLink exact to="/">Home</NavLink>
-			</li> */}
+		<ul className='nav-bar'>
+			<li>
+				<NavLink exact to="/songs">All Songs</NavLink>
+			</li>
+			<li className={sessionUser? "":"hidden"}>
+              	<NavLink to="/uploaded-songs" >Uploaded Song List</NavLink>
+            </li>
 			{isLoaded && (
-				<li>
-					<ProfileButton user={sessionUser} />
-				</li>
+			<li>
+				<ProfileButton user={sessionUser} />
+			</li>
 			)}
 		</ul>
 	);

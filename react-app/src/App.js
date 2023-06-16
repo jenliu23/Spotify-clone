@@ -3,9 +3,12 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import HomeLogo from "./components/HomeLogo";
-import Playlists from "./components/Playlists";
-import HomePage from "./components/HomePage";
+import HomeBar from "./components/HomeBar";
+import Playlists from "./components/SideBar";
+import UploadSongPage from "./components/UploadSongPage";
+import HomePage from "./components/PageHome";
+import SongPage from "./components/PageSong";
+import UserUploadedSongList from "./components/UserUploadedSongList";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +21,7 @@ function App() {
     <div className="mainContainer">
       <div className="leftContainer">
         <div className="headerContainer">
-          <HomeLogo />
+          <HomeBar />
         </div>
         <div className="barContainer">
           <Playlists />
@@ -32,11 +35,18 @@ function App() {
         <div className="bodyContainer">
           {isLoaded && (
           <Switch>
-            <Route exact path="/" >
+            <Route exact path = "/" >
               <HomePage />
             </Route>
-
-
+            <Route exact path = "/songs" >
+              <SongPage />
+            </Route>
+            <Route exact path = "/songs/new" >
+              <UploadSongPage />
+            </Route>
+            <Route exact path = "/uploaded-songs" >
+              <UserUploadedSongList />
+            </Route>
             <Route>
               <h1>Page Not Found</h1>
             </Route>
