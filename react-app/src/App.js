@@ -10,6 +10,7 @@ import HomePage from "./components/HomePage";
 import SongPage from "./components/PageSong";
 import UserUploadedSongList from "./components/UserUploadedSongList";
 import SinglePlaylist from "./components/SinglePlaylist";
+import AudioBar from "./components/AudioBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,44 +20,50 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div className="mainContainer">
-      <div className="leftContainer">
-        <div className="headerContainer">
-          <HomeBar />
+    <>
+      <div className="mainContainer">
+        <div className="leftContainer">
+          <div className="headerContainer">
+            <HomeBar />
+          </div>
+          <div className="barContainer">
+            <SideBar />
+          </div>
         </div>
-        <div className="barContainer">
-          <SideBar />
-        </div>
-      </div>
       
-      <div className="rightContainer">
-        <div className="bodyContainer">
-          <Navigation isLoaded={isLoaded} />
-          {isLoaded && (
-          <Switch>
-            <Route exact path = "/" >
-              <HomePage />
-            </Route>
-            <Route exact path = "/songs" >
-              <SongPage />
-            </Route>
-            <Route exact path = "/songs/new" >
-              <UploadSongPage />
-            </Route>
-            <Route exact path = "/playlists/:playlistId" >
-              <SinglePlaylist />
-            </Route>
-            <Route exact path = "/uploaded-songs" >
-              <UserUploadedSongList />
-            </Route>
-            <Route>
-              <h1>Page Not Found</h1>
-            </Route>
-          </Switch>
-          )}
+        <div className="rightContainer">
+          <div className="bodyContainer">
+            <Navigation isLoaded={isLoaded} />
+            {isLoaded && (
+            <Switch>
+              <Route exact path = "/" >
+                <HomePage />
+              </Route>
+              <Route exact path = "/songs" >
+                <SongPage />
+              </Route>
+              <Route exact path = "/songs/new" >
+                <UploadSongPage />
+              </Route>
+              <Route exact path = "/playlists/:playlistId" >
+                <SinglePlaylist />
+              </Route>
+              <Route exact path = "/uploaded-songs" >
+                <UserUploadedSongList />
+              </Route>
+              <Route>
+                <h1>Page Not Found</h1>
+              </Route>
+            </Switch>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+
+      <footer className="bottom-container">
+        <h1>Hello</h1>
+      </footer>
+    </>
   );
 }
 

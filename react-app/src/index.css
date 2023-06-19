@@ -6,6 +6,14 @@
     margin: 0;
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
 .hidden {
     display: none;
 }
@@ -26,7 +34,7 @@ a:hover, button:hover {
 .mainContainer {
     display: flex;
     flex-direction: row;
-    height: 55rem;
+    height: 58rem;
     /* justify-items: center; */
     /* align-items: center; */
     gap: 8px;
@@ -35,7 +43,7 @@ a:hover, button:hover {
 
 .leftContainer {
     width: 20%;
-    /* height: 35%; */
+    height: 798px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -54,7 +62,7 @@ a:hover, button:hover {
 }
 
 .barContainer {
-    height: 676px;
+    height: 700px;
     border: black 1px solid;
     border-radius: 10px 10px;
     padding: 10px 0 10px 10px;
@@ -63,7 +71,7 @@ a:hover, button:hover {
 
 .rightContainer {
     width: 80%;
-    /* height: 51rem; */
+    height: 798px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -76,11 +84,25 @@ a:hover, button:hover {
     /* justify-content: space-between; */
     border-radius: 10px 10px;
     padding: 10px 10px 10px 20px;
-    height: 100%;
+    height: 826px;
     /* background-color: rgb(33, 33, 33); */
     background: linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%);
 }
 
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: rgb(18, 18, 18);
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 80px;
+    width: 100%;
+}
 
 #modal-content {
     background-color: transparent;

@@ -1,5 +1,5 @@
 .playlists {
-    /* height: 600px; */
+    height: 633px;
     overflow-y:scroll;
 }
 
@@ -36,8 +36,8 @@
     /* background-color: rgb(18, 18, 18); */
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 25px;
     padding: 10px;
 }
 
@@ -48,6 +48,7 @@
 
 .single-playlist {
     /* border: 1px solid black; */
+    height: 250px;
     border-radius: 7px 7px;
     padding: 15px;
     background-color: rgb(43, 43, 43);
