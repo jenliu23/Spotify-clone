@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { fetchPlaylists } from "../../store/playlists";
 import OpenModalButton from "../OpenModalButton";
 import CreatePlaylist from "./CreatePlaylist";
@@ -11,6 +12,12 @@ const SideBar = () => {
 
     const playlists = Object.values(useSelector((state) => state.playlists));
     
+    let currentUserPlaylists = []
+    for (let playlist of playlists){
+        if(playlist.userId === sessionUser?.id){
+            currentUserPlaylists.push(playlist)
+        }
+    }
     
     useEffect(() => {
         dispatch(fetchPlaylists());
@@ -35,7 +42,8 @@ const SideBar = () => {
             </div>
             
             <div className="sidebar-playlists">
-                {playlists?.map((playlist) => (
+                {currentUserPlaylists?.map((playlist) => (
+                <NavLink exact to={`/playlists/${playlist.id}`}>
                 <div key={playlist.id} className="sidebar-single-playlist">
                     <img src={playlist.coverImage} />
                     <div>
@@ -43,6 +51,7 @@ const SideBar = () => {
                         <h5>Playlist . {playlist.username}</h5>
                     </div>
                 </div>
+                </NavLink>
                 ))}
             </div>
             

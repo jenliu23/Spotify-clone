@@ -7,9 +7,9 @@ def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
+        username='listener', email='listener@aa.io', password='password')
     bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        username='player no.1', email='player@aa.io', password='password')
     percent = User(
         username='percent', email='percent@aa.io', password='password1')
     lalala = User(
