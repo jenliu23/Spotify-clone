@@ -1,8 +1,11 @@
 /* TODO Add site wide styles */
-/* * {
-    background-color: black;
+* {
     color: white;
-} */
+    font-family: 'Hind Siliguri', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
 .hidden {
     display: none;
 }
@@ -16,16 +19,28 @@ a {
     text-decoration: none;
 }
 
-.barContainer {
-    height: 676px;
-    border: black 1px solid;
-    border-radius: 10px 10px;
-    padding: 15px;
+a:hover, button:hover {
+    cursor: pointer;
 }
 
-/* .bodyContainer {
-    border: black 1px solid;
-} */
+.mainContainer {
+    display: flex;
+    flex-direction: row;
+    height: 55rem;
+    /* justify-items: center; */
+    /* align-items: center; */
+    gap: 8px;
+    background-color: rgb(18, 18, 18);
+}
+
+.leftContainer {
+    width: 20%;
+    /* height: 35%; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 0 10px 10px;
+}
 
 .headerContainer {
     /* width: 100%; */
@@ -34,40 +49,39 @@ a {
     border-radius: 10px 10px;
     display: flex;
     flex-direction: row;
-    padding: 15px;
+    padding: 10px;
+    background-color: rgb(33, 33, 33);
 }
 
-.leftContainer {
-    width: 23%;
-    /* height: 35%; */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.mainContainer {
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-    /* justify-items: center; */
-    /* align-items: center; */
-    gap: 10px;
-}
-
-.navContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border: rgb(173, 171, 171) 1px solid;
+.barContainer {
+    height: 676px;
+    border: black 1px solid;
+    border-radius: 10px 10px;
+    padding: 10px 0 10px 10px;
+    background-color: rgb(33, 33, 33);
 }
 
 .rightContainer {
+    width: 80%;
+    /* height: 51rem; */
     display: flex;
     flex-direction: column;
-    width: 77%;
-    height: 51rem;
-    border: black 1px solid;
-    border-radius: 10px 10px;
-    padding: 15px;
     gap: 10px;
+    padding: 10px 10px 10px 0;
+}
+
+.bodyContainer {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    border-radius: 10px 10px;
+    padding: 10px 10px 10px 20px;
+    height: 100%;
+    /* background-color: rgb(33, 33, 33); */
+    background: linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%);
+}
+
+
+#modal-content {
+    background-color: transparent;
 }

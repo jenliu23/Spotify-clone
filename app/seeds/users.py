@@ -14,12 +14,15 @@ def seed_users():
         username='percent', email='percent@aa.io', password='password1')
     lalala = User(
         username='lalala', email='lalala@aa.io', password='password2')
+    song = User(
+        username='song', email='song@aa.io', password='password3')
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(percent)
     db.session.add(lalala)
+    db.session.add(song)
     db.session.commit()
 
 

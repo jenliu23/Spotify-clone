@@ -10,10 +10,13 @@ function Navigation({ isLoaded }){
 	return (
 		<ul className='nav-bar'>
 			<li>
-				<NavLink exact to="/songs">All Songs</NavLink>
+				<NavLink exact to="/"><i className="fa-solid fa-house fa-sm"></i> Home</NavLink>
+			</li>
+			<li>
+				<NavLink exact to="/songs"><i className="fa-solid fa-music fa-sm"></i> All Songs</NavLink>
 			</li>
 			<li className={sessionUser? "":"hidden"}>
-              	<NavLink to="/uploaded-songs" >Uploaded Song List</NavLink>
+              	<NavLink to="/uploaded-songs"><i className="fa-solid fa-cloud-arrow-up"></i> Your Uploads</NavLink>
             </li>
 			{isLoaded && (
 			<li>

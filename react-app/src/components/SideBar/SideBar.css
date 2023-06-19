@@ -1,0 +1,167 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-library {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.sidebar-library button {
+    display: block;
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    color: rgb(179, 179, 179);
+    &:hover {
+        color: white;
+    }
+}
+
+.sidebar-title {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 15px;
+}
+
+.sidebar-playlists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 550px;
+    overflow-y:scroll;
+}
+
+.sidebar-playlists h5 {
+    color: rgb(179, 179, 179);
+}
+
+.sidebar-playlists::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-playlists::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-playlists::-webkit-scrollbar-thumb {
+    background-color: rgb(83, 83, 83);
+    border-radius: 5px 5px;
+}
+
+.sidebar-playlists::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(179, 179, 179);
+}
+
+.sidebar-single-playlist {
+    /* border: 1px black solid; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0 10px 10px;
+    gap: 15px;
+    &:hover {
+        background-color: rgb(43, 43, 43);
+        cursor: pointer;
+    }
+}
+
+.sidebar-single-playlist div {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+    gap: 10px;
+}
+
+.sidebar-single-playlist img {
+    width: 22%;
+    border-radius: 3px 3px;
+}
+
+
+.create-playlist {
+    background-color: rgb(33, 33, 33);
+    width: 450px;
+    height: 310px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 10px 10px;
+    gap: 30px;
+}
+
+
+.create-playlist-info {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.create-playlist-info img {
+    width: 45%;
+    border-radius: 4px 4px;
+}
+
+.create-playlist form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.create-playlist form div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.create-playlist input {
+    width: 100%;
+    height: 35px;
+    border-radius: 4px 4px;
+    padding: 3px 0 3px 10px;
+    border: none;
+    background-color: rgb(83, 83, 83);
+    font-size: 16px;
+    &:active {
+        background-color: rgb(53, 53, 53);
+        border: rgb(179, 179, 179);
+        border: none;
+    }
+    &:focus {
+        background-color: rgb(53, 53, 53);
+        outline:1px solid rgb(179, 179, 179);
+    }
+}
+
+.create-playlist select {
+    background-color: rgb(83, 83, 83);
+    border-radius: 4px 4px;
+    &:focus {
+        background-color: rgb(53, 53, 53);
+        outline:1px solid rgb(179, 179, 179);
+    }
+}
+
+.create-playlist button {
+    /* margin-top: 100px; */
+    width: 45%;
+    height: 38px;
+    border-radius: 20px 20px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    align-items: center;
+    margin-left: auto;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
