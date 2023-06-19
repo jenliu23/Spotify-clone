@@ -1,0 +1,104 @@
+.single-playlist-container {
+    padding: 30px 10px 30px 10px;
+}
+
+.single-playlist-container-info {
+    width: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1.3fr 5fr 1fr;
+    gap: 10px;
+    padding-bottom: 30px;
+    border-bottom: rgb(83, 83, 83) 1.5px solid;
+}
+
+.single-playlist-container-info button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    text-align: left;
+    color: rgb(179, 179, 179);
+    &:hover {
+        color: white;
+    }
+}
+
+.single-playlist-container-info div {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px 10px 10px 20px;
+}
+
+.single-playlist-container-info div h1 {
+    /* width: 900px; */
+    font-size: 3.5vw;
+    word-wrap: break-word;
+    padding-bottom: 10px;
+}
+
+.single-playlist-container-info img {
+    width: 100%;
+    padding: 10px 10px 10px 0;
+}
+
+.single-playlist-container-info section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px 10px 10px 30px;
+    gap: 10px;
+}
+
+.delete-modal {
+    border-radius: 10px 10px;
+    padding: 30px;
+    width: 330px;
+    height: 180px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.delete-modal h2 {
+    color: black;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.delete-modal h4 {
+    color: black;
+}
+
+.delete-modal div {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 40px;
+    padding-top: 40px;
+}
+
+#nobtn {
+    background: transparent;
+    color: black;
+    border: none;
+    font-size: 18px;
+    &:hover {
+        transform: scale(1.03);
+    }
+}
+
+#yesbtn {
+    background-color: rgb(29,185,84);
+    font-size: 18px;
+    color: black;
+    padding: 5px 22px 5px 22px;
+    border-radius: 25px 25px;
+    border: none;
+    outline: 2px solid rgb(0, 123, 255);
+    outline-offset: 1px;
+    &:hover {
+        transform: scale(1.03);
+    }
+}

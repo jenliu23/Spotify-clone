@@ -4,11 +4,12 @@ import { Route, Switch } from "react-router-dom";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import HomeBar from "./components/HomeBar";
-import Playlists from "./components/SideBar";
+import SideBar from "./components/SideBar";
 import UploadSongPage from "./components/UploadSongPage";
-import HomePage from "./components/PageHome";
+import HomePage from "./components/HomePage";
 import SongPage from "./components/PageSong";
 import UserUploadedSongList from "./components/UserUploadedSongList";
+import SinglePlaylist from "./components/SinglePlaylist";
 
 function App() {
   const dispatch = useDispatch();
@@ -24,15 +25,13 @@ function App() {
           <HomeBar />
         </div>
         <div className="barContainer">
-          <Playlists />
+          <SideBar />
         </div>
       </div>
       
       <div className="rightContainer">
-        <div className="navContainer">
-          <Navigation isLoaded={isLoaded} />
-        </div>
         <div className="bodyContainer">
+          <Navigation isLoaded={isLoaded} />
           {isLoaded && (
           <Switch>
             <Route exact path = "/" >
@@ -44,6 +43,9 @@ function App() {
             <Route exact path = "/songs/new" >
               <UploadSongPage />
             </Route>
+            <Route exact path = "/playlists/:playlistId" >
+              <SinglePlaylist />
+            </Route>
             <Route exact path = "/uploaded-songs" >
               <UserUploadedSongList />
             </Route>
@@ -53,10 +55,7 @@ function App() {
           </Switch>
           )}
         </div>
-
       </div>
-      
-
     </div>
   );
 }
