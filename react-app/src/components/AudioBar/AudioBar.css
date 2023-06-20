@@ -1,12 +1,16 @@
-
-/* 
 .Audio-Bar {
-    position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   z-index: 5;
-   background-color: red;
-   color: white;
-   text-align: center;
-} */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    gap: 20px;
+}
+
+
+.Audio-Bar button {
+   background-color: transparent;
+   border: none;
+   font-size: 26px;
+}

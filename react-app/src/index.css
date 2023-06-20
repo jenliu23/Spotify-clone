@@ -34,7 +34,8 @@ a:hover, button:hover {
 .mainContainer {
     display: flex;
     flex-direction: row;
-    height: 58rem;
+    /* height: 58rem; */
+    height: 100vh;
     /* justify-items: center; */
     /* align-items: center; */
     gap: 8px;
@@ -43,7 +44,8 @@ a:hover, button:hover {
 
 .leftContainer {
     width: 20%;
-    height: 798px;
+    /* height: 798px; */
+    height: 90vh;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -62,7 +64,8 @@ a:hover, button:hover {
 }
 
 .barContainer {
-    height: 700px;
+    /* height: 700px; */
+    height: 90vh;
     border: black 1px solid;
     border-radius: 10px 10px;
     padding: 10px 0 10px 10px;
@@ -71,7 +74,8 @@ a:hover, button:hover {
 
 .rightContainer {
     width: 80%;
-    height: 798px;
+    /* height: 798px; */
+    height: 90vh;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -84,7 +88,8 @@ a:hover, button:hover {
     /* justify-content: space-between; */
     border-radius: 10px 10px;
     padding: 10px 10px 10px 20px;
-    height: 826px;
+    /* height: 826px; */
+    height: 90vh;
     /* background-color: rgb(33, 33, 33); */
     background: linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%);
 }
@@ -95,7 +100,7 @@ a:hover, button:hover {
     flex-direction: column;
 }
 
-footer {
+.bottom-container {
     background-color: rgb(18, 18, 18);
     position: fixed;
     left: 0px;

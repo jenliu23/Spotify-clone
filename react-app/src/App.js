@@ -60,9 +60,9 @@ function App() {
         </div>
       </div>
 
-      <footer className="bottom-container">
-        <h1>Hello</h1>
-      </footer>
+      <div className="bottom-container">
+        <AudioBar />
+      </div>
     </>
   );
 }
