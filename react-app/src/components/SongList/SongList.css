@@ -1,0 +1,44 @@
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.song-list-intro {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 6fr 3fr 2fr 1fr 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+    /* border: white 2px solid; */
+    gap: 7px;
+    color: rgb(57, 112, 160);
+    border-bottom: white 1px solid;;
+}
+
+.song-list-each {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 6fr 3fr 2fr 1fr 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+    /* border: white 2px solid; */
+    gap: 7px;
+    padding: 7px 0 7px 0;
+}
+
+.song-list-each:hover {
+    background-color: rgb(83, 83, 83);
+    cursor: default;
+}
+
+.song-list button {
+    background-color: transparent;
+    border: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+

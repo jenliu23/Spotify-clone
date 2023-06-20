@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
@@ -64,9 +63,9 @@ function CreatePlaylist() {
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_smile.jpg">
                                 --smile--
                             </option>
-                            <optine value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_balloon.jpg">
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_balloon.jpg">
                                 --balloon
-                            </optine>
+                            </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_sleep.jpg">
                                 --sleep--
                             </option>

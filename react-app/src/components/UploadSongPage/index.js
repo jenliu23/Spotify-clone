@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { uploadSong } from "../../store/songs";
 
