@@ -1,7 +1,8 @@
-from app.models import db, Song, environment, SCHEMA
+from app.models import db, Song, Playlist, environment, SCHEMA
 from sqlalchemy.sql import text
 
 def seed_songs():
+
     song1 = Song(
         userId = 4,
         title = "Moonlight Sonata (1st Movement)",

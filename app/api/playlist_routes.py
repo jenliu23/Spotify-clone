@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 from app.forms import PlaylistForm
 from datetime import date
 from random import randint
-from app.models import db, Song, User, Playlist
+from app.models import db, Song, User, Playlist, Playlist_Song
 
 playlist_routes = Blueprint('playlists', __name__)
 
@@ -51,3 +51,12 @@ def delete_playlist(playlistId):
     db.session.delete(playlist)
     db.session.commit()
     return deleted_playlist
+
+
+@playlist_routes.route("/<int:playlistId>/songs/<int:songId>/<int:id>", methods=["DELETE"])
+def delete_song_from_playlist(playlistId, songId, id):
+    playlist_song = Playlist_Song.query.get(id)
+    deleted_playlist_song = {'playlist_song': playlist_song.to_dict()}
+    db.session.delete(playlist_song)
+    db.session.commit()
+    return deleted_playlist_song

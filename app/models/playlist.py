@@ -15,7 +15,9 @@ class Playlist(db.Model):
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     user = db.relationship("User", back_populates="playlists")
+    playlist_songs = db.relationship("Playlist_Song", back_populates="playlist", cascade="all, delete-orphan")
 
+    songs_in_playlist = []
     def to_dict(self):
         return {
             "id": self.id,
@@ -23,6 +25,7 @@ class Playlist(db.Model):
             "title": self.title,
             "coverImage": self.coverImage,
             "username": self.user.username,
+            "songs": [playlist_song.to_dict() for playlist_song in self.playlist_songs],
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt
        }

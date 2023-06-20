@@ -1,4 +1,4 @@
-
+import './AudioBar.css'
 
 
 const AudioBar = () => {
@@ -9,7 +9,9 @@ const AudioBar = () => {
 
     return (
         <div className="Audio-Bar">
-            <h1>HELLOP</h1>
+            <button><i className="fa-solid fa-backward-step"></i></button>
+            <button><i className="fa-solid fa-circle-play fa-lg"></i></button>
+            <button><i className="fa-solid fa-forward-step"></i></button>
         </div>
     )
 }
