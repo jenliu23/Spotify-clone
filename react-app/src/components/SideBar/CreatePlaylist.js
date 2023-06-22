@@ -1,27 +1,31 @@
-import React, { useState } from "react";
-import { login } from "../../store/session";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { addPlaylist } from "../../store/playlists";
 import './SideBar.css'
 
 function CreatePlaylist() {
     const dispatch = useDispatch();
-    const history = useHistory();
     const { closeModal } = useModal();
     const sessionUser = useSelector((state) => state.session.user);
 
     const [title, setTitle] = useState("");
     const [value, setValue] = useState("https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_default.png");
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState("");
 
     const coverImage = () => {
         const imgUrl = document.getElementById("coverImage").value;
         setValue(imgUrl)
         console.log("value:", value);
     };
+
+    useEffect(() => {
+        setErrors("")
+        if (title && title.length > 20){
+            setErrors("less than 20 characters")
+        }
+    },[title])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,6 +35,10 @@ function CreatePlaylist() {
             title,
             coverImage: value
         }
+        // if(title.length > 20){
+        //     errors.title = "maximum 20 characters"
+        //     setErrors(errors)
+        // }
 
         return dispatch(addPlaylist(playlist))
             .then(closeModal())
@@ -53,6 +61,7 @@ function CreatePlaylist() {
                             required
                             />
                         </label>
+                        <div className="errors">{errors}</div>
                         <label>Choose a theme
                             <select 
                             id="coverImage"
@@ -64,9 +73,9 @@ function CreatePlaylist() {
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_smile.jpg">
                                 --smile--
                             </option>
-                            <optine value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_balloon.jpg">
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_balloon.jpg">
                                 --balloon
-                            </optine>
+                            </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_sleep.jpg">
                                 --sleep--
                             </option>
@@ -91,7 +100,7 @@ function CreatePlaylist() {
                             </select>
                         </label>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={errors.length > 0 ? "true":""}>Submit</button>
                 </form>
             </div>
         </div>

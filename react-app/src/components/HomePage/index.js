@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPlaylists } from "../../store/playlists";
 import { NavLink } from "react-router-dom";
+import AudioBar from "../AudioBar";
 import "./HomePage.css"
 
 
@@ -39,13 +40,17 @@ const HomePage = () => {
                 {playlists?.map((playlist) => (
                 <div key={playlist.id} className="single-playlist">
                     <NavLink exact to={`/playlists/${playlist.id}`}>
-                    <img src={playlist.coverImage} />
+                    <img src={playlist.coverImage} alt="coverImage"/>
                     <h4>{playlist.title}</h4>
                     <h4>by {playlist.username}</h4>
                     </NavLink>
                 </div>
                 ))}
             </div>
+
+            <div className="bottom-container">
+                <AudioBar />
+            </div>    
         </div>
     )
   }

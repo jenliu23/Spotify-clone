@@ -17,10 +17,94 @@
 .profile-button {
   border: 1px solid rgb(18, 18, 18);
   background-color: rgb(18, 18, 18);
+  color: rgb(197, 197, 197);
   border-radius: 50% 50%;
   box-shadow: none;
   width: 35px;
   height: 35px;
+  &:hover {
+    color: white;
+    transform: scale(1.04);
+  }
+}
+
+.profile-dropdown {
+  background-color: rgb(83, 83, 83);
+}
+
+.profile-dropdown-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  /* gap: 5px; */
+  width: 150px;
+  background-color: rgb(33, 33, 33);
+  border: rgb(197, 197, 197) 1px dotted;
+  position: fixed;
+  top: 60px;
+  right: 31px;
+}
+
+.profile-dropdown-in li {
+  padding: 5px 20px 5px 20px;
+}
+
+/* .profile-dropdown-in a {
+  padding-top: 5px;
+  color: rgb(197, 197, 197);
+  &:hover{
+    color: white;
+    background-color: rgb(83, 83, 83)
+  }
+} */
+
+.profile-dropdown-in button {
+  margin: 2px 5px 5px 5px;
+  padding-left: 15px;
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-size: 17px;
+  color: rgb(197, 197, 197);
+  &:hover{
+    color: white;
+    background-color: rgb(83, 83, 83);
+  }
+}
+
+/* .profile-dropdown-in button a {
+  color: rgb(197, 197, 197);
+} */
+
+.profile-dropdown-out {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* gap: 10px; */
+  background-color: rgb(33, 33, 33);
+  border: rgb(197, 197, 197) 1px dotted;
+  position: fixed;
+  top: 60px;
+  right: 31px;
+  /* padding: 20px; */
+}
+
+.profile-dropdown-out button {
+  margin: 5px;
+  padding-left: 10px;
+  width: 80px;
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  font-size: 17px;
+  color: rgb(197, 197, 197);
+  &:hover{
+    color: white;
+    background-color: rgb(83, 83, 83)
+  }
 }
 
 .fa-user {

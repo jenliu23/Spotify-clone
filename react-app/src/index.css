@@ -14,8 +14,19 @@ body {
     height: 100%;
 }
 
+button:disabled {
+    background-color: grey;
+    &:hover {
+        transform: none;
+    }
+}
+
 .hidden {
     display: none;
+}
+
+.errors {
+    color: rgb(245, 48, 100);
 }
 
 ul {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector,useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { editSong } from "../../store/songs";
@@ -15,7 +15,14 @@ const EditSongPage = ({song}) => {
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
-        
+        const errors = {};
+        if (title && title.length > 50){
+            errors.title = "less than 50 characters"
+        }
+        if (artist && artist.length > 20){
+            errors.artist = "less than 20 characters"
+        }
+        setErrors(errors);
     },[title, artist])
 
     const handleSubmit = async(e) => {
@@ -26,13 +33,13 @@ const EditSongPage = ({song}) => {
             artist
         }
 
-        if (title==="") {
-            errors.reviews = "Title is required";
-        }
-        if (artist==="") {
-            errors.stars = "Artist is required";
-        }
-        setErrors(errors);
+        // if (title==="") {
+        //     errors.reviews = "Title is required";
+        // }
+        // if (artist==="") {
+        //     errors.stars = "Artist is required";
+        // }
+        // setErrors(errors);
 
         return dispatch(editSong(editedSong))
             // .then(()=>history.push())
@@ -40,7 +47,7 @@ const EditSongPage = ({song}) => {
     }
    
     return(
-        <div>
+        <div  className="create-playlist">
             <h1>Edit Song Details</h1>
             <form onSubmit={handleSubmit}> 
                 {/* <ul>
@@ -48,7 +55,11 @@ const EditSongPage = ({song}) => {
                     <li key={idx}>{error}</li>
                 ))}
                 </ul> */}
-                <label>Title
+                <div>
+                    <h3>Title</h3>
+                    <h4 className="errors">* {errors.title}</h4>
+                </div>
+                <label>
                     <input
                     type="text"
                     value={title}
@@ -56,7 +67,11 @@ const EditSongPage = ({song}) => {
                     required
                     />
                 </label>
-                <label>Artist
+                <div>
+                    <h3>Artist</h3>
+                    <h4 className="errors">* {errors.artist}</h4>
+                </div>
+                <label>
                     <input
                     type="text"
                     value={artist}
@@ -64,7 +79,7 @@ const EditSongPage = ({song}) => {
                     required
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit" disabled={!!Object.values(errors).length}>Submit</button>
             </form>
         </div>
     

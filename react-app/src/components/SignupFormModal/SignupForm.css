@@ -1,0 +1,12 @@
+.sign-up-modal {
+    width: 550px;
+    height: 550px;
+}
+
+.sign-up-modal h1 {
+    font-size: 30px;
+}
+
+.sign-up-modal form {
+    width: 70%;
+} 

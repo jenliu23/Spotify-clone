@@ -52,6 +52,15 @@ def delete_playlist(playlistId):
     db.session.commit()
     return deleted_playlist
 
+@playlist_routes.route("/<int:playlistId>/songs/new/<int:songId>", methods=["PUT"])
+def add_song_to_playlist(playlistId, songId):
+    new_playlist_song = Playlist_Song(
+        playlistId=playlistId,
+        songId=songId
+    )
+    db.session.add(new_playlist_song)
+    db.session.commit()
+    return {'new_playlist_song': new_playlist_song.to_dict()}
 
 @playlist_routes.route("/<int:playlistId>/songs/<int:songId>/<int:id>", methods=["DELETE"])
 def delete_song_from_playlist(playlistId, songId, id):
