@@ -10,24 +10,25 @@ import './SongList.css'
 const SongList = ({songs}) => {
     const sessionUser = useSelector((state) => state.session.user);
     
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [currentSong, setCurrentSong] = useState("");
+    // const [isPlaying, setIsPlaying] = useState(false);
+    // const [currentSong, setCurrentSong] = useState("");
     // const [duration, setDuration] = useState(0);
     // const [currentTime, setCurrentTime] = useState(0);
-    const audioPlayer = useRef();
+    // const audioPlayer = useRef();
     
-    const playORpause = () => {
-        const prevValue = isPlaying;
-        setIsPlaying(!prevValue);
-        if (prevValue) {
-            audioPlayer.current.play();
-            console.log("currentaudio", audioPlayer.current)
-            setCurrentSong(audioPlayer.current)
-            console.log("crraesong", currentSong)
-        }else {
-            audioPlayer.current.pause();
-        }
-    }
+    // const playORpause = () => {
+    //     const prevValue = isPlaying;
+    //     setIsPlaying(!prevValue);
+    //     if (prevValue) {
+    //         audioPlayer.current.play();
+    //         console.log("currentaudio", audioPlayer.current)
+    //         setCurrentSong(audioPlayer.current)
+    //         console.log("crraesong", currentSong)
+    //     }else {
+    //         audioPlayer.current.pause();
+    //         setCurrentSong(audioPlayer.current)
+    //     }
+    // }
 
     return (
         <div className="song-list">
@@ -54,8 +55,8 @@ const SongList = ({songs}) => {
                     <audio ref={audioPlayer} src={song.songUrl} preload="metadata"></audio>
                     <button><i className="fa-regular fa-heart"></i></button>
                     <h4>dura</h4> */}
-                    <AudioPlayer song={song}/>
-                    {sessionUser? (
+                    <AudioPlayer song={song} index={song.id} songs={songs}/>
+                    {/* {sessionUser? (
                     <div>
                         <OpenModalButton
                         buttonText="＋ Add to playlist"
@@ -69,15 +70,15 @@ const SongList = ({songs}) => {
                         modalComponent={<LoginFormModal />}
                         />
                     </div>
-                    )}
+                    )} */}
                     
                 </div>
             ))}
             </div>
 
-            <div className="bottom-container">
-                <AudioBarPlayBtn currentSong={currentSong} songs={songs}/>
-            </div>
+            {/* <div className="bottom-container">
+                <AudioBarPlayBtn songs={songs} />
+            </div> */}
         </div>
     )
 }
