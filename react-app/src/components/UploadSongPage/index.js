@@ -30,15 +30,15 @@ function UploadSongPage() {
         formData.append("songUrl", songUrl)
 
         
-        if(!errors){
-           return await dispatch(uploadSong(formData))
+        return await dispatch(uploadSong(formData))
+            .then(history.push('/uploaded-songs'))
             // .then(setSongUrlLoading(false))
             // .then(history.push('/uploaded-songs'))
             // .catch(async (res) => {
             //     const errBackend = await res.json();
             //     return errBackend
             // }) 
-        }
+
     };
 
     useEffect(() => {
@@ -68,7 +68,7 @@ function UploadSongPage() {
     return (
         <div className="upload-song-page">
             <h1>Upload Song</h1>
-             <form onSubmit={handleSubmit} encType="multipart/form-data"> 
+            <form onSubmit={handleSubmit} encType="multipart/form-data"> 
                 <div>
                     <h3>Title</h3>
                     <h4 className="errors">* {errors.title}</h4>
