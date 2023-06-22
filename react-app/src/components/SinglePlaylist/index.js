@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditPlaylistModal from "./EditPlaylistModal";
 import DeletePlaylistModal from "./DeletePlaylistModal";
-import { deleteSongFromPL } from "../../store/playlists";
+import { deleteSongFromPL, fetchPlaylists } from "../../store/playlists";
+import AudioBar from "../AudioBar";
 import './SinglePlaylist.css'
 
 const SinglePlaylist = () => {
@@ -14,20 +15,21 @@ const SinglePlaylist = () => {
 
     let songs
     const playlist = useSelector(state => state.playlists[playlistId]);
-console.log("whatis playlist", playlist)
-    if(playlist?.songs){
+// console.log("whatis playlist", playlist)
+    if(playlist && playlist.songs){
         songs = Object.values(playlist.songs);
-console.log("whatis songs", songs)
+// console.log("whatis songs", songs)
     }
     
     const handleDeleteSongFromPL = async(song) => {
         // e.preventDefault();
-console.log("what is song", song)
         let deleted = await dispatch(deleteSongFromPL(song))
-        console.log("whatis playlist after", playlist)
-        console.log("whatis songs after", songs)
         // let again = await dispatch(fetchPlaylists())
     }
+
+    useEffect(() => {
+        dispatch(fetchPlaylists());
+    }, [dispatch]);
 
     return (
         <div className="single-playlist-container">
@@ -57,11 +59,15 @@ console.log("what is song", song)
                     <h4>{song.title}</h4>
                     <h4>{song.artist}</h4>
                     <audio controls>
-                        <source src={song.songUrl} type="audio/mp3"/>
+                        <source src={song.songUrl} type="audio/mp3" id="audio"/>
                     </audio>
                     <button onClick={(e) => handleDeleteSongFromPL(song)}>Remove song</button>
                 </div>
                 ))}
+            </div>
+
+            <div className="bottom-container">
+                <AudioBar />
             </div>
         </div>
     )

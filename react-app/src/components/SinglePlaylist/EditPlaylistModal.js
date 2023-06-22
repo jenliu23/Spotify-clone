@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
@@ -12,14 +12,20 @@ const EditPlaylistModal = ({playlist}) => {
 
     const [title, setTitle] = useState(playlist.title);
     const [value, setValue] = useState(playlist.coverImage);
-
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState("");
 
     const coverImage = () => {
         const imgUrl = document.getElementById("coverImage").value;
         setValue(imgUrl)
         console.log("value:", value);
     };
+
+    useEffect(() => {
+        setErrors("")
+        if (title && title.length > 20){
+            setErrors("less than 20 characters")
+        }
+    },[title])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,7 +42,7 @@ const EditPlaylistModal = ({playlist}) => {
 
     return (
         <div className="create-playlist">
-            <h2>Create Playlist</h2>
+            <h2>Edit Playlist</h2>
             <div className="create-playlist-info">
                 <img src={value} alt="Cover Image"/>
 
@@ -51,6 +57,7 @@ const EditPlaylistModal = ({playlist}) => {
                             required
                             />
                         </label>
+                        <div className="errors">{errors}</div>
                         <label>Choose a theme
                             <select 
                             id="coverImage"
@@ -89,7 +96,7 @@ const EditPlaylistModal = ({playlist}) => {
                             </select>
                         </label>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" disabled={errors.length > 0 ? "true":""}>Submit</button>
                 </form>
             </div>
         </div>

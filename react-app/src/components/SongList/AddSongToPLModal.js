@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { addSongToPL } from "../../store/playlists";
+import OpenModalButton from "../OpenModalButton";
+import CreatePlaylist from "../SideBar/CreatePlaylist";
 
 function AddSongToPLModal({song}) {
     const dispatch = useDispatch();
-    const history = useHistory();
     const { closeModal } = useModal();
     const sessionUser = useSelector((state) => state.session.user);
     const playlists = Object.values(useSelector((state) => state.playlists));
@@ -24,9 +24,6 @@ function AddSongToPLModal({song}) {
 
     const [value, setValue] = useState(currentUserPlaylists[0]?.id);
 
-    // useEffect(() => {
-        
-    // },[value])
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("value:", value);
@@ -39,8 +36,7 @@ function AddSongToPLModal({song}) {
         <div className="create-playlist">
             <h2>Add to playlist</h2>
             <div className="create-playlist-info">
-                <div>{error}</div>
-                {/* {currentUserPlaylists.length > 0} */}
+                {currentUserPlaylists.length > 0 ? (
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label>Choose a playlist
@@ -55,7 +51,17 @@ function AddSongToPLModal({song}) {
                         </label>
                     </div>
                     <button type="submit">Submit</button>
-                </form>
+                </form>    
+                ) : (
+                <div>
+                    <h3>Please create a playlist first</h3>
+                    <OpenModalButton
+                    buttonText="＋ Create playlist"
+                    modalComponent={<CreatePlaylist />}
+                    />
+                </div>
+                )}
+                
             </div>
         </div>
   );

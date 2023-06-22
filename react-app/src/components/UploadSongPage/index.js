@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { uploadSong } from "../../store/songs";
+import './UploadSongPage.css'
 
 function UploadSongPage() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { closeModal } = useModal();
     const sessionUser = useSelector((state) => state.session.user);
+    if(!sessionUser){
+        history.push("/")
+    }
 
     const [title, setTitle] = useState("");
     const [artist, setArtist] = useState("");
@@ -17,7 +21,6 @@ function UploadSongPage() {
 
     const [errors, setErrors] = useState({});
     
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -25,30 +28,52 @@ function UploadSongPage() {
         formData.append("title", title)
         formData.append("artist", artist)
         formData.append("songUrl", songUrl)
-        // for (let key of formData.entries()) {
-        //     console.log(key[0] + ' ----> ' + key[1])
-        // }
-        setSongUrlLoading(true);
 
-        return dispatch(uploadSong(formData))
-            .then(setSongUrlLoading(false))
-            .then(history.push('/uploaded-songs'))
+        
+        if(!errors){
+           return await dispatch(uploadSong(formData))
+            // .then(setSongUrlLoading(false))
+            // .then(history.push('/uploaded-songs'))
             // .catch(async (res) => {
             //     const errBackend = await res.json();
             //     return errBackend
-            // })
+            // }) 
+        }
     };
 
+    useEffect(() => {
+        const errors = {};
+        // if(title?.length === 0){
+        //     errors.title = "Must enter title"
+        // }
+        if (title?.length > 50){
+            errors.title = "less than 50 characters"
+        }
+        // if(artist?.length === 0){
+        //     errors.artist = "Must enter artist"
+        // }
+        if (artist?.length > 20){
+            errors.artist = "less than 20 characters"
+        }
+        // if(songUrl?.length === 0){
+        //     errors.songUrl = "file could not be empty"
+        // }
+        setErrors(errors);
+        // for (let key of formData.entries()) {
+        //     console.log(key[0] + ' ----> ' + key[1])
+        // }
+        // setSongUrlLoading(true);
+    },[title, artist, songUrl])
+    
     return (
-        <div>
+        <div className="upload-song-page">
             <h1>Upload Song</h1>
              <form onSubmit={handleSubmit} encType="multipart/form-data"> 
-                {/* <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-                </ul> */}
-                <label>Title
+                <div>
+                    <h3>Title</h3>
+                    <h4 className="errors">* {errors.title}</h4>
+                </div>
+                <label>
                     <input
                     type="text"
                     value={title}
@@ -56,7 +81,11 @@ function UploadSongPage() {
                     required
                     />
                 </label>
-                <label>Artist
+                <div>
+                    <h3>Artist</h3>
+                    <h4 className="errors">* {errors.artist}</h4>
+                </div>
+                <label>
                     <input
                     type="text"
                     value={artist}
@@ -64,7 +93,11 @@ function UploadSongPage() {
                     required
                     />
                 </label>
-                <label>Choose file
+                <div>
+                    <h3>Choose file</h3>
+                    <h4 className="errors">* {errors.songUrl}</h4>
+                </div>
+                <label className="fileinput">
                     <input
                     type="file"
                     accept=".mp3"
@@ -72,7 +105,8 @@ function UploadSongPage() {
                     required
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <h4>{errors.songUrl}</h4>
+                <button type="submit" disabled={!!Object.values(errors).length}>Submit</button>
                 {(songUrlLoading)&& <p>Loading...</p>}
             </form>
         </div>

@@ -136,31 +136,19 @@ const playlistsReducer = (state = initialState, action) => {
             return newState;
         }
         case ADD_SONG_TO_PLAYLIST: {
-            newState = { ...state}
-console.log("newState before", newState)
+            for(let playlistId in state){
+                newState[playlistId] = { ...state[playlistId], songs: { ...state[playlistId].songs}}
+            }
             newState[action.song.playlistId].songs[action.song.songId] = action.song
-console.log("waht is nlsdfj", action.song)
-console.log("newState after", newState)
             return newState;
         }
         case REMOVE_SONG_FROM_PLAYLIST: {
-// console.log("old newState", newState)
-// console.log("State", state)
-//             newState = { ...state}
-// console.log("newState before", newState)
-//             let index = newState[action.song.playlistId].songs.findIndex(ele=>ele.playlist_songs_id === action.song.playlist_songs_id)
-// console.log("index", index)
-//             newState[action.song.playlistId]["songs"].splice(index, 1)
-// console.log("newState after", newState)
-//             return newState
-console.log("State", state)
-            newState = { ...state}
-console.log("newState before", newState)
+            for(let playlistId in state){
+                newState[playlistId] = { ...state[playlistId], songs: { ...state[playlistId].songs}}
+            }
             delete newState[action.song.playlistId].songs[action.song.songId]
-console.log("newState after", newState)
             return newState
         }
-
         default:
             return state;
     }
