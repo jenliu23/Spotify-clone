@@ -2,7 +2,7 @@
     /* background-color: rgb(33, 33, 33); */
     background-color: black;
     width: 450px;
-    height: 420px;
+    min-height: 430px;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -37,6 +37,27 @@
     gap: 10px;
 }
 
+.log-in-modal nav {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.log-in-modal nav button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    height: auto;
+    text-decoration: underline;
+}
+
 .log-in-modal form input {
     width: 98%;
     height: 35px;
@@ -63,7 +84,7 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    padding-top: 20px;
+    padding-top: 30px;
 }
 
 .log-in-modal button {

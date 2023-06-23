@@ -43,7 +43,7 @@ const EditSongPage = ({song}) => {
     }
    
     return(
-        <div  className="create-playlist">
+        <div className="create-playlist edit-song-details">
             <h1>Edit Song Details</h1>
             <form onSubmit={handleSubmit}> 
                 <div>

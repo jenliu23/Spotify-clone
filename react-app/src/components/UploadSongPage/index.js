@@ -104,9 +104,9 @@ function UploadSongPage() {
                 </label>
                 <h4>{errors.songUrl}</h4>
                 <button type="submit" disabled={!!Object.values(errors).length}>Submit</button>
-                <h5>By proceeding, you agree to give Song% access to the file you choose to upload. Please make sure you have the right to upload the file.</h5>
                 {(songUrlLoading)&& <p>Loading...</p>}
             </form>
+            <h5>By proceeding, you agree to give Song% access to the file you choose to upload. Please make sure you have the right to upload the file.</h5>
         </div>
   );
 }

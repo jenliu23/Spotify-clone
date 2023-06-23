@@ -73,3 +73,26 @@
         transform: scale(1.05);
     }
 }
+
+.edit-song-details {
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    width: 450px;
+    padding: 35px;
+    /* border: 1px white solid; */
+}
+
+.edit-song-details form {
+    width: 100%;
+    padding-right: 10px;
+}
+
+.edit-song-details form div {
+    display: flex;
+    flex-direction: row;
+}
+
+.edit-song-details form button {
+    margin-top: 35px;
+}
