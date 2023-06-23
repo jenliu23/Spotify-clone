@@ -3,7 +3,7 @@ import OpenModalButton from "../OpenModalButton";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { fetchSongs } from "../../store/songs";
-import EditSongPage from "./EditSongPage";
+import EditSongPage from "./EditSongModal";
 import DeleteSongModal from "./DeleteSongModal";
 import './UserUploadedSongList.css'
 
