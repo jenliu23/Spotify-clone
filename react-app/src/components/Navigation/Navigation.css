@@ -14,6 +14,10 @@
   padding: 0 10px 0 10px;
 }
 
+.nav-bar-icon:hover {
+  transform: scale(1.05);
+}
+
 .profile-button {
   border: 1px solid rgb(18, 18, 18);
   background-color: rgb(18, 18, 18);
@@ -39,10 +43,12 @@
   /* gap: 5px; */
   width: 150px;
   background-color: rgb(33, 33, 33);
-  border: rgb(197, 197, 197) 1px dotted;
+  border: rgb(197, 197, 197) 2px dotted;
+  outline: rgb(197, 197, 197) 1px solid;
+  outline-offset: 2px;
   position: fixed;
-  top: 60px;
-  right: 31px;
+  top: 62px;
+  right: 32px;
 }
 
 .profile-dropdown-in li {
@@ -84,10 +90,12 @@
   align-items: center;
   /* gap: 10px; */
   background-color: rgb(33, 33, 33);
-  border: rgb(197, 197, 197) 1px dotted;
+  border: rgb(197, 197, 197) 2px dotted;
+  outline: rgb(197, 197, 197) 1px solid;
+  outline-offset: 2px;
   position: fixed;
-  top: 60px;
-  right: 31px;
+  top: 62px;
+  right: 32px;
   /* padding: 20px; */
 }
 

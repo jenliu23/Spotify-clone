@@ -15,17 +15,7 @@ function LoginFormModal() {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      // console.log("data", data)
-      // for(let error of data){
-      //   console.log("error:", error)
-      //   if(error.slice(0, 5) === "email"){
-      //     errors.email = error.split(" : ")[1]
-      //   }
-      //   if(error.slice(0, 5) === "passw"){
-      //     errors.password = error.split(" : ")[1]
-      //   }
-      // }
-      setErrors("Incorrect username or password")
+      setErrors("Credentials Invalid")
     } else {
       closeModal()
     }
@@ -50,7 +40,7 @@ function LoginFormModal() {
             <li key={idx}>{error}</li>
           ))}
         </ul> */}
-        <h3 className="errors">{errors}</h3>
+        <h4 className="errors">{errors}</h4>
         <section>
           <h4>Email</h4>
           <h4 className="errors">*</h4>

@@ -26,8 +26,8 @@ const DeletePlaylistModal = ({playlist}) => {
             <h2>Delete from Library?</h2>
             <h4>This will delete {playlist.title} from Your Library.</h4>
             <div>
-                <button onClick={handleSubmitno} id="nobtn">Cancel</button>
-                <button onClick={handleSubmityes} id="yesbtn">Delete</button>
+                <button onClick={handleSubmitno} className="nobtn">Cancel</button>
+                <button onClick={handleSubmityes} className="yesbtn">Delete</button>
             </div>
         </div>
     )

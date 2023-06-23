@@ -16,10 +16,16 @@ const EditSongPage = ({song}) => {
 
     useEffect(() => {
         const errors = {};
-        if (title && title.length > 50){
+        if(title?.length === 0){
+            errors.title = "Must enter title"
+        }
+        if (title?.length > 50){
             errors.title = "less than 50 characters"
         }
-        if (artist && artist.length > 20){
+        if(artist?.length === 0){
+            errors.artist = "Must enter artist"
+        }
+        if (artist?.length > 20){
             errors.artist = "less than 20 characters"
         }
         setErrors(errors);
@@ -32,17 +38,7 @@ const EditSongPage = ({song}) => {
             title,
             artist
         }
-
-        // if (title==="") {
-        //     errors.reviews = "Title is required";
-        // }
-        // if (artist==="") {
-        //     errors.stars = "Artist is required";
-        // }
-        // setErrors(errors);
-
         return dispatch(editSong(editedSong))
-            // .then(()=>history.push())
             .then(closeModal())
     }
    
@@ -50,11 +46,6 @@ const EditSongPage = ({song}) => {
         <div  className="create-playlist">
             <h1>Edit Song Details</h1>
             <form onSubmit={handleSubmit}> 
-                {/* <ul>
-                {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-                </ul> */}
                 <div>
                     <h3>Title</h3>
                     <h4 className="errors">* {errors.title}</h4>

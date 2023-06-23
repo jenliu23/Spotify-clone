@@ -53,8 +53,8 @@
 .delete-modal {
     border-radius: 10px 10px;
     padding: 30px;
-    width: 330px;
-    height: 180px;
+    width: 360px;
+    min-height: 185px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -79,7 +79,7 @@
     padding-top: 40px;
 }
 
-#nobtn {
+.nobtn {
     background: transparent;
     color: black;
     border: none;
@@ -89,7 +89,7 @@
     }
 }
 
-#yesbtn {
+.yesbtn {
     background-color: rgb(29,185,84);
     font-size: 18px;
     color: black;
