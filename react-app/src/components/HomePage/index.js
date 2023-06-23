@@ -5,13 +5,12 @@ import { NavLink } from "react-router-dom";
 import AudioBar from "../AudioBar";
 import "./HomePage.css"
 
-
 const HomePage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const currentDate = new Date()
     const currentTime = currentDate.getHours()
-// console.log("time:", currentTime)
+
     let greeting;
     if(currentTime >= 6 && currentTime < 12){
         greeting = "Good morning"
@@ -33,7 +32,7 @@ const HomePage = () => {
         <div className="home-page">
             <div className="home-page-title">
                 <h2>{greeting}{sessionUser? ", ":""}{sessionUser?.username}</h2>
-                <h3>Hear what's trending in Song%...</h3>
+                <h3>Hear what's trending in Song% . . .</h3>
             </div>
            
             <div className="playlists">
@@ -42,7 +41,7 @@ const HomePage = () => {
                     <NavLink exact to={`/playlists/${playlist.id}`}>
                     <img src={playlist.coverImage} alt="coverImage"/>
                     <h4>{playlist.title}</h4>
-                    <h4>by {playlist.username}</h4>
+                    <h5>by {playlist.username}</h5>
                     </NavLink>
                 </div>
                 ))}

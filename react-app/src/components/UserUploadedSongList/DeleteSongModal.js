@@ -6,7 +6,6 @@ import { deleteSong } from "../../store/songs";
 
 const DeleteSongModal = ({song}) => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const {closeModal} =  useModal();
 
     const handleSubmityes = async (e) => {
@@ -21,11 +20,14 @@ const DeleteSongModal = ({song}) => {
     }
    
     return(
-        <div>
-            <h1>Delete Song</h1>
-            <h4>Are you sure you want to delete this song?</h4>
-            <button onClick={handleSubmityes}>Yes </button>
-            <button onClick={handleSubmitno}>No </button>
+        <div className="delete-modal">
+            <h2>Delete Song?</h2>
+            <h4>This will permanently remove your uploaded song:</h4>
+            <h4> {song.title} from Song%.</h4>
+            <div>
+                <button onClick={handleSubmityes} className="nobtn">Cancel </button>
+                <button onClick={handleSubmitno} className="yesbtn">Delete </button>
+            </div>
         </div>
     )
 }

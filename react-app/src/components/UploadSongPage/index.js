@@ -43,27 +43,24 @@ function UploadSongPage() {
 
     useEffect(() => {
         const errors = {};
-        // if(title?.length === 0){
-        //     errors.title = "Must enter title"
-        // }
+        if(title.trim().length === 0){
+            errors.title = "Must enter title"
+        }
         if (title?.length > 50){
             errors.title = "less than 50 characters"
         }
-        // if(artist?.length === 0){
-        //     errors.artist = "Must enter artist"
-        // }
+        if(artist.trim().length === 0){
+            errors.artist = "Must enter artist"
+        }
         if (artist?.length > 20){
             errors.artist = "less than 20 characters"
         }
-        // if(songUrl?.length === 0){
-        //     errors.songUrl = "file could not be empty"
-        // }
         setErrors(errors);
         // for (let key of formData.entries()) {
         //     console.log(key[0] + ' ----> ' + key[1])
         // }
         // setSongUrlLoading(true);
-    },[title, artist, songUrl])
+    },[title, artist])
     
     return (
         <div className="upload-song-page">
@@ -107,6 +104,7 @@ function UploadSongPage() {
                 </label>
                 <h4>{errors.songUrl}</h4>
                 <button type="submit" disabled={!!Object.values(errors).length}>Submit</button>
+                <h5>By proceeding, you agree to give Song% access to the file you choose to upload. Please make sure you have the right to upload the file.</h5>
                 {(songUrlLoading)&& <p>Loading...</p>}
             </form>
         </div>

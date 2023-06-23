@@ -8,8 +8,10 @@
     /* justify-content: center; */
     align-items: center;
     padding: 25px 25px 35px 25px;
-    border: rgb(197, 197, 197) 1px dotted;
-    border-radius: 10px 10px;
+    border: rgb(197, 197, 197) 2px dotted;
+    outline: rgb(197, 197, 197) 2px solid;
+    outline-offset: 7px;
+    border-radius: 20px 20px;
     gap: 20px;
 }
 
@@ -36,11 +38,12 @@
 }
 
 .log-in-modal form input {
+    width: 98%;
     height: 35px;
     border-radius: 5px 5px;
     border: none;
     background-color: rgb(83, 83, 83);
-    font-size: 18px;
+    font-size: 17px;
     padding-left: 5px;
     &:active {
         background-color: rgb(234, 230, 230);

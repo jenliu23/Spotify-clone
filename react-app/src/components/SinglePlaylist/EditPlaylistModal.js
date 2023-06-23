@@ -17,11 +17,13 @@ const EditPlaylistModal = ({playlist}) => {
     const coverImage = () => {
         const imgUrl = document.getElementById("coverImage").value;
         setValue(imgUrl)
-        console.log("value:", value);
     };
 
     useEffect(() => {
         setErrors("")
+        if(title.trim().length === 0) {
+            setErrors("title is required")
+        }
         if (title && title.length > 20){
             setErrors("less than 20 characters")
         }
@@ -44,7 +46,7 @@ const EditPlaylistModal = ({playlist}) => {
         <div className="create-playlist">
             <h2>Edit Playlist</h2>
             <div className="create-playlist-info">
-                <img src={value} alt="Cover Image"/>
+                <img src={value} alt="cover"/>
 
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -66,17 +68,23 @@ const EditPlaylistModal = ({playlist}) => {
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_default.png">
                                 --default--
                             </option>
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_chill.jpeg">
+                                --chill--
+                            </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_smile.jpg">
                                 --smile--
                             </option>
-                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_balloon.jpg">
-                                --balloon
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_chaos.jpeg">
+                                --chaos--
                             </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_sleep.jpg">
                                 --sleep--
                             </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_spring.jpg">
                                 --spring--
+                            </option>
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_balloon.jpg">
+                                --balloon--
                             </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_workout.jpg">
                                 --workout--
@@ -91,7 +99,7 @@ const EditPlaylistModal = ({playlist}) => {
                                 --pink or blue--
                             </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_universe-and-planets.jpg">
-                                --universe & planets
+                                --universe & planets--
                             </option>
                             </select>
                         </label>

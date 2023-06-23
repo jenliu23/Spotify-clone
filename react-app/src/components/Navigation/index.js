@@ -9,13 +9,13 @@ function Navigation({ isLoaded }){
 	
 	return (
 		<ul className='nav-bar'>
-			<li>
+			<li className="nav-bar-icon">
 				<NavLink exact to="/"><i className="fa-solid fa-house fa-sm"></i> Home</NavLink>
 			</li>
-			<li>
+			<li className="nav-bar-icon">
 				<NavLink exact to="/songs"><i className="fa-solid fa-music fa-sm"></i> All Songs</NavLink>
 			</li>
-			<li className={sessionUser? "":"hidden"}>
+			<li className={sessionUser? "nav-bar-icon":"hidden nav-bar-icon"}>
               	<NavLink to="/uploaded-songs"><i className="fa-solid fa-cloud-arrow-up"></i> Your Uploads</NavLink>
             </li>
 			{isLoaded && (

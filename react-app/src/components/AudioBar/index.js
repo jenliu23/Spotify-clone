@@ -1,6 +1,7 @@
 import './AudioBar.css'
 import React, {useState, useRef } from "react";
 import { useSelector } from "react-redux";
+import { getCurrentSongTrack } from '../../store/track';
 
 const AudioBarPlayBtn = ({song, index, songs, audioPlayer}) => {
     console.log("song in audiobtn:", song)
@@ -10,6 +11,9 @@ const AudioBarPlayBtn = ({song, index, songs, audioPlayer}) => {
     // console.log("check isplaying", isPlaying === true)
     // if(isPlaying)
     const sessionUser = useSelector((state) => state.session.user);
+    const currentSong = useSelector((state) => state.session.track);
+
+    console.log("what is currentsong", currentSong)
     const [isPlaying, setIsPlaying] = useState(false);
     // const [duration, setDuration] = useState(0);
     // const [currentTime, setCurrentTime] = useState(0);

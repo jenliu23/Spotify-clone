@@ -1,4 +1,5 @@
 .sidebar {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -85,6 +86,30 @@
     border-radius: 3px 3px;
 }
 
+.sidebar-fornologin {
+    width: 88%;
+    border-radius: 10px 10px;
+    padding: 15px;
+    /* border: white 1px solid; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* padding: 15px 15 15px 15px; */
+    gap: 20px;
+    background-color: rgb(53, 53, 53);
+}
+
+.sidebar-fornologin button {
+    width: 40%;
+    height: 35px;
+    border-radius: 20px 20px;
+    border: white;
+    color: black;
+    font-size: 15px;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
 
 .create-playlist {
     background-color: rgb(33, 33, 33);

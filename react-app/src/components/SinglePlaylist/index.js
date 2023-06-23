@@ -34,7 +34,7 @@ const SinglePlaylist = () => {
     return (
         <div className="single-playlist-container">
             <div className="single-playlist-container-info">
-                <img src={playlist?.coverImage}/>
+                <img src={playlist?.coverImage} alt="cover"/>
                 <div>
                     <h4>Playlist</h4>
                     <h1>{playlist?.title}</h1>

@@ -14,53 +14,52 @@ function SignupFormModal() {
 	const { closeModal } = useModal();
 
 	const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-	useEffect(() => {
-        const errors = {};
-		if (password && password.length <= 5) {
-			errors["password"] = "your password is too short"
-		} 
-		if (confirmPassword && password !== confirmPassword) {
-			errors.confirmPW = "please enter same password as above"
-		}
-		if (email && !email.match(validRegex)) {
-			errors.email = "invalid email"
-		}
-		if (username && username.length > 40) {
-			errors.username = "maximum 40 characters"
-		}
-        setErrors(errors);
-    },[email, username, password, confirmPassword])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const errors = {};
+		if (password && password.length <= 5) {
+			errors["password"] = "your password is too short"
+		} 
+		if (confirmPassword && password !== confirmPassword) {
+			errors.confirmPW = "passwords do not match"
+		}
+		if (email && !email.match(validRegex)) {
+			errors.email = "invalid email"
+		}
+		if (username.trim().length === 0) {
+			errors.username = "username is required"
+		}
+		if (username && username.length > 40) {
+			errors.username = "maximum 40 characters"
+		}
+		setErrors(errors);
+
+		if(Object.values(errors).length === 0){
 		const data = await dispatch(signUp(username, email, password));
 
-		if(data){
-			console.log("data",data)
-			for(let error of data){
-				if(error.slice(0, 5) === "email"){
-					errors.email = error.split(" : ")[1]
+			if(data){
+				const errors = {};
+				for(let error of data){
+					if(error.slice(0, 5) === "email"){
+						errors.email = error.split(" : ")[1]
+						setErrors(errors);
+					}
+					if(error.slice(0, 5) === "usern"){
+						errors.username = error.split(" : ")[1]
+						setErrors(errors);
+					}
 				}
-				if(error.slice(0, 5) === "usern"){
-					errors.username = error.split(" : ")[1]
-				}
+			}else {
+				closeModal()
 			}
-			setErrors(errors)
-		}else {
-			closeModal()
 		}
 	};
 
 	return (
 		<div className="log-in-modal sign-up-modal">
-			<h1>Sign up with your email address</h1>
+			<h1>Sign up for Song%</h1>
 			<form onSubmit={handleSubmit}>
-				{/* <ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul> */}
 				<section>
 					<h4>What's your email?</h4>
 					<h4 className="errors">{errors.email}</h4>
@@ -113,7 +112,8 @@ function SignupFormModal() {
 					required
 					/>
 				</label>
-				<button type="submit" disabled={!!Object.values(errors).length}>Sign up</button>
+				<button type="submit">Sign up</button>
+				{/* disabled={!!Object.values(errors).length} */}
 			</form>
 		</div>
 	);
