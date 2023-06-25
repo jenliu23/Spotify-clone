@@ -7,7 +7,7 @@ import HomeBar from "./components/HomeBar";
 import SideBar from "./components/SideBar";
 import UploadSongPage from "./components/UploadSongPage";
 import HomePage from "./components/HomePage";
-import SongPage from "./components/PageSong";
+import AllSongsPage from "./components/AllSongsPage";
 import UserUploadedSongList from "./components/UserUploadedSongList";
 import SinglePlaylist from "./components/SinglePlaylist";
 import AudioBar from "./components/AudioBar";
@@ -40,7 +40,7 @@ function App() {
                 <HomePage />
               </Route>
               <Route exact path = "/songs" >
-                <SongPage />
+                <AllSongsPage />
               </Route>
               <Route exact path = "/songs/new" >
                 <UploadSongPage />

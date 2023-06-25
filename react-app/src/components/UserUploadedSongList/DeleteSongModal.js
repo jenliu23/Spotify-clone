@@ -25,8 +25,8 @@ const DeleteSongModal = ({song}) => {
             <h4>This will permanently remove your uploaded song:</h4>
             <h4> {song.title} from Song%.</h4>
             <div>
-                <button onClick={handleSubmityes} className="nobtn">Cancel </button>
-                <button onClick={handleSubmitno} className="yesbtn">Delete </button>
+                <button onClick={handleSubmitno} className="nobtn">Cancel </button>
+                <button onClick={handleSubmityes} className="yesbtn">Delete </button>
             </div>
         </div>
     )
