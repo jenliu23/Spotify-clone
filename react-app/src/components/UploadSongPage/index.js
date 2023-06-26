@@ -29,27 +29,44 @@ function UploadSongPage() {
         formData.append("artist", artist)
         formData.append("songUrl", songUrl)
 
-        let loading;
         return dispatch(uploadSong(formData))
             .then(setSongUrlLoading("Loading ."))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . .")
-            }, 1000))
+            }, 600))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . .")
-            }, 2000))
+            }, 1200))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . . .")
-            }, 3000))
+            }, 1800))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . . . .")
-            }, 4000))
+            }, 2400))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . . . . .")
-            }, 5000))
+            }, 3000))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading .")
+            }, 3600))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . .")
+            }, 4200))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . .")
+            }, 4800))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . . .")
+            }, 5400))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . . . .")
+            }, 6000))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . . . . .")
+            }, 6600))
             .then(setTimeout(() => {
                 history.push('/uploaded-songs')
-            }, 6000))
+            }, 7500))
     };
 
     useEffect(() => {
