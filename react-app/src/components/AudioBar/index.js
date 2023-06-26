@@ -80,6 +80,9 @@ const AudioBar = () => {
         if(change === "start new playlist"){
             audioPlayer.current.play();
         }
+        if(change === "delete song"){
+            audioPlayer.current.pause();
+        }
     }, [change, current_song.songUrl])
 
     return (
@@ -91,7 +94,7 @@ const AudioBar = () => {
                     <h4>{currentPlayer.current_song.artist}</h4>
                 </div>
                 <div id="btn2">
-                    <button onClick={playAhead} disabled={index === 0 ? true:false}>
+                    <button onClick={playAhead} disabled={(index === 0 || songs.length === 1) ? true:false}>
                         <i className="fa-solid fa-backward-step">
                     </i></button>
 
@@ -103,7 +106,7 @@ const AudioBar = () => {
                     )}      
                     </button>
 
-                    <button onClick={playNext}  disabled={index == songs.length - 1 ? true:false}>
+                    <button onClick={playNext}  disabled={(index == songs.length - 1 || songs.length === 1) ? true:false}>
                         <i className="fa-solid fa-forward-step"></i>
                     </button>
                 </div>

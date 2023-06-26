@@ -17,7 +17,7 @@ function UploadSongPage() {
     const [title, setTitle] = useState("");
     const [artist, setArtist] = useState("");
     const [songUrl, setSongUrl] = useState("");
-    const [songUrlLoading, setSongUrlLoading] = useState(false);
+    const [songUrlLoading, setSongUrlLoading] = useState("Loading");
 
     const [errors, setErrors] = useState({});
     
@@ -29,9 +29,24 @@ function UploadSongPage() {
         formData.append("artist", artist)
         formData.append("songUrl", songUrl)
 
-        
+        let loading;
         return dispatch(uploadSong(formData))
-            .then(setSongUrlLoading(true))
+            .then(setSongUrlLoading("Loading ."))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . .")
+            }, 1000))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . .")
+            }, 2000))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . . .")
+            }, 3000))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . . . .")
+            }, 4000))
+            .then(setTimeout(() => {
+                setSongUrlLoading("Loading . . . . . .")
+            }, 5000))
             .then(setTimeout(() => {
                 history.push('/uploaded-songs')
             }, 6000))
@@ -100,7 +115,7 @@ function UploadSongPage() {
                 </label>
                 <h4>{errors.songUrl}</h4>
                 <button type="submit" disabled={!!Object.values(errors).length}>Submit</button>
-                {(songUrlLoading)&& <h3 id="loading">Loading . . .</h3>}
+                {(songUrlLoading !== "Loading")&& <h3 id="loading">{songUrlLoading}</h3>}
             </form>
             <h5>By proceeding, you agree to give Song% access to the file you choose to upload. Please make sure you have the right to upload the file.</h5>
         </div>
