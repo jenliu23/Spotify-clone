@@ -40,7 +40,7 @@ const AudioPlayer = ({song, songs, index, songlist_type}) => {
     return (
         <>
             <button onClick={changeState} className="audioPlayerBtn">
-                {isPlaying && songId === currentSongId && songlist_type == currentPlayer.songlist_type ?(
+                {isPlaying && (songId === currentSongId && songlist_type == currentPlayer.songlist_type) ?(
                     <i className="fa-solid fa-pause fa-lg"></i>
                     ):(
                     <i className="fa-solid fa-play fa-lg"></i>
