@@ -20,6 +20,36 @@
     gap: 15px;
 }
 
+.Audio-Bar #btn3 {
+    justify-self: right;
+    padding-right: 20px;
+}
+
+#btn3 i {
+    padding-right: 10px;
+}
+
+/* .slider {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance:button-bevel; 
+    appearance: none;
+    width: 25px; 
+    height: 10px;
+    background: #04AA6D; 
+    cursor: pointer; 
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px; 
+    height: 25px; 
+    background: #04AA6D; 
+    cursor: pointer; 
+} */
+
 .Audio-Bar button {
    background-color: transparent;
    border: none;
@@ -27,4 +57,16 @@
    &:hover {
         transform: scale(1.05);
    }
+   &:disabled {
+        background-color: transparent;
+        transform: none;
+        cursor: default;
+   }
+   &:disabled i {
+        color: gray;
+   }
 }
+
+
+
+

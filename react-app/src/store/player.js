@@ -5,27 +5,30 @@ const CURRENT_PLAYER = "player/CURRENT_PLAYER"
 
 
 // Action creator
-const currentPlayer = (songs, song, isPlaying, change) => ({
+const currentPlayer = (songlist_type, songs, song, index, isPlaying, change) => ({
     type: CURRENT_PLAYER,
+    songlist_type,
     songs,
     song,
+    index,
     isPlaying,
     change
 })
 
 // Thunk Action Creators
-export const editCurrentPlayer = (songs, song, isPlaying, change) => async (dispatch) => {
+export const editCurrentPlayer = (songlist_type, songs, song, index, isPlaying, change) => async (dispatch) => {
 
-    return dispatch(currentPlayer(songs, song, isPlaying, change))
+    return dispatch(currentPlayer(songlist_type, songs, song, index, isPlaying, change))
 }
 
 //Reducer
 const initialState = {
-    current_song: {},
+    songlist_type: "",
     current_songlist : [],
-    queue: [],
-    change: false,
-    isPlaying: false
+    current_song: {},
+    index: NaN,
+    isPlaying: false,
+    change: "none"
 }
 
 const playerReducer = (state = initialState, action) => {
@@ -33,8 +36,10 @@ const playerReducer = (state = initialState, action) => {
         case CURRENT_PLAYER: {
             let newState = {...state}
             newState = {
+                songlist_type: action.songlist_type,
                 current_songlist: action.songs,
                 current_song: action.song,
+                index: action.index,
                 isPlaying: action.isPlaying,
                 change: action.change
             }

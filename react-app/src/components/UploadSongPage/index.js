@@ -30,15 +30,11 @@ function UploadSongPage() {
         formData.append("songUrl", songUrl)
 
         
-        return await dispatch(uploadSong(formData))
-            .then(history.push('/uploaded-songs'))
-            // .then(setSongUrlLoading(false))
-            // .then(history.push('/uploaded-songs'))
-            // .catch(async (res) => {
-            //     const errBackend = await res.json();
-            //     return errBackend
-            // }) 
-
+        return dispatch(uploadSong(formData))
+            .then(setSongUrlLoading(true))
+            .then(setTimeout(() => {
+                history.push('/uploaded-songs')
+            }, 6000))
     };
 
     useEffect(() => {
@@ -104,7 +100,7 @@ function UploadSongPage() {
                 </label>
                 <h4>{errors.songUrl}</h4>
                 <button type="submit" disabled={!!Object.values(errors).length}>Submit</button>
-                {(songUrlLoading)&& <p>Loading...</p>}
+                {(songUrlLoading)&& <h3 id="loading">Loading . . .</h3>}
             </form>
             <h5>By proceeding, you agree to give Song% access to the file you choose to upload. Please make sure you have the right to upload the file.</h5>
         </div>

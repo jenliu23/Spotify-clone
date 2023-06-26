@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { addSongToPL } from "../../store/playlists";
@@ -26,7 +26,6 @@ function AddSongToPLModal({song}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("value:", value);
 
         return dispatch(addSongToPL(song, value))
             .then(closeModal())

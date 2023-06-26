@@ -1,14 +1,15 @@
 .single-playlist-container {
-    padding: 30px 10px 30px 10px;
+    padding: 20px 10px 30px 10px;
 }
 
 .single-playlist-container-info {
+    /* position: absolute; */
     width: 100%;
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: 1.3fr 5fr 1fr;
     gap: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     border-bottom: rgb(83, 83, 83) 1.5px solid;
 }
 
@@ -101,4 +102,35 @@
     &:hover {
         transform: scale(1.03);
     }
+}
+
+.playlist-song-list-details {
+    height: 300px;
+}
+
+.playlist-song-list-details button {
+    background-color: transparent;
+    border: none;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.playlist-button {
+    height: 50px;
+    padding: 20px 0 5px 0;
+    /* border-bottom: rgb(83, 83, 83) 1.5px solid; */
+}
+
+.playlist-button button {
+    position: fixed;
+    /* border-radius: 50%; */
+    /* background-color: rgb(29,185,84); */
+    border: none;
+    background-color: transparent;
+}
+
+.playlist-button i {
+    font-size: 40px;
+    color: rgb(29,185,84);
 }

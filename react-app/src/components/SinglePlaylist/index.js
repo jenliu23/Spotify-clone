@@ -5,20 +5,22 @@ import OpenModalButton from "../OpenModalButton";
 import EditPlaylistModal from "./EditPlaylistModal";
 import DeletePlaylistModal from "./DeletePlaylistModal";
 import { deleteSongFromPL, fetchPlaylists } from "../../store/playlists";
-import AudioBar from "../AudioBar";
+import AudioPlayer from "../AudioPlayer";
 import './SinglePlaylist.css'
 
 const SinglePlaylist = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const currentPlayer = useSelector((state) => state.player);
+    const current_song = currentPlayer.current_song
+    const isPlaying = currentPlayer.isPlaying
     const { playlistId } = useParams();
-
+    const songlist_type = "PLAYLIST" + playlistId
+ 
     let songs
     const playlist = useSelector(state => state.playlists[playlistId]);
-// console.log("whatis playlist", playlist)
     if(playlist && playlist.songs){
         songs = Object.values(playlist.songs);
-// console.log("whatis songs", songs)
     }
     
     const handleDeleteSongFromPL = async(song) => {
@@ -53,21 +55,35 @@ const SinglePlaylist = () => {
                 </section>
                 )}
             </div>
-            <div className="single-playlist-container-songs">
-                {songs?.map((song) => (
-                <div key={song.songId}>
+            <div className="playlist-button">
+                <button>
+                {isPlaying && currentPlayer.songlist_type === songlist_type ? (
+                    <i className="fa-regular fa-circle-pause fa-lg"></i>
+                ):(
+                    <i className="fa-regular fa-circle-play fa-lg"></i>
+                )}      
+                </button>
+            </div>
+            <div className="song-list-intro playlist-song-list-intro">
+                <h4><i className="fa-solid fa-headphones"></i></h4>
+                <h4>Title</h4>
+                <h4>Artist</h4>
+                <h4>Album</h4>
+                {/* <button><i className="fa-regular fa-clock fa-lg"></i></button> */}
+                <h4 className={sessionUser.id === playlist?.userId ? "":"hidden"}>－</h4>
+            </div>
+            <div className="song-list-details playlist-song-list-details">
+            {songs?.map((song, index) => (
+                <div key={song.songId} className="song-list-each">
+                    <AudioPlayer song={song} songs={songs} index={index} songlist_type={songlist_type}/>
                     <h4>{song.title}</h4>
                     <h4>{song.artist}</h4>
-                    <audio controls>
-                        <source src={song.songUrl} type="audio/mp3" id="audio"/>
-                    </audio>
-                    <button onClick={(e) => handleDeleteSongFromPL(song)}>Remove song</button>
+                    <h4>--</h4>
+                    <button onClick={(e) => handleDeleteSongFromPL(song)} className={sessionUser.id === playlist?.userId ? "":"hidden"}>
+                        Remove song
+                    </button>
                 </div>
                 ))}
-            </div>
-
-            <div className="bottom-container">
-                <AudioBar />
             </div>
         </div>
     )

@@ -20,6 +20,7 @@
 }
 
 .song-list-details {
+    /* font-size: 17px; */
     height: 633px;
     overflow-y:scroll;
 }

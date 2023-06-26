@@ -72,3 +72,7 @@
         transform: scale(1.02);
     }    
 }
+
+#loading {
+    color: rgb(29,185,84);
+}
