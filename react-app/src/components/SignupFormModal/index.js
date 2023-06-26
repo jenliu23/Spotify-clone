@@ -57,7 +57,7 @@ function SignupFormModal() {
 	};
 
 	return (
-		<div className="log-in-modal sign-up-modal">
+		<div className="sign-up-modal log-in-modal">
 			<h1>Sign up for Song%</h1>
 			<form onSubmit={handleSubmit}>
 				<section>

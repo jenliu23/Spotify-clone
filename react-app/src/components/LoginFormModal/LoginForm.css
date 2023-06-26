@@ -1,7 +1,7 @@
 .log-in-modal {
     /* background-color: rgb(33, 33, 33); */
     background-color: black;
-    width: 450px;
+    width: 460px;
     min-height: 430px;
     display: flex;
     flex-direction: column;
@@ -27,8 +27,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
-    width: 290px;
+    gap: 5px;
+    width: 380px;
 }
 
 .log-in-modal section {
@@ -38,7 +38,7 @@
 }
 
 .log-in-modal nav {
-    padding-top: 20px;
+    padding-top: 28px;
     display: flex;
     flex-direction: row;
     justify-content: center;

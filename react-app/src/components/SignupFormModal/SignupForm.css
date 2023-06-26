@@ -1,4 +1,6 @@
 .sign-up-modal {
+    display: flex;
+    flex-direction: column;
     width: 550px;
     height: 530px;
 }
@@ -6,10 +8,6 @@
 .sign-up-modal h1 {
     font-size: 30px;
 }
-
-.sign-up-modal form {
-    width: 70%;
-} 
 
 .sign-up-modal form button {
     margin-top: 40px;
