@@ -46,7 +46,6 @@ const AudioPlayer = ({song, songs, index, songlist_type}) => {
                     <i className="fa-solid fa-play fa-lg"></i>
                     )}
             </button>
-            {/* <audio ref={audioPlayer} src={song.songUrl} preload="metadata"></audio> */}
         </>
     )
 
