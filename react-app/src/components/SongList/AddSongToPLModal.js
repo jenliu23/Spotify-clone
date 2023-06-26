@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { addSongToPL } from "../../store/playlists";
@@ -26,20 +26,20 @@ function AddSongToPLModal({song}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("value:", value);
 
         return dispatch(addSongToPL(song, value))
             .then(closeModal())
     };
 
     return (
-        <div className="create-playlist">
-            <h2>Add to playlist</h2>
+        <div className="create-playlist add-song-to-playlist">
+            <h2>Add:  {song.title} to playlist</h2>
             <div className="create-playlist-info">
                 {currentUserPlaylists.length > 0 ? (
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label>Choose a playlist
+                        <h3>Choose a playlist</h3>
+                        <label>
                             <select id="pl" 
                                     onChange={(e)=>setValue(document.getElementById("pl").value)}>
                                 {currentUserPlaylists?.map((pl)=>(
@@ -53,7 +53,7 @@ function AddSongToPLModal({song}) {
                     <button type="submit">Submit</button>
                 </form>    
                 ) : (
-                <div>
+                <div className="add-to-song-create-playlist">
                     <h3>Please create a playlist first</h3>
                     <OpenModalButton
                     buttonText="＋ Create playlist"

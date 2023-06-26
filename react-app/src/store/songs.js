@@ -49,7 +49,6 @@ export const uploadSong = (formData) => async (dispatch) => {
 }
 
 export const editSong = (editedSong) => async (dispatch) => {
-    console.log("edited song in thunk:", editedSong)
     const res = await fetch(`api/songs/${editedSong.id}`, {
         method: 'PUT',
         headers:{ "Content-Type" : 'application/json' },

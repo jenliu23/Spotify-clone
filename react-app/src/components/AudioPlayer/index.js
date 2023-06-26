@@ -1,58 +1,52 @@
-import React, {useState, useRef } from "react";
-import { useSelector } from "react-redux";
-import AudioBarPlayBtn from "../AudioBar";
-import OpenModalButton from "../OpenModalButton";
-import AddSongToPLModal from "../SongList/AddSongToPLModal";
-import LoginFormModal from "../LoginFormModal";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { editCurrentPlayer } from "../../store/player";
+import './AudioPlayer.css'
 
-const AudioPlayer = ({song, index, songs}) => {
-    const sessionUser = useSelector((state) => state.session.user);
-    const [isPlaying, setIsPlaying] = useState(false);
+const AudioPlayer = ({song, songs, index, songlist_type}) => {
+    const dispatch = useDispatch();
+    const currentPlayer = useSelector((state) => state.player);
+    const current_song = currentPlayer.current_song
+    const isPlaying = currentPlayer.isPlaying
     // const [duration, setDuration] = useState(0);
     // const [currentTime, setCurrentTime] = useState(0);
-    const audioPlayer = useRef();
-console.log("song in audioplayer", song)
-console.log("song index audioplayer", index)
-    const playORpause = () => {
-        const prevValue = isPlaying;
-        setIsPlaying(!prevValue);
-        if (!prevValue) {
-            audioPlayer.current.play();
-            console.log("currentaudio", audioPlayer.current)
-        }else {
-            audioPlayer.current.pause();
+    let songId;
+    let currentSongId;
+    if(songlist_type === "ALL SONGS"){
+        songId = song.id;
+        currentSongId = current_song.id
+    }else{
+        songId = song.songId;
+        currentSongId = current_song.songId
+    }
+
+    const changeState = () => {
+        if(songlist_type !== currentPlayer.songlist_type){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, true, "start new playlist"))
+        }
+        else if(!isPlaying && Object.values(current_song).length === 0){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "start new song"))
+        }else if(isPlaying && currentSongId === songId){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "stop"))
+        }else if(isPlaying && currentSongId && currentSongId !== songId){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, true, "change song"))
+        }else if(!isPlaying && currentSongId === songId){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "recover current song"))
+        }else if(!isPlaying && currentSongId && currentSongId !== songId){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "start new song"))
         }
     }
 
     return (
         <>
-            {/* <button onClick={playORpause}>{isPlaying ? "pause" : "play"}</button> */}
-            <AudioBarPlayBtn song={song} index={song.id} songs={songs} isPlaying={isPlaying} audioPlayer={audioPlayer}/>
-            <h4>{song.title}</h4>
-            <h4>{song.artist}</h4>
-            <h4>.</h4>
-            <audio ref={audioPlayer} src={song.songUrl} preload="metadata"></audio>
-            <button><i className="fa-regular fa-heart"></i></button>
-            <h4>dura</h4>
-            {sessionUser? (
-            <div>
-                <OpenModalButton
-                    buttonText="＋ Add to playlist"
-                    modalComponent={<AddSongToPLModal song={song}/>}
-                />
-            </div>
-            ) : (
-            <div>
-                <OpenModalButton
-                    buttonText="＋ Add to playlist"
-                    modalComponent={<LoginFormModal />}
-                />
-            </div>
-            )}
-
-            <div className="bottom-container">
-                <AudioBarPlayBtn song={song} index={song.id} songs={songs} isPlaying={isPlaying}/>
-            </div>
+            <button onClick={changeState} className="audioPlayerBtn">
+                {isPlaying && songId === currentSongId && songlist_type == currentPlayer.songlist_type ?(
+                    <i className="fa-solid fa-pause fa-lg"></i>
+                    ):(
+                    <i className="fa-solid fa-play fa-lg"></i>
+                    )}
+            </button>
+            {/* <audio ref={audioPlayer} src={song.songUrl} preload="metadata"></audio> */}
         </>
     )
 

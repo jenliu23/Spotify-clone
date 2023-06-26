@@ -1,50 +1,120 @@
 import './AudioBar.css'
-import React, {useState, useRef } from "react";
-import { useSelector } from "react-redux";
-import { getCurrentSongTrack } from '../../store/track';
+import React, {useState, useRef, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { editCurrentPlayer } from '../../store/player';
+import './AudioBar.css'
 
-const AudioBarPlayBtn = ({song, index, songs, audioPlayer}) => {
-    console.log("song in audiobtn:", song)
-    console.log("index in audiobtn:", index)
-    console.log("songsssss:", songs)
-    // console.log("ispalying in audiobtn:", isPlaying)
-    // console.log("check isplaying", isPlaying === true)
-    // if(isPlaying)
+const AudioBar = () => {
+
+    const dispatch = useDispatch();
+    const [volume, setVolume] = useState(0.9)
     const sessionUser = useSelector((state) => state.session.user);
-    const currentSong = useSelector((state) => state.session.track);
+    const currentPlayer = useSelector((state) => state.player);
 
-    console.log("what is currentsong", currentSong)
-    const [isPlaying, setIsPlaying] = useState(false);
-    // const [duration, setDuration] = useState(0);
-    // const [currentTime, setCurrentTime] = useState(0);
-    // const audioPlayer = useRef();
-console.log("song in audioplayer", song)
-console.log("song index audioplayer", index)
+    const songlist_type = currentPlayer.songlist_type
+    const songs = currentPlayer.current_songlist
+    const current_song = currentPlayer.current_song
+    const index = currentPlayer.index
+
+    const isPlaying = currentPlayer.isPlaying
+    const change = currentPlayer.change
+
+    let audioPlayer = useRef()
+
     const playORpause = () => {
+        if(Object.values(current_song).length > 0){
         const prevValue = isPlaying;
-        setIsPlaying(!prevValue);
-        if (!prevValue) {
-            audioPlayer.current.play();
-            console.log("currentaudio", audioPlayer.current)
-        }else {
-            audioPlayer.current.pause();
+        let play = dispatch(editCurrentPlayer(songlist_type, songs, current_song, index, !isPlaying, "none"))
+            if (!prevValue) {
+                audioPlayer.current.play();
+                // console.log("currentaudio", audioPlayer.current)
+            }else {
+                audioPlayer.current.pause();
+            }    
         }
     }
 
+    const playAhead = () => {
+        if(index > 0 && songs.length > 1){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, songs[index-1], index-1, true, "ahead song"))
+        }
+    }
+    const playNext = () => {
+        if(index < songs.length - 1){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, songs[index+1], index+1, true, "next song"))
+        }
+    }
+    const changeVolume = (value) => {
+        audioPlayer.current.volume = value;
+        setVolume(value)
+    }
+
+    let volumeIcon;
+    if(volume == 0){
+        volumeIcon = <i className="fa-solid fa-volume-xmark"></i>
+    }else if (volume < 0.5){
+        volumeIcon = <i className="fa-solid fa-volume-low"></i>
+    }else {
+        volumeIcon = <i className="fa-solid fa-volume-high"></i>
+    }
+
+    useEffect(()=>{
+        if(change === "start new song"){
+            audioPlayer.current.play();
+        }
+        if(change === "stop"){
+            audioPlayer.current.pause();
+        }
+        if(change === "change song"){
+            audioPlayer.current.play();
+        }
+        if(change === "recover current song"){
+            audioPlayer.current.play();
+        }
+        if(change === "next song"){
+            audioPlayer.current.play();
+        }
+        if(change === "ahead song"){
+            audioPlayer.current.play();
+        }
+        if(change === "start new playlist"){
+            audioPlayer.current.play();
+        }
+    }, [change, current_song.songUrl])
+
     return (
         <div >
+            <audio ref={audioPlayer} src={current_song.songUrl} preload="metadata" loop="loop"></audio>
             <div className="Audio-Bar">
-                <button><i className="fa-solid fa-backward-step"></i></button>
-                {isPlaying === true ? (
-                <button onClick={playORpause}><i className="fa-regular fa-circle-pause fa-lg"></i></button>
-                ):(
-                <button onClick={playORpause}><i className="fa-regular fa-circle-play fa-lg"></i></button>
-                )}    
-                <button><i className="fa-solid fa-forward-step"></i></button>
-                <input type="range" />
+                <div id="btn1">
+                    <h4>{currentPlayer.current_song.title}</h4>
+                    <h4>{currentPlayer.current_song.artist}</h4>
+                </div>
+                <div id="btn2">
+                    <button onClick={playAhead} disabled={index === 0 ? true:false}>
+                        <i className="fa-solid fa-backward-step">
+                    </i></button>
+
+                    <button onClick={playORpause}>
+                    {isPlaying === true ? (
+                    <i className="fa-regular fa-circle-pause fa-lg"></i>
+                    ):(
+                    <i className="fa-regular fa-circle-play fa-lg"></i>
+                    )}      
+                    </button>
+
+                    <button onClick={playNext}  disabled={index == songs.length - 1 ? true:false}>
+                        <i className="fa-solid fa-forward-step"></i>
+                    </button>
+                </div>
+                <div id="btn3">
+                    {volumeIcon}
+                    <input type="range" min={0} max={1} step={0.02} value={volume} className="slider"
+                        onChange={e => changeVolume(e.target.value)} />  
+                </div>
             </div> 
         </div>
     )
 }
 
-export default AudioBarPlayBtn
+export default AudioBar

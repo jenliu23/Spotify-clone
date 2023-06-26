@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchSongs } from "../../store/songs";
 import SongList from "../SongList";
 
-const SongPage = () => {
+const AllSongsPage = () => {
     const dispatch = useDispatch();
     const songs = Object.values(useSelector((state) => state.songs));
 
@@ -18,4 +18,4 @@ const SongPage = () => {
     )
   }
   
-  export default SongPage
+  export default AllSongsPage

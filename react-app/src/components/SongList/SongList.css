@@ -8,16 +8,19 @@
 .song-list-intro {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 6fr 3fr 2fr 1fr 1fr 2fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 6fr 3fr 2fr 2fr;
+    /* justify-content: center;
+    align-items: center; */
+    justify-items: left;
     /* border: white 2px solid; */
     gap: 7px;
+    padding: 5px 10px 5px 0;
     color: rgb(57, 112, 160);
     border-bottom: white 1px solid;;
 }
 
 .song-list-details {
+    /* font-size: 17px; */
     height: 633px;
     overflow-y:scroll;
 }
@@ -42,10 +45,11 @@
 .song-list-each {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 6fr 3fr 2fr 1fr 1fr 2fr;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: 1fr 6fr 3fr 2fr 2fr;
+    /* justify-content: center; */
+    /* align-items: center; */
     /* border: white 2px solid; */
+    justify-items: left;
     gap: 7px;
     padding: 7px 0 7px 0;
 }
@@ -63,4 +67,38 @@
     }
 }
 
+.add-song-to-playlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 420px;
+    height: 270px;
+}
 
+.add-song-to-playlist form {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    width: 400px
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* gap: 30px; */
+}
+
+.add-song-to-playlist form select  {
+    width: 100px;
+    font-size: 16px;
+}
+
+.add-song-to-playlist form button {
+    margin-top: 40px;
+}
+
+.add-to-song-create-playlist {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    width: 420px
+}

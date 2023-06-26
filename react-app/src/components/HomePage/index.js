@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPlaylists } from "../../store/playlists";
 import { NavLink } from "react-router-dom";
-import AudioBar from "../AudioBar";
 import "./HomePage.css"
 
 const HomePage = () => {
@@ -46,10 +45,6 @@ const HomePage = () => {
                 </div>
                 ))}
             </div>
-
-            <div className="bottom-container">
-                <AudioBar />
-            </div>    
         </div>
     )
   }

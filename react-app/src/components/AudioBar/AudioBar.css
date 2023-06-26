@@ -1,16 +1,72 @@
 .Audio-Bar {
-    display: flex;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
     flex-direction: row;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     width: 100%;
     height: 80px;
     gap: 20px;
 }
 
+.Audio-Bar #btn1 {
+    padding-left: 20px;
+}
+
+.Audio-Bar #btn2 {
+    display: flex;
+    justify-self: center;
+    gap: 15px;
+}
+
+.Audio-Bar #btn3 {
+    justify-self: right;
+    padding-right: 20px;
+}
+
+#btn3 i {
+    padding-right: 10px;
+}
+
+/* .slider {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance:button-bevel; 
+    appearance: none;
+    width: 25px; 
+    height: 10px;
+    background: #04AA6D; 
+    cursor: pointer; 
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px; 
+    height: 25px; 
+    background: #04AA6D; 
+    cursor: pointer; 
+} */
 
 .Audio-Bar button {
    background-color: transparent;
    border: none;
    font-size: 26px;
+   &:hover {
+        transform: scale(1.05);
+   }
+   &:disabled {
+        background-color: transparent;
+        transform: none;
+        cursor: default;
+   }
+   &:disabled i {
+        color: gray;
+   }
 }
+
+
+
+
