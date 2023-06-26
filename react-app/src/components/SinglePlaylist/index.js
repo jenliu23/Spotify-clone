@@ -6,6 +6,7 @@ import EditPlaylistModal from "./EditPlaylistModal";
 import DeletePlaylistModal from "./DeletePlaylistModal";
 import { deleteSongFromPL, fetchPlaylists } from "../../store/playlists";
 import AudioPlayer from "../AudioPlayer";
+import { editCurrentPlayer } from '../../store/player';
 import './SinglePlaylist.css'
 
 const SinglePlaylist = () => {
@@ -23,10 +24,15 @@ const SinglePlaylist = () => {
         songs = Object.values(playlist.songs);
     }
     
-    const handleDeleteSongFromPL = async(song) => {
+    const handleDeleteSongFromPL = async(song, index) => {
         // e.preventDefault();
+        if(song.songId === current_song.songId){
+           let play = dispatch(editCurrentPlayer(songlist_type, songs.splice(index, 1), {}, index, false, "delete song")) 
+        }else{
+            let play = dispatch(editCurrentPlayer(songlist_type, songs.splice(index, 1), current_song, index, isPlaying, "delete other song"))
+        }
+        
         let deleted = await dispatch(deleteSongFromPL(song))
-        // let again = await dispatch(fetchPlaylists())
     }
 
     useEffect(() => {
@@ -79,7 +85,7 @@ const SinglePlaylist = () => {
                     <h4>{song.title}</h4>
                     <h4>{song.artist}</h4>
                     <h4>--</h4>
-                    <button onClick={(e) => handleDeleteSongFromPL(song)} className={sessionUser?.id === playlist?.userId ? "":"hidden"}>
+                    <button onClick={(e) => handleDeleteSongFromPL(song, index)} className={sessionUser?.id === playlist?.userId ? "":"hidden"}>
                         Remove song
                     </button>
                 </div>
