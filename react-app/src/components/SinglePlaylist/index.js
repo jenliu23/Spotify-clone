@@ -70,7 +70,7 @@ const SinglePlaylist = () => {
                 <h4>Artist</h4>
                 <h4>Album</h4>
                 {/* <button><i className="fa-regular fa-clock fa-lg"></i></button> */}
-                <h4 className={sessionUser.id === playlist?.userId ? "":"hidden"}>－</h4>
+                <h4 className={sessionUser?.id === playlist?.userId ? "":"hidden"}>－</h4>
             </div>
             <div className="song-list-details playlist-song-list-details">
             {songs?.map((song, index) => (
@@ -79,7 +79,7 @@ const SinglePlaylist = () => {
                     <h4>{song.title}</h4>
                     <h4>{song.artist}</h4>
                     <h4>--</h4>
-                    <button onClick={(e) => handleDeleteSongFromPL(song)} className={sessionUser.id === playlist?.userId ? "":"hidden"}>
+                    <button onClick={(e) => handleDeleteSongFromPL(song)} className={sessionUser?.id === playlist?.userId ? "":"hidden"}>
                         Remove song
                     </button>
                 </div>
