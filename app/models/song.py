@@ -21,6 +21,7 @@ class Song(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "songId": self.id,
             "userId": self.userId,
             "title": self.title,
             "artist": self.artist,

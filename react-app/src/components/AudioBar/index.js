@@ -9,6 +9,8 @@ const AudioBar = () => {
     const dispatch = useDispatch();
     const [volume, setVolume] = useState(0.9)
     const sessionUser = useSelector((state) => state.session.user);
+    const playlists = Object.values(useSelector((state) => state.playlists));
+
     const currentPlayer = useSelector((state) => state.player);
 
     const songlist_type = currentPlayer.songlist_type
@@ -18,6 +20,19 @@ const AudioBar = () => {
 
     const isPlaying = currentPlayer.isPlaying
     const change = currentPlayer.change
+
+    let playlistImgSrc;
+    let playlistTitle;
+    if(songlist_type.startsWith("PLAYLIST")){
+        let playlistNumber =  parseInt(songlist_type.slice(8))
+        playlistImgSrc = playlists[playlistNumber-1].coverImage
+        playlistTitle = playlists[playlistNumber-1].title
+        console.log("imagesrc", playlistImgSrc)
+    }else if(songlist_type.startsWith("ALL")){
+        playlistImgSrc = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_default.png";
+        playlistTitle = "All songs list";
+    }
+    
 
     let audioPlayer = useRef()
 
@@ -83,15 +98,25 @@ const AudioBar = () => {
         if(change === "delete song"){
             audioPlayer.current.pause();
         }
+        if(change === "start new playlist on same song"){
+            audioPlayer.current.currentTime = 0;
+            audioPlayer.current.play();
+        }
     }, [change, current_song.songUrl])
-
+    
     return (
         <div >
             <audio ref={audioPlayer} src={current_song.songUrl} preload="metadata" loop="loop"></audio>
             <div className="Audio-Bar">
                 <div id="btn1">
-                    <h4>{currentPlayer.current_song.title}</h4>
-                    <h4>{currentPlayer.current_song.artist}</h4>
+                    <div className={songlist_type? "":"hidden"}>
+                        {/* <h5>{playlistTitle}</h5> */}
+                        <img src={playlistImgSrc} alt="cover" width="65px"/>
+                    </div>
+                    <div>
+                        <h3>{currentPlayer.current_song.title}</h3>
+                        <h4>{currentPlayer.current_song.artist}</h4>  
+                    </div>
                 </div>
                 <div id="btn2">
                     <button onClick={playAhead} disabled={(index === 0 || songs.length === 1) ? true:false}>
