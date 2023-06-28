@@ -1,0 +1,33 @@
+.home-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-bar a:hover {
+    transform: scale(1.05);
+}
+
+.home-bar div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 65px;
+}
+
+.developer {
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.developer h4 {
+    font-size: 17px;
+}
+
+.developer img {
+    border-radius: 5px 5px;
+}

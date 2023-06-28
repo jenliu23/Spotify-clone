@@ -10,29 +10,46 @@ const AudioPlayer = ({song, songs, index, songlist_type}) => {
     const isPlaying = currentPlayer.isPlaying
     // const [duration, setDuration] = useState(0);
     // const [currentTime, setCurrentTime] = useState(0);
-    let songId;
-    let currentSongId;
-    if(songlist_type === "ALL SONGS"){
-        songId = song.id;
-        currentSongId = current_song.id
-    }else{
-        songId = song.songId;
-        currentSongId = current_song.songId
+    // let songId;
+    // let currentSongId;
+    // if(songlist_type === "ALL SONGS"){
+    //     songId = song.id;
+    //     currentSongId = current_song.id
+    // }else{
+    //     songId = song.songId;
+    //     currentSongId = current_song.songId
+    // }
+
+    let playIcon;
+    if(isPlaying){
+        if(song.songId === current_song.songId && songlist_type == currentPlayer.songlist_type){
+            playIcon = <i className="fa-solid fa-pause fa-lg"></i>
+        
+        // else if(songlist_type !== "ALL SONGS" && currentPlayer.songlist_type === "ALL SONGS" && song.songId === current_song.songId){
+        //     playIcon = <i className="fa-solid fa-pause fa-lg"></i>
+        // }else if(songlist_type === "ALL SONGS" && currentPlayer.songlist_type !== "ALL SONGS" && song.songId === current_song.songId){
+        //     playIcon = <i className="fa-solid fa-pause fa-lg"></i>
+        }else {
+            playIcon = <i className="fa-solid fa-play fa-lg"></i>
+        }
+    }else {
+        playIcon = <i className="fa-solid fa-play fa-lg"></i>
     }
 
     const changeState = () => {
-        if(songlist_type !== currentPlayer.songlist_type){
+        if(isPlaying && songlist_type !== currentPlayer.songlist_type && song.songId === current_song.songId){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, isPlaying, "start new playlist on same song"))
+        }else if(songlist_type !== currentPlayer.songlist_type){
             let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, true, "start new playlist"))
-        }
-        else if(!isPlaying && Object.values(current_song).length === 0){
+        }else if(!isPlaying && Object.values(current_song).length === 0){
             let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "start new song"))
-        }else if(isPlaying && currentSongId === songId){
+        }else if(isPlaying && current_song.songId === song.songId){
             let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "stop"))
-        }else if(isPlaying && currentSongId && currentSongId !== songId){
+        }else if(isPlaying && current_song.songId && current_song.songId !== song.songId){
             let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, true, "change song"))
-        }else if(!isPlaying && currentSongId === songId){
+        }else if(!isPlaying && current_song.songId === song.songId){
             let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "recover current song"))
-        }else if(!isPlaying && currentSongId && currentSongId !== songId){
+        }else if(!isPlaying && current_song.songId && current_song.songId !== song.songId){
             let play = dispatch(editCurrentPlayer(songlist_type, songs, song, index, !isPlaying, "start new song"))
         }
     }
@@ -40,11 +57,7 @@ const AudioPlayer = ({song, songs, index, songlist_type}) => {
     return (
         <>
             <button onClick={changeState} className="audioPlayerBtn">
-                {isPlaying && (songId === currentSongId && songlist_type == currentPlayer.songlist_type) ?(
-                    <i className="fa-solid fa-pause fa-lg"></i>
-                    ):(
-                    <i className="fa-solid fa-play fa-lg"></i>
-                    )}
+                {playIcon}
             </button>
         </>
     )
