@@ -32,7 +32,7 @@
 
 .song-list-details {
     /* font-size: 17px; */
-    height: 617.5px;
+    height: 70vh;
     overflow-y:scroll;
 }
 
@@ -93,8 +93,10 @@
 .song-list button {
     background-color: transparent;
     border: none;
+    color: rgb(179, 179, 179);
     &:hover {
         cursor: pointer;
+        color: white;
     }
 }
 
