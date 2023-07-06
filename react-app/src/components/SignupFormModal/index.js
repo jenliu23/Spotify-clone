@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
 import "./SignupForm.css";
 
 function SignupFormModal() {
@@ -113,7 +115,14 @@ function SignupFormModal() {
 					/>
 				</label>
 				<button type="submit">Sign up</button>
-				{/* disabled={!!Object.values(errors).length} */}
+				
+				<nav>
+            		<h5>Already have an account?</h5>
+            		<OpenModalButton
+              			buttonText="Log in."
+              			modalComponent={<LoginFormModal />}
+            		/>
+        		</nav>
 			</form>
 		</div>
 	);

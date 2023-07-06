@@ -55,7 +55,7 @@ a:hover, button:hover {
 
 .leftContainer {
     width: 20%;
-    /* height: 798px; */
+    /* height: 771px; */
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@ a:hover, button:hover {
 
 .rightContainer {
     width: 80%;
-    /* height: 798px; */
+    /* height: 700px; */
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -99,7 +99,6 @@ a:hover, button:hover {
     /* justify-content: space-between; */
     border-radius: 10px 10px;
     padding: 10px 10px 10px 20px;
-    /* height: 826px; */
     height: 90vh;
     /* background-color: rgb(33, 33, 33); */
     background: linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%);

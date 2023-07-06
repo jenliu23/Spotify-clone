@@ -18,41 +18,53 @@
     gap: 20px;
 }
 
-.Audio-Bar #btn2 {
+#btn1 img {
+    border-radius: 5px 5px;
+}
+
+#btn1 h4 {
+    color: rgb(185, 181, 181);
+}
+
+#btn2 {
     display: flex;
-    justify-self: center;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+}
+
+#btn2-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 15px;
 }
 
-.Audio-Bar #btn3 {
-    justify-self: right;
-    padding-right: 20px;
+.btn2-2 {
+    width: 500px;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 10fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
 }
 
-#btn3 i {
-    padding-right: 10px;
+.btn2-2 h5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-/* .slider {
-    -webkit-appearance: none;
-    appearance: none;
+#btn3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    padding-right: 30px;
+    gap: 7px;
 }
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance:button-bevel; 
-    appearance: none;
-    width: 25px; 
-    height: 10px;
-    background: #04AA6D; 
-    cursor: pointer; 
-}
-  
-.slider::-moz-range-thumb {
-    width: 25px; 
-    height: 25px; 
-    background: #04AA6D; 
-    cursor: pointer; 
-} */
 
 .Audio-Bar button {
    background-color: transparent;
@@ -70,6 +82,88 @@
         color: gray;
    }
 }
+
+.progressBar {
+    --seek-before-width: 0;
+
+    appearance: none;
+    background: grey;
+    border-radius: 10px 10px;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    outline: none;
+}
+
+.progressBar::before {
+    content: "";
+    height: 4px;
+    width: var(--seek-before-width);
+    background-color: green;
+    border-radius: 10px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2; 
+}
+
+.progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+/* .progressBar:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+} */
+
+
+.volumeSlider {
+    --volume: 80px;
+
+    appearance: none;
+    background: grey;
+    border-radius: 10px 10px;
+    position: relative;
+    width: 100px;
+    height: 5px;
+    outline: none;
+}
+
+.volumeSlider::before {
+    content: "";
+    height: 5px;
+    width: var(--volume);
+    background-color: green;
+    border-radius: 10px 10px;
+    position: absolute;
+    outline: none;
+    top: 0;
+    left: 0;
+    z-index: 2; 
+}
+
+.volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 10px;
+    width: 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+
 
 
 

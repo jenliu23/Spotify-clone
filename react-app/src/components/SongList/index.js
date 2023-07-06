@@ -14,12 +14,12 @@ const SongList = ({songs}) => {
         <div className="song-list">
             <h3>All Songs</h3>
             <div className="song-list-intro">
-                <h4><i className="fa-solid fa-headphones"></i></h4>
+                <h5><i className="fa-solid fa-headphones"></i></h5>
                 <h4>Title</h4>
                 <h4>Artist</h4>
                 <h4>Album</h4>
                 {/* <button><i className="fa-regular fa-clock fa-lg"></i></button> */}
-                <h4>＋</h4>
+                <h3>＋</h3>
             </div>
             <div className="song-list-details">
             {songs?.map((song, index) => (
@@ -29,14 +29,14 @@ const SongList = ({songs}) => {
                     <h4>{song.artist}</h4>
                     <h4>--</h4>
                     {sessionUser? (
-                    <div>
+                    <div className="add-to-playlist-btn">
                         <OpenModalButton
                         buttonText="＋ Add to playlist"
                         modalComponent={<AddSongToPLModal song={song}/>}
                         />
                     </div>
                     ) : (
-                    <div>
+                    <div className="add-to-playlist-btn">
                         <OpenModalButton
                         buttonText="＋ Add to playlist"
                         modalComponent={<LoginFormModal />}

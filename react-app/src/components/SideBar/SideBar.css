@@ -1,5 +1,6 @@
 .sidebar {
     width: 100%;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -36,8 +37,8 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 530px;
-    overflow-y:scroll;
+    height: 63vh;
+    overflow-y: scroll;
 }
 
 .sidebar-playlists h5 {

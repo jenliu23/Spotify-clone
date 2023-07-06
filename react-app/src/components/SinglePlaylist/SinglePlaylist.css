@@ -105,15 +105,17 @@
 }
 
 .playlist-song-list-details {
+    padding-top: 10px;
     height: 300px;
+    margin-right: 20px;
 }
 
 .playlist-song-list-details button {
     background-color: transparent;
     border: none;
-    &:hover {
+    /* &:hover {
         transform: scale(1.05);
-    }
+    } */
 }
 
 .playlist-button {

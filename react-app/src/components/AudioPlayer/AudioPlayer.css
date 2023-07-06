@@ -1,3 +1,36 @@
-.audioPlayerBtn:hover {
+
+#hidden {
+    display: none;
+}
+
+.audioPlayerBtn h3:hover {
+    display: none;
+    & i {
+        display: block;
+    }
+}
+
+.audioPlayerBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-self: left;
+    padding-left: 30px;
+}
+
+/* .audioPlayerBtn:hover {
     transform: scale(1.05);
+} */
+
+.audioPlayerBtn h3 {
+    font-size: 16px;
+}
+
+.audioPlayerBtn .fa-play {
+    display: none;
+}
+
+.audioPlayerBtn .fa-pause {
+    color: green;
+    font-size: 20px;
 }

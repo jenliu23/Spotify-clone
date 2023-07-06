@@ -1,5 +1,5 @@
 .playlists {
-    height: 633px;
+    height: 69.5vh;
     overflow-y:scroll;
 }
 
@@ -48,18 +48,18 @@
 
 .single-playlist {
     /* border: 1px solid black; */
-    height: 245px;
+    height: 250px;
     border-radius: 7px 7px;
     padding: 15px;
     background-color: rgb(43, 43, 43);
 }
 
 .single-playlist h4 {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .single-playlist h5 {
-    padding-top: 5px;
+    padding-top: 3px;
     font-size: 15px;
     color: rgb(179, 179, 179);
 }
