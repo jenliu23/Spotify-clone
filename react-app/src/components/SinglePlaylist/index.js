@@ -76,7 +76,7 @@ const SinglePlaylist = () => {
                 <h4>Artist</h4>
                 <h4>Album</h4>
                 {/* <button><i className="fa-regular fa-clock fa-lg"></i></button> */}
-                <h4 className={sessionUser?.id === playlist?.userId ? "":"hidden"}>－</h4>
+                <h3 className={sessionUser?.id === playlist?.userId ? "":"hidden"}>－</h3>
             </div>
             <div className="song-list-details playlist-song-list-details">
             {songs?.map((song, index) => (

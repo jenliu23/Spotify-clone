@@ -7,7 +7,7 @@ import './AudioBar.css'
 const AudioBar = () => {
 
     const dispatch = useDispatch();
-    const [volume, setVolume] = useState(0.8)
+    const [volume, setVolume] = useState(0.7)
     const [duration, setDuration] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [isEnded, setIsEnded] = useState(false);
@@ -17,7 +17,6 @@ const AudioBar = () => {
     const animationRef = useRef()
     const volumeBar = useRef()
 
-    const sessionUser = useSelector((state) => state.session.user);
     const playlists = Object.values(useSelector((state) => state.playlists));
 
     const currentPlayer = useSelector((state) => state.player);
@@ -34,11 +33,11 @@ const AudioBar = () => {
     let playlistLink = "/";
     if(songlist_type && songlist_type.startsWith("PLAYLIST")){
         let playlistNumber =  parseInt(songlist_type.slice(8))
-        playlistImgSrc = playlists[playlistNumber-1].coverImage
-        playlistTitle = playlists[playlistNumber-1].title
+        playlistImgSrc = playlists[playlistNumber-1]?.coverImage
+        playlistTitle = playlists[playlistNumber-1]?.title
         playlistLink = `/playlists/${playlistNumber}`
     }else if(songlist_type && songlist_type.startsWith("ALL")){
-        playlistImgSrc = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_default.png";
+        playlistImgSrc = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/My+project-1.jpg";
         playlistTitle = "All songs list";
         playlistLink = "/songs"
     }
@@ -153,12 +152,11 @@ const AudioBar = () => {
     useEffect(()=>{
         if(isEnded && index < songs.length - 1){
             let play = dispatch(editCurrentPlayer(songlist_type, songs, songs[index+1], index+1, true, "next song"))
-            
-            console.log("ended")
-            console.log("what is isended", isEnded)
+        }
+        if(isEnded && index === songs.length - 1){
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, songs[0], 0, true, "next song"))
         }
         setIsEnded(false)
-        console.log("what is isended", isEnded)
     }, [isEnded])
 
 

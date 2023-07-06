@@ -19,7 +19,15 @@
 }
 
 #btn1 img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     border-radius: 5px 5px;
+}
+
+#btn1 img:hover {
+    outline-offset: 5px;
+    outline: gray dotted 2px;
 }
 
 #btn1 h4 {
@@ -120,13 +128,18 @@
     box-sizing: border-box;
 }
 
+.progressBar::-webkit-slider-thumb:hover {
+    outline: green solid 2px;
+    outline-offset: 3px;
+}
+
 /* .progressBar:active::-webkit-slider-thumb {
     transform: scale(1.2);
 } */
 
 
 .volumeSlider {
-    --volume: 80px;
+    --volume: 70px;
 
     appearance: none;
     background: grey;
@@ -161,6 +174,11 @@
     position: relative;
     z-index: 3;
     box-sizing: border-box;
+}
+
+.volumeSlider::-webkit-slider-thumb:hover {
+    outline: green solid 2px;
+    outline-offset: 3px;
 }
 
 

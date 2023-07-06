@@ -108,7 +108,7 @@ function CreatePlaylist() {
                             </select>
                         </label>
                     </div>
-                    <button type="submit" disabled={errors.length > 0 ? "true":""}>Submit</button>
+                    <button type="submit" disabled={errors.length > 0 ? true:""}>Submit</button>
                 </form>
             </div>
         </div>

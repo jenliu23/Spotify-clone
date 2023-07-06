@@ -113,9 +113,10 @@
 .playlist-song-list-details button {
     background-color: transparent;
     border: none;
-    /* &:hover {
-        transform: scale(1.05);
-    } */
+    color: rgb(179, 179, 179);
+    &:hover {
+        color: white;
+    }
 }
 
 .playlist-button {

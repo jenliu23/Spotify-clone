@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { deletePlaylist } from "../../store/playlists";
@@ -10,10 +10,17 @@ const DeletePlaylistModal = ({playlist}) => {
     const dispatch = useDispatch()
     const {closeModal} =  useModal();
 
+    const currentPlayer = useSelector((state) => state.player);
+    const songlist_type = currentPlayer.songlist_type
+
     const handleSubmityes = async (e) => {
         e.preventDefault();
+
+        if(songlist_type.slice(8) == playlist.id){
+            dispatch(editCurrentPlayer("", [], {}, NaN, false, "delete playlist"))
+        }
+                        
         return dispatch(deletePlaylist(playlist.id))
-            .then(dispatch(editCurrentPlayer("", [], {}, NaN, false, "delete playlist")))
             .then(closeModal())
             .then(history.push('/'))
     }
