@@ -78,11 +78,11 @@ function CreatePlaylist() {
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_smile.jpg">
                                 --smile--
                             </option>
-                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_chaos.jpeg">
-                                --chaos--
-                            </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_sleep.jpg">
                                 --sleep--
+                            </option>
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_chaos.jpeg">
+                                --chaos--
                             </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_spring.jpg">
                                 --spring--

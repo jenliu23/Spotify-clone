@@ -8,32 +8,19 @@ const AudioPlayer = ({song, songs, index, songlist_type}) => {
     const currentPlayer = useSelector((state) => state.player);
     const current_song = currentPlayer.current_song
     const isPlaying = currentPlayer.isPlaying
-    // const [duration, setDuration] = useState(0);
-    // const [currentTime, setCurrentTime] = useState(0);
-    // let songId;
-    // let currentSongId;
-    // if(songlist_type === "ALL SONGS"){
-    //     songId = song.id;
-    //     currentSongId = current_song.id
-    // }else{
-    //     songId = song.songId;
-    //     currentSongId = current_song.songId
-    // }
 
     let playIcon;
+    let showindex;
     if(isPlaying){
-        if(song.songId === current_song.songId && songlist_type == currentPlayer.songlist_type){
+        if(song.songId === current_song.songId && songlist_type === currentPlayer.songlist_type){
             playIcon = <i className="fa-solid fa-pause fa-lg"></i>
-        
-        // else if(songlist_type !== "ALL SONGS" && currentPlayer.songlist_type === "ALL SONGS" && song.songId === current_song.songId){
-        //     playIcon = <i className="fa-solid fa-pause fa-lg"></i>
-        // }else if(songlist_type === "ALL SONGS" && currentPlayer.songlist_type !== "ALL SONGS" && song.songId === current_song.songId){
-        //     playIcon = <i className="fa-solid fa-pause fa-lg"></i>
+            showindex = "hidden"
         }else {
-            playIcon = <i className="fa-solid fa-play fa-lg"></i>
+            playIcon = <i className="fa-solid fa-play fa-lg" ></i>
         }
     }else {
-        playIcon = <i className="fa-solid fa-play fa-lg"></i>
+        playIcon = <i className="fa-solid fa-play fa-lg" ></i>
+
     }
 
     const changeState = () => {
@@ -57,6 +44,7 @@ const AudioPlayer = ({song, songs, index, songlist_type}) => {
     return (
         <>
             <button onClick={changeState} className="audioPlayerBtn">
+                <h3 className={showindex}>{index+1}</h3>
                 {playIcon}
             </button>
         </>

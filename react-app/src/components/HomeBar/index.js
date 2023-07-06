@@ -11,8 +11,8 @@ function HomeBar( ){
 				<NavLink exact to="/"><img src='/favicon.ico' width="40px" alt="img" /></NavLink>
 				<nav className='developer'>
 					<h4>Developed by Jen Liu</h4>
-					<NavLink exact to="https://github.com/JENLIU2023"><img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LOGO/GitHub-Mark.png" alt="GitHub Logo" width="32px"/></NavLink>
-					<NavLink exact to="/"><img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LOGO/LinkedIn_logo.png" alt="Linkedin Logo" width="32px"/></NavLink>
+					<a href="https://github.com/JENLIU2023"><img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LOGO/GitHub-Mark.png" alt="GitHub Logo" width="32px"/></a>
+					<a href="https://www.linkedin.com/in/jen-liu-8862b9281/"><img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LOGO/LinkedIn_logo.png" alt="Linkedin Logo" width="32px"/></a>
 				</nav>
 			</div>
 			<div>

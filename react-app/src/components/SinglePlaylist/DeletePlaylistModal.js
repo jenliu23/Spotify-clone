@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { deletePlaylist } from "../../store/playlists";
+import { editCurrentPlayer } from "../../store/player";
 
 const DeletePlaylistModal = ({playlist}) => {
     const history = useHistory()
@@ -12,6 +13,7 @@ const DeletePlaylistModal = ({playlist}) => {
     const handleSubmityes = async (e) => {
         e.preventDefault();
         return dispatch(deletePlaylist(playlist.id))
+            .then(dispatch(editCurrentPlayer("", [], {}, NaN, false, "delete playlist")))
             .then(closeModal())
             .then(history.push('/'))
     }

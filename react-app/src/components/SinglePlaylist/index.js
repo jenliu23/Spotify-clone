@@ -71,7 +71,7 @@ const SinglePlaylist = () => {
                 </button>
             </div>
             <div className="song-list-intro playlist-song-list-intro">
-                <h4><i className="fa-solid fa-headphones"></i></h4>
+                <h5><i className="fa-solid fa-headphones"></i></h5>
                 <h4>Title</h4>
                 <h4>Artist</h4>
                 <h4>Album</h4>
@@ -81,7 +81,7 @@ const SinglePlaylist = () => {
             <div className="song-list-details playlist-song-list-details">
             {songs?.map((song, index) => (
                 <div key={song.songId} className="song-list-each">
-                    <AudioPlayer song={song} songs={songs} index={index} songlist_type={songlist_type}/>
+                    <AudioPlayer song={song} songs={songs} index={index} songlist_type={songlist_type} />
                     <h4>{song.title}</h4>
                     <h4>{song.artist}</h4>
                     <h4>--</h4>

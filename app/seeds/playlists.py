@@ -5,7 +5,7 @@ def seed_playlists():
     playlist1 = Playlist(
         userId = 4,
         title = "Piano Collection",
-        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_lofi-study.jpg",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_piano.jpeg",
     )
     playlist2 = Playlist(
         userId = 4,
@@ -64,8 +64,8 @@ def seed_playlists():
     )
     playlist13 = Playlist(
         userId = 3,
-        title = "Never mind",
-        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_smile.jpg",
+        title = "It's Study Time",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_lofi-study.jpg",
     )
     # playlist = Playlist(
     #     userId = ,
