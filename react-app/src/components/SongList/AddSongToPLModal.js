@@ -39,27 +39,31 @@ function AddSongToPLModal({song}) {
 
         dispatch(addSongToPL(song, value))
         closeModal()
-
-        console.log("what is songs", songs)
-        let newSongs;
-        if(songs[songs.length-1].songId < song.songId){
-            newSongs = songs
-            newSongs.push(song)
-            console.log("what is newsongs", newSongs)
-            dispatch(editCurrentPlayer(songlist_type, newSongs, current_song, index, isPlaying, "none"))
-        }else{
-            for(let i=0; i<songs.length; i++){
-                if(songs[i].songId > song.songId){
-                    newSongs = [...songs.slice(0, i-1), song, ...songs.slice(i-1)]
-                    let newIndex;
-                    if(index >= i-1){
-                        newIndex = index + 1
-                    }else{
-                        newIndex = index
+console.log("what is songs", songs)
+        if(songlist_type && parseInt(songlist_type.slice(8)) === value){
+            let newSongs;
+            if(songs[songs.length-1].songId < song.songId){
+                newSongs = songs
+                newSongs.push(song)
+                return dispatch(editCurrentPlayer(songlist_type, newSongs, current_song, index, isPlaying, "none"))
+            }else if(songs[0].songId > song.songId){
+                newSongs = songs
+                newSongs.unshift(song)
+                return dispatch(editCurrentPlayer(songlist_type, newSongs, current_song, index+1, isPlaying, "none"))
+            }else{
+                for(let i=0; i<songs.length; i++){
+                    if(songs[i].songId > song.songId){
+                        newSongs = [...songs.slice(0, i), song, ...songs.slice(i)]
+                        let newIndex;
+                        if(index >= i-1){
+                            newIndex = index + 1
+                        }else{
+                            newIndex = index
+                        }
+                        return dispatch(editCurrentPlayer(songlist_type, newSongs, current_song, newIndex, isPlaying, "none"))
                     }
-                    dispatch(editCurrentPlayer(songlist_type, newSongs, current_song, newIndex, isPlaying, "none"))
                 }
-            }
+            } 
         }
     };
 
