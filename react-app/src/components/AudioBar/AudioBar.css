@@ -45,7 +45,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .btn2-2 {
@@ -72,6 +72,15 @@
     align-items: center;
     padding-right: 30px;
     gap: 7px;
+}
+
+#btn3 i {
+    color: rgb(185, 181, 181);
+    cursor: pointer;
+}
+
+#btn3 i:hover {
+    color: white;
 }
 
 .Audio-Bar button {
@@ -139,7 +148,7 @@
 
 
 .volumeSlider {
-    --volume: 70px;
+    --volume: 50px;
 
     appearance: none;
     background: grey;
@@ -181,6 +190,14 @@
     outline-offset: 3px;
 }
 
+
+#shuffle-icon i {
+    color: green;
+}
+
+#loop-icon i {
+    color: green;
+}
 
 
 

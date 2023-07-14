@@ -15,6 +15,7 @@ const SinglePlaylist = () => {
     const currentPlayer = useSelector((state) => state.player);
     const current_song = currentPlayer.current_song
     const isPlaying = currentPlayer.isPlaying
+    const index = currentPlayer.index
     const { playlistId } = useParams();
     const songlist_type = "PLAYLIST" + playlistId
  
@@ -27,12 +28,52 @@ const SinglePlaylist = () => {
     const handleDeleteSongFromPL = async(song, index) => {
         // e.preventDefault();
         if(song.songId === current_song.songId){
-           let play = dispatch(editCurrentPlayer(songlist_type, songs.splice(index, 1), {}, index, false, "delete song")) 
+            if(songs.length > 1){
+                songs.splice(index, 1)
+                let play = dispatch(editCurrentPlayer(songlist_type, songs, songs[0], 0, false, "delete song")) 
+            }else{
+                let play = dispatch(editCurrentPlayer("", [], {}, NaN, false, "delete last song"))
+            }
         }else{
-            let play = dispatch(editCurrentPlayer(songlist_type, songs.splice(index, 1), current_song, index, isPlaying, "delete other song"))
+            songs.splice(index, 1)
+            let newIndex
+            for(let i=0; i<songs.length; i++){
+                if(songs[i].songId === current_song.songId){
+                    newIndex = i
+                }
+            }
+            let play = dispatch(editCurrentPlayer(songlist_type, songs, current_song, newIndex, isPlaying, "delete other song"))
         }
         
         let deleted = await dispatch(deleteSongFromPL(song))
+    }
+
+    const playOrPausePL = () => {
+        if(isPlaying){
+            if(currentPlayer.songlist_type === songlist_type){
+                let play = dispatch(editCurrentPlayer(songlist_type, songs, current_song, index, false, "stop"))
+            }else{
+                if(songs.length > 0){
+                    if(current_song.songId === songs[0].songId){
+                        let play = dispatch(editCurrentPlayer(songlist_type, songs, current_song, index, true, "start new playlist on same song")) 
+                    }else{
+                        let play = dispatch(editCurrentPlayer(songlist_type, songs, songs[0], 0, true, "start new playlist"))
+                    }
+                }
+            }
+        }else{
+            if(currentPlayer.songlist_type === songlist_type){
+                let play = dispatch(editCurrentPlayer(songlist_type, songs, current_song, index, true, "recover current song"))
+            }else{
+                if(songs.length > 0){
+                    if(current_song.songId === songs[0].songId){
+                        let play = dispatch(editCurrentPlayer(songlist_type, songs, current_song, index, true, "start new playlist on same song")) 
+                    }else{
+                        let play = dispatch(editCurrentPlayer(songlist_type, songs, songs[0], 0, true, "start new playlist"))
+                    }
+                }
+            }
+        }
     }
 
     useEffect(() => {
@@ -62,7 +103,7 @@ const SinglePlaylist = () => {
                 )}
             </div>
             <div className="playlist-button">
-                <button>
+                <button onClick={playOrPausePL}>
                 {isPlaying && currentPlayer.songlist_type === songlist_type ? (
                     <i className="fa-regular fa-circle-pause fa-lg"></i>
                 ):(

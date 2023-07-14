@@ -30,7 +30,7 @@ const SideBar = () => {
         {sessionUser? (
         <div className="sidebar">
             <div className="sidebar-library">
-                <h3><i className="fa-solid fa-compact-disc"></i> Your Library</h3>
+                <h3><i className="fa-solid fa-swatchbook"></i> Your Library</h3>
                 <OpenModalButton
                     buttonText="＋ Create playlist"
                     modalComponent={<CreatePlaylist />}
