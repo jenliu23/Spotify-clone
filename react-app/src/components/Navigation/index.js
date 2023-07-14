@@ -13,6 +13,9 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/"><i className="fa-solid fa-house fa-sm"></i> Home</NavLink>
 			</li>
 			<li className="nav-bar-icon">
+				<NavLink exact to="/"><i className="fa-solid fa-compact-disc"></i> Albums</NavLink>
+			</li>
+			<li className="nav-bar-icon">
 				<NavLink exact to="/songs"><i className="fa-solid fa-music fa-sm"></i> All Songs</NavLink>
 			</li>
 			<li className={sessionUser? "nav-bar-icon":"hidden nav-bar-icon"}>
