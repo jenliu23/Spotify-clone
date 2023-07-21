@@ -5,27 +5,27 @@ def seed_songs():
 
     song1 = Song(
         userId = 4,
-        title = "Moonlight Sonata (1st Movement)",
-        artist = "Beethoven",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Beethoven1MoonlightSonata1stMovement.mp3"
-    )
-    song2 = Song(
-        userId = 4,
         title = "Für Elise",
         artist = "Beethoven",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Beethoven1FurElise.mp3"
     )
-    song3 = Song(
+    song2 = Song(
         userId = 4,
-        title = "Pathetique Sonata (2nd Movement)",
+        title = "Moonlight Sonata (1st Movement)",
         artist = "Beethoven",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Beethoven1PathetiqueSonata2nd1Movement.mp3"
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Beethoven1MoonlightSonata1stMovement.mp3"
     )
-    song4 = Song(
+    song3 = Song(
         userId = 4,
         title = "Moonlight Sonata (2nd Movement)",
         artist = "Beethoven",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Beethoven1MoonlightSonata2ndMovement.mp3"
+    )
+    song4 = Song(
+        userId = 4,
+        title = "Pathetique Sonata (2nd Movement)",
+        artist = "Beethoven",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Beethoven1PathetiqueSonata2nd1Movement.mp3"
     )
     song5 = Song(
         userId = 4,
@@ -33,6 +33,7 @@ def seed_songs():
         artist = "Beethoven",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Beethoven1RageOveraLostPenny.mp3"
     )
+
     song6 = Song(
         userId = 4,
         title = "Hello",
@@ -41,58 +42,59 @@ def seed_songs():
     )
     song7 = Song(
         userId = 4,
+        title = "Rolling In The Deep",
+        artist = "Adele",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Adele1RollingintheDeep.mp3"
+    )
+    song8 = Song(
+        userId = 4,
+        title = "Set Fire To The Rain",
+        artist = "Adele",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Adele1SetFireToTheRain.mp3"
+    )
+    song9 = Song(
+        userId = 4,
         title = "Skyfall",
         artist = "Adele",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Adele1Skyfall.mp3"
     )
-    song8 = Song(
+    song10 = Song(
         userId = 4,
         title = "Someone Like You",
         artist = "Adele",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Adele1SomeoneLikeYou.mp3"
     )
-    song9 = Song(
+
+    song11 = Song(
         userId = 4,
         title = "Chandelier",
         artist = "Sia",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Sia1Chandelier.mp3"
     )
-    song10 = Song(
+    song12 = Song(
+        userId = 4,
+        title = "Cheap Thrills",
+        artist = "Sia",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Sia1Cheap1Thrills.mp3"
+    )
+    song13 = Song(
         userId = 4,
         title = "Unstoppable",
         artist = "Sia",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Sia1Unstoppable.mp3"
     )
 
-    song11 = Song(
+    song14 = Song(
         userId = 2,
-        title = "Sold Out",
-        artist = "Hawk Nelson",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/HawkNelson1Sold+Out.mp3"
+        title = "Bad Romance",
+        artist = "Lady Gaga",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LadyGaga1BadRomance.mp3"
     )
-    song12 = Song(
-        userId = 2,
-        title = "Believer",
-        artist = "Imagine Dragons",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/ImagineDragons1Believer.mp3"
-    )
-    song13 = Song(
+    song15 = Song(
         userId = 2,
         title = "Poker Face",
         artist = "Lady Gaga",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LadyGaga1PokerFace.mp3"
-    )
-    song14 = Song(
-        userId = 2,
-        title = "Flowers",
-        artist = "Miley Cyrus",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/MileyCyrus1Flowers.mp3"
-    )
-    song15 = Song(
-        userId = 2,
-        title = "Call Me Maybe",
-        artist = "Carly Rae Jepsen",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/CarlyRaeJepsen1CallMeMaybe.mp3"
     )
 
     song16 = Song(
@@ -121,46 +123,102 @@ def seed_songs():
     )
     song20 = Song(
         userId = 5,
+        title = "I'm Unhappy",
+        artist = "aespa",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/aespa1I'mUnhappy.mp3"
+    )
+    song21 = Song(
+        userId = 5,
+        title = "'Til We Meet Again",
+        artist = "aespa",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/aespa1TilWeMeetAgain.mp3"
+    )
+    song22 = Song(
+        userId = 5,
         title = "Hold On Tight",
         artist = "aespa",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/aespa1HoldOnTight.mp3"
     )
-    song21 = Song(
+    song23 = Song(
+        userId = 5,
+        title = "Next Level",
+        artist = "aespa",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/aespa1NextLevel.mp3"
+    )
+
+    song24 = Song(
         userId = 5,
         title = "Pink Venom",
         artist = "BLACKPINK",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/BLACKPINK1PinkVenom.mp3"
     )
-    song22 = Song(
+    song25 = Song(
         userId = 5,
         title = "Shut Down",
         artist = "BLACKPINK",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/BLACKPINK1Shut1Down.mp3"
     )
-    song23 = Song(
+    song26 = Song(
         userId = 5,
         title = "Typa Girl",
         artist = "BLACKPINK",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/BLACKPINK1TypaGirl.mp3"
     )
 
-    song24 = Song(
+    song27 = Song(
+        userId = 2,
+        title = "Sold Out",
+        artist = "Hawk Nelson",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/HawkNelson1Sold+Out.mp3"
+    )
+    song28 = Song(
+        userId = 2,
+        title = "Believer",
+        artist = "Imagine Dragons",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/ImagineDragons1Believer.mp3"
+    )
+    song29 = Song(
         userId = 3,
         title = "Almost Lover",
         artist = "A Fine Frenzy",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/AFineFrenzy1AlmostLover.mp3"
     )
-    song25 = Song(
+    song30 = Song(
+        userId = 2,
+        title = "Flowers",
+        artist = "Miley Cyrus",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/MileyCyrus1Flowers.mp3"
+    )
+    song31 = Song(
+        userId = 2,
+        title = "Call Me Maybe",
+        artist = "Carly Rae Jepsen",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/CarlyRaeJepsen1CallMeMaybe.mp3"
+    )
+
+    song32 = Song(
         userId = 3,
         title = "Give Us a Little Love",
         artist = "Fallulah",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/Fallulah1GiveUsALittleLove.mp3"
     )
-    song26 = Song(
+    song33 = Song(
         userId = 3,
         title = "Sweet but Psycho",
         artist = "Ava Max",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/AvaMax1SweetbutPsycho.mp3"
+    )
+    song34 = Song(
+        userId = 3,
+        title = "GRL GVNG",
+        artist = "XG",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/XG1GRLGVNG.mp3"
+    )
+    song35 = Song(
+        userId = 3,
+        title = "NIGHT DANCER",
+        artist = "imase",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/imase1NIGHTDANCER.mp3"
     )
     # song1 = Song(
     #     userId = ,
@@ -170,7 +228,8 @@ def seed_songs():
     # )
     all_songs = [song1, song2, song3, song4, song5, song6, song7, song8, song9, song10, 
                  song11, song12, song13, song14, song15, song16, song17, song18, song19,
-                 song20, song21, song22, song23, song24, song25, song26]
+                 song20, song21, song22, song23, song24, song25, song26, song27, song28,
+                 song29, song30, song31, song32, song33, song34, song35]
     _ = [db.session.add(song) for song in all_songs]
     db.session.commit()
 

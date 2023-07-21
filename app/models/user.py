@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
 
     songs = db.relationship("Song", back_populates="user")
     playlists = db.relationship("Playlist", back_populates="user")
+    albums = db.relationship("Album", back_populates="user")
 
     @property
     def password(self):

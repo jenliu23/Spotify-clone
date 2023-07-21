@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditPlaylistModal from "./EditPlaylistModal";
 import DeletePlaylistModal from "./DeletePlaylistModal";
@@ -8,10 +8,12 @@ import { deleteSongFromPL, fetchPlaylists } from "../../store/playlists";
 import AudioPlayer from "../AudioPlayer";
 import { editCurrentPlayer } from '../../store/player';
 import './SinglePlaylist.css'
+import { fetchAlbums } from "../../store/albums";
 
 const SinglePlaylist = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const albums = useSelector((state) => state.albums);
     const currentPlayer = useSelector((state) => state.player);
     const current_song = currentPlayer.current_song
     const isPlaying = currentPlayer.isPlaying
@@ -78,6 +80,7 @@ const SinglePlaylist = () => {
 
     useEffect(() => {
         dispatch(fetchPlaylists());
+        dispatch(fetchAlbums());
     }, [dispatch]);
 
     return (
@@ -125,7 +128,14 @@ const SinglePlaylist = () => {
                     <AudioPlayer song={song} songs={songs} index={index} songlist_type={songlist_type} />
                     <h4>{song.title}</h4>
                     <h4>{song.artist}</h4>
-                    <h4>--</h4>
+                    {song.albumId?.length > 0 ? (
+                        <NavLink exact to = {`/albums/${song.albumId[0]}`}>
+                        <h4>{albums[song.albumId[0]]?.title}</h4>
+                        </NavLink> 
+                    ):(
+                        <h4>--</h4>
+                    )
+                    }
                     <button onClick={(e) => handleDeleteSongFromPL(song, index)} className={sessionUser?.id === playlist?.userId ? "":"hidden"}>
                         Remove song
                     </button>

@@ -17,6 +17,7 @@ class Song(db.Model):
 
     user = db.relationship("User", back_populates="songs")
     playlist_songs = db.relationship("Playlist_Song", back_populates="song", cascade="all, delete-orphan")
+    album_songs = db.relationship("Album_Song", back_populates="song", cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
@@ -26,6 +27,7 @@ class Song(db.Model):
             "title": self.title,
             "artist": self.artist,
             "songUrl": self.songUrl,
+            "albumId": [album_song.albumId for album_song in self.album_songs],
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt
        }

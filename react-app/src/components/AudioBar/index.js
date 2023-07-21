@@ -21,7 +21,7 @@ const AudioBar = () => {
     const volumeBar = useRef()
 
     const playlists = useSelector((state) => state.playlists);
-
+    const albums = useSelector((state) => state.albums);
     const currentPlayer = useSelector((state) => state.player);
 
     const songlist_type = currentPlayer.songlist_type
@@ -31,12 +31,11 @@ const AudioBar = () => {
     const isPlaying = currentPlayer.isPlaying
     const change = currentPlayer.change
 
-    let playlistNumber;
     let playlistImgSrc;
     let playlistTitle;
     let playlistLink = "/";
     if(songlist_type && songlist_type.startsWith("PLAYLIST")){
-        playlistNumber = parseInt(songlist_type.slice(8))
+        const playlistNumber = parseInt(songlist_type.slice(8))
         playlistImgSrc = playlists[playlistNumber]?.coverImage
         playlistTitle = playlists[playlistNumber]?.title
         playlistLink = `/playlists/${playlistNumber}`
@@ -44,6 +43,11 @@ const AudioBar = () => {
         playlistImgSrc = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/My+project-1.jpg";
         playlistTitle = "All songs list";
         playlistLink = "/songs"
+    }else if(songlist_type && songlist_type.startsWith("ALBUM")){
+        const albumNumber = parseInt(songlist_type.slice(5))
+        playlistImgSrc = albums[albumNumber]?.coverImage
+        playlistTitle = albums[albumNumber]?.title
+        playlistLink = `/albums/${albumNumber}`
     }
     
     const playORpause = () => {
@@ -133,12 +137,14 @@ const AudioBar = () => {
 
     useEffect(()=>{
         if(change === "start new song"){
+            setLooping(false)
             audioPlayer.current.play();
         }
         if(change === "stop"){
             audioPlayer.current.pause();
         }
         if(change === "change song"){
+            setLooping(false)
             audioPlayer.current.play();
             cancelAnimationFrame(animationRef.current);
         }
@@ -149,9 +155,11 @@ const AudioBar = () => {
             audioPlayer.current.play();
         }
         if(change === "next song"){
+            setLooping(false)
             audioPlayer.current.play();
         }
         if(change === "ahead song"){
+            setLooping(false)
             audioPlayer.current.play();
         }
         if(change === "start new playlist"){

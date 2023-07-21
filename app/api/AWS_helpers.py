@@ -3,7 +3,7 @@ import botocore
 import os
 import uuid
 
-ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif", "mp3"}
+ALLOWED_EXTENSIONS = {"pdf", "png", "jpg", "jpeg", "gif", "webp", "mp3"}
 
 BUCKET_NAME = os.environ.get("S3_BUCKET")
 S3_LOCATION = f"http://{BUCKET_NAME}.s3.amazonaws.com/"

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPlaylists } from "../../store/playlists";
+import { fetchAlbums } from "../../store/albums";
 import { NavLink } from "react-router-dom";
 import "./HomePage.css"
 
@@ -25,6 +26,7 @@ const HomePage = () => {
 
     useEffect(() => {
       dispatch(fetchPlaylists());
+      dispatch(fetchAlbums());
     }, [dispatch]);
   
     return (

@@ -39,7 +39,7 @@ function AddSongToPLModal({song}) {
 
         dispatch(addSongToPL(song, value))
         closeModal()
-console.log("what is songs", songs)
+
         if(songlist_type && parseInt(songlist_type.slice(8)) === value){
             let newSongs;
             if(songs[songs.length-1].songId < song.songId){
