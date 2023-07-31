@@ -53,6 +53,9 @@ function ProfileButton({ user }) {
             <button>
               <NavLink exact to = "/songs/new"><i className="fa-solid fa-upload fa-sm"></i> Upload Song</NavLink>
             </button>
+            <button>
+              <NavLink exact to = "/albums/new"><i className="fa-solid fa-folder-plus fa-sm"></i> Create Album</NavLink>
+            </button>
             <button onClick={handleLogout}>Log Out</button>
           </div>
         ) : (

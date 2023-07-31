@@ -6,18 +6,12 @@
 }
 
 .song-list-intro {
-    width: 98%;
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 6fr 3fr 2fr 2fr;
-    /* justify-content: center;
-    align-items: center; */
-    justify-items: center;
-    /* border: white 2px solid; */
-    gap: 7px;
-    padding: 5px 5px 5px 0;
-    color: rgb(57, 112, 160);
-    border-bottom: white 1px solid;;
+    grid-template-columns: 1fr 5fr 3fr 3fr 0.2fr 2fr;
+    padding: 5px 10px 5px 0;
+    margin-right: 10px;
+    border-bottom: white 1px solid;
 }
 
 .song-list-intro h4 {
@@ -27,48 +21,42 @@
 .song-list-intro h5 {
     justify-self: left;
     font-size: 17px;
-    padding-left: 25px;
+    padding-left: 10px;
 }
 
-.song-list-details {
-    /* font-size: 17px; */
-    height: 70vh;
+.song-list-scroll {
+    height: 72vh;
     overflow-y:scroll;
 }
 
-.song-list-details::-webkit-scrollbar {
+.song-list-scroll::-webkit-scrollbar {
     width: 8px;
 }
 
-.song-list-details::-webkit-scrollbar-track {
+.song-list-scroll::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.song-list-details::-webkit-scrollbar-thumb {
+.song-list-scroll::-webkit-scrollbar-thumb {
     background-color: rgb(83, 83, 83);
     border-radius: 5px 5px;
 }
 
-.song-list-details::-webkit-scrollbar-thumb:hover {
+.song-list-scroll::-webkit-scrollbar-thumb:hover {
     background-color: rgb(179, 179, 179);
 }
 
 .song-list-each {
-    width: 99%;
+    /* font-size: 17px; */
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 6fr 3fr 2fr 2fr;
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* border: white 2px solid; */
-    justify-items: center;
-    gap: 7px;
-    padding: 8px 0 8px 0;
+    grid-template-columns: 1fr 5fr 3fr 3fr 0.2fr 2fr;
     border-radius: 4px 4px;
+    padding: 7px 10px 7px 0;
+    margin-right: 10px;
 }
 
 .song-list-each:hover {
-    /* margin-right: 20px; */
     background-color: rgb(83, 83, 83);
     cursor: default;
     & .fa-play {
@@ -81,13 +69,33 @@
 }
 
 .song-list-each h4 {
-    justify-self: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .song-list-each h5 {
-    justify-self: left;
     font-size: 17px;
     padding-left: 25px;
+}
+
+.album-info {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    & img {
+        border-radius: 50% 50%;
+    }
+}
+
+.album-hover:hover {
+    transform: scale(1.03);
+    text-decoration: underline;
 }
 
 .song-list button {
@@ -100,8 +108,8 @@
     }
 }
 
-.add-to-playlist-btn {
-    justify-self: center;
+.add-to-playlist-btn button {
+    color: greenyellow;
 }
 
 .add-song-to-playlist {
@@ -138,4 +146,16 @@
     display: flex;
     flex-direction: row;
     width: 420px
+}
+
+.favIcon-songlist button {
+    padding-left: 50%;
+}
+
+.favIcon-songlist button i {
+    font-size: 19px;
+}
+
+.favIcon-songlist .green-heart i {
+    color: greenyellow;
 }

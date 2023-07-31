@@ -33,9 +33,9 @@ def seed_playlists():
         coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_universe-and-planets.jpg",
     )
     playlist7 = Playlist(
-        userId = 1,
-        title = "Just relax",
-        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_pink-or-blue.jpg",
+        userId = 7,
+        title = "Winter Songs",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_winter.png",
     )
     playlist8 = Playlist(
         userId = 1,
@@ -54,7 +54,7 @@ def seed_playlists():
     )
     playlist11 = Playlist(
         userId = 3,
-        title = "Cold nights cold heart",
+        title = "CRY A LITTLE",
         coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_cry-a-little.jpeg",
     )
     playlist12 = Playlist(
@@ -67,13 +67,19 @@ def seed_playlists():
         title = "It's Study Time",
         coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_lofi-study.jpg",
     )
+    playlist14 = Playlist(
+        userId = 1,
+        title = "Just relax",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_pink-or-blue.jpg",
+    )
+
     # playlist = Playlist(
     #     userId = ,
     #     title = "",
     #     coverImage = "",
     # )
     all_playlists = [playlist1, playlist2, playlist3, playlist4, playlist5, playlist6, playlist7, 
-                     playlist8, playlist9, playlist10, playlist11, playlist12, playlist13]
+                     playlist8, playlist9, playlist10, playlist11, playlist12, playlist13, playlist14]
     _ = [db.session.add(playlist) for playlist in all_playlists]
     db.session.commit()
 

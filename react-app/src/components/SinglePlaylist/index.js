@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
 import EditPlaylistModal from "./EditPlaylistModal";
 import DeletePlaylistModal from "./DeletePlaylistModal";
@@ -8,10 +8,13 @@ import { deleteSongFromPL, fetchPlaylists } from "../../store/playlists";
 import AudioPlayer from "../AudioPlayer";
 import { editCurrentPlayer } from '../../store/player';
 import './SinglePlaylist.css'
+import { fetchAlbums } from "../../store/albums";
+import FavoriteIcon from "../FavoriteIcon";
 
 const SinglePlaylist = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+    const albums = useSelector((state) => state.albums);
     const currentPlayer = useSelector((state) => state.player);
     const current_song = currentPlayer.current_song
     const isPlaying = currentPlayer.isPlaying
@@ -78,16 +81,19 @@ const SinglePlaylist = () => {
 
     useEffect(() => {
         dispatch(fetchPlaylists());
+        dispatch(fetchAlbums());
     }, [dispatch]);
 
     return (
         <div className="single-playlist-container">
             <div className="single-playlist-container-info">
-                <img src={playlist?.coverImage} alt="cover"/>
                 <div>
-                    <h4>Playlist</h4>
-                    <h1>{playlist?.title}</h1>
-                    <h5>{playlist?.username}</h5>
+                    <img src={playlist?.coverImage} alt="cover"/>
+                    <ul>
+                        <h3>Playlist</h3>
+                        <h1>{playlist?.title}</h1>
+                        <h4>{playlist?.username} · {songs?.length} {songs?.length > 1 ? "songs":"song"}</h4>
+                    </ul>
                 </div>
                 {sessionUser && playlist?.userId === sessionUser.id && (
                 <section>
@@ -102,21 +108,31 @@ const SinglePlaylist = () => {
                 </section>
                 )}
             </div>
-            <div className="playlist-button">
-                <button onClick={playOrPausePL}>
-                {isPlaying && currentPlayer.songlist_type === songlist_type ? (
-                    <i className="fa-regular fa-circle-pause fa-lg"></i>
-                ):(
-                    <i className="fa-regular fa-circle-play fa-lg"></i>
-                )}      
-                </button>
+            <div className="playlist-buttons">
+                <div className="play-button">
+                    <button onClick={playOrPausePL}>
+                    {isPlaying && currentPlayer.songlist_type === songlist_type ? (
+                    <i className="fa-solid fa-circle-pause fa-lg"></i>
+                    ):(
+                    <i className="fa-solid fa-circle-play fa-lg"></i>
+                    )}      
+                    </button>
+                </div>
+                <div className="favIcon">
+                    <FavoriteIcon 
+                        sessionUser={sessionUser} 
+                        listId={parseInt(playlistId)} 
+                        favType={"favorite_playlists"}
+                    />
+                </div>
             </div>
+            
+            <div>
             <div className="song-list-intro playlist-song-list-intro">
                 <h5><i className="fa-solid fa-headphones"></i></h5>
                 <h4>Title</h4>
-                <h4>Artist</h4>
                 <h4>Album</h4>
-                {/* <button><i className="fa-regular fa-clock fa-lg"></i></button> */}
+                <h3>＋</h3>
                 <h3 className={sessionUser?.id === playlist?.userId ? "":"hidden"}>－</h3>
             </div>
             <div className="song-list-details playlist-song-list-details">
@@ -125,12 +141,20 @@ const SinglePlaylist = () => {
                     <AudioPlayer song={song} songs={songs} index={index} songlist_type={songlist_type} />
                     <h4>{song.title}</h4>
                     <h4>{song.artist}</h4>
-                    <h4>--</h4>
+                    {song.albumId?.length > 0 ? (
+                        <NavLink exact to = {`/albums/${song.albumId[0]}`}>
+                        <h4>{albums[song.albumId[0]]?.title}</h4>
+                        </NavLink> 
+                    ):(
+                        <h4>--</h4>
+                    )
+                    }
                     <button onClick={(e) => handleDeleteSongFromPL(song, index)} className={sessionUser?.id === playlist?.userId ? "":"hidden"}>
                         Remove song
                     </button>
                 </div>
                 ))}
+            </div>
             </div>
         </div>
     )

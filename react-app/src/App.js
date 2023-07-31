@@ -7,8 +7,11 @@ import HomeBar from "./components/HomeBar";
 import SideBar from "./components/SideBar";
 import UploadSongPage from "./components/UploadSongPage";
 import HomePage from "./components/HomePage";
+import AlbumsPage from "./components/AlbumsPage";
+import SingleAlbum from "./components/SingleAlbum";
+import UploadAlbumPage from "./components/UploadAlbumPage";
 import AllSongsPage from "./components/AllSongsPage";
-import UserUploadedSongList from "./components/UserUploadedSongList";
+import UserUploadedList from "./components/UserUploadedList";
 import SinglePlaylist from "./components/SinglePlaylist";
 import AudioBar from "./components/AudioBar";
 
@@ -33,11 +36,23 @@ function App() {
       
         <div className="rightContainer">
           <div className="bodyContainer">
-            <Navigation isLoaded={isLoaded} />
+            <div className="navContainer">
+              <Navigation isLoaded={isLoaded} />
+            </div>
+            <div className="infoContainer">
             {isLoaded && (
             <Switch>
               <Route exact path = "/" >
                 <HomePage />
+              </Route>
+              <Route exact path = "/albums" >
+                <AlbumsPage />
+              </Route>
+              <Route exact path = "/albums/new">
+                <UploadAlbumPage />
+              </Route>
+              <Route exact path = "/albums/:albumId" >
+                <SingleAlbum />
               </Route>
               <Route exact path = "/songs" >
                 <AllSongsPage />
@@ -49,13 +64,14 @@ function App() {
                 <SinglePlaylist />
               </Route>
               <Route exact path = "/uploaded-songs" >
-                <UserUploadedSongList />
+                <UserUploadedList />
               </Route>
               <Route>
                 <h1>Page Not Found</h1>
               </Route>
             </Switch>
             )}
+            </div>
           </div>
         </div>
       </div>

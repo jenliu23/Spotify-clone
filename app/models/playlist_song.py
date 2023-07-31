@@ -24,6 +24,7 @@ class Playlist_Song(db.Model):
             "title": self.song.to_dict()["title"],
             "artist": self.song.to_dict()["artist"],
             "songUrl": self.song.to_dict()["songUrl"],
+            "albumId": self.song.to_dict()["albumId"],
             "createdAt": self.createdAt,
             "updatedAt": self.updatedAt
        }

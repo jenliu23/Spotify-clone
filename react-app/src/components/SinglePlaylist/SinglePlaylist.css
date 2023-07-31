@@ -1,16 +1,16 @@
 .single-playlist-container {
-    padding: 20px 10px 30px 10px;
+    padding: 20px 10px 10px 10px;
 }
 
 .single-playlist-container-info {
-    /* position: absolute; */
-    width: 100%;
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 1.3fr 5fr 1fr;
-    gap: 10px;
+    /* display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    gap: 10px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     padding-bottom: 15px;
-    border-bottom: rgb(83, 83, 83) 1.5px solid;
+    border-bottom: white 1px dotted;
 }
 
 .single-playlist-container-info button {
@@ -24,7 +24,17 @@
     }
 }
 
+.single-playlist-container-info h4 {
+    color: rgb(222, 222, 222);
+}
+
 .single-playlist-container-info div {
+    /* width: 50%; */
+    display: flex;
+    flex-direction: row;
+}
+
+.single-playlist-container-info div ul {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -32,14 +42,47 @@
 }
 
 .single-playlist-container-info div h1 {
-    /* width: 900px; */
-    font-size: 3.5vw;
+    width: 880px;
+    font-size: 4vw;
     word-wrap: break-word;
     padding-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media screen and (max-width: 1900px) {
+        width: 880px;
+    }
+    @media screen and (max-width: 1800px) {
+        width: 800px;
+    }
+    @media screen and (max-width: 1700px) {
+        width: 720px;
+    }
+    @media screen and (max-width: 1600px) {
+        width: 645px;
+    }
+    @media screen and (max-width: 1500px) {
+        width: 605px;
+    }
+    @media screen and (max-width: 1450px) {
+        width: 565px;
+    }
+    @media screen and (max-width: 1400px) {
+        width: 485px;
+    }
+    @media screen and (max-width: 1300px) {
+        width: 405px;
+    }
+    @media screen and (max-width: 1200px) {
+        width: 270px;
+    }
+    @media screen and (max-width: 1024px) {
+        width: 250px;
+    }
 }
 
 .single-playlist-container-info img {
-    width: 100%;
+    width: 250px;
     padding: 10px 10px 10px 0;
 }
 
@@ -48,7 +91,7 @@
     flex-direction: column;
     justify-content: flex-end;
     padding: 10px 10px 10px 30px;
-    gap: 10px;
+    gap: 20px;
 }
 
 .delete-modal {
@@ -106,8 +149,8 @@
 
 .playlist-song-list-details {
     padding-top: 10px;
-    height: 300px;
-    margin-right: 20px;
+    /* height: 300px; */
+    /* margin-right: 20px; */
 }
 
 .playlist-song-list-details button {
@@ -119,21 +162,31 @@
     }
 }
 
-.playlist-button {
-    height: 50px;
-    padding: 20px 0 5px 0;
-    /* border-bottom: rgb(83, 83, 83) 1.5px solid; */
+.playlist-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    padding: 20px 0 20px 0;
 }
 
-.playlist-button button {
-    position: fixed;
-    /* border-radius: 50%; */
-    /* background-color: rgb(29,185,84); */
+.favIcon button {
     border: none;
     background-color: transparent;
+    :hover {
+        transform: scale(1.02);
+    }
 }
 
-.playlist-button i {
-    font-size: 40px;
+.play-button button {
+    border: none;
+    background-color: transparent;
+    :hover {
+        transform: scale(1.05);
+    }
+}
+
+.play-button i {
+    font-size: 49px;
     color: rgb(29,185,84);
 }

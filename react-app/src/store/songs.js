@@ -2,7 +2,9 @@
 const GET_SONGS = "songs/GET_SONGS"
 const CREATE_SONG = "songs/CREATE_SONG"
 const UPDATE_SONG = "songs/UPDATE_SONG"
-const REMOVE_SONG ="songs/REMOVE_SONG"
+const REMOVE_SONG = "songs/REMOVE_SONG"
+const UPDATE_ALBUM_SONG = "songs/UPDATE_ALBUM_SONG"
+const UPDATE_ALBUM_SONG_ADD = "songs/UPDATE_ALBUM_SONG_ADD"
 
 // Action creator
 const getSongs = (songs) => ({
@@ -21,6 +23,15 @@ const removeSong = (song) => ({
     type: REMOVE_SONG,
     song
 })
+export const updateAlbumSong = (songId) => ({
+    type: UPDATE_ALBUM_SONG,
+    songId
+})
+export const updateAlbumSongAdd = (songId, albumId) => ({
+    type: UPDATE_ALBUM_SONG_ADD,
+    songId,
+    albumId
+})
 
 //Thunk Action Creators
 export const fetchSongs = () => async (dispatch) => {
@@ -34,9 +45,6 @@ export const fetchSongs = () => async (dispatch) => {
 }
 
 export const uploadSong = (formData) => async (dispatch) => {
-    // for (let key of formData.entries()) {
-    //     console.log(".....", key[0] + ' ----> ' + key[1])
-    // }
     const res = await fetch('/api/songs/new', {
         method: "POST",
         body: formData
@@ -94,6 +102,16 @@ const songsReducer = (state = initialState, action) => {
         case REMOVE_SONG: {
             let newState = {...state}
             delete newState[action.song.id]
+            return newState
+        }
+        case UPDATE_ALBUM_SONG: {
+            let newState = {...state}
+            newState[action.songId].albumId = []
+            return newState
+        }
+        case UPDATE_ALBUM_SONG_ADD: {
+            let newState = {...state}
+            newState[action.songId].albumId = [action.albumId]
             return newState
         }
         default:

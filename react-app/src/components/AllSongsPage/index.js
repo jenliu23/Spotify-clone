@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSongs } from "../../store/songs";
+import { fetchAlbums } from "../../store/albums";
 import SongList from "../SongList";
+
 
 const AllSongsPage = () => {
     const dispatch = useDispatch();
@@ -9,6 +11,7 @@ const AllSongsPage = () => {
 
     useEffect(() => {
       dispatch(fetchSongs());
+      dispatch(fetchAlbums())
     }, [dispatch]);
   
     return (
