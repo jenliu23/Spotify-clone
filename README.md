@@ -56,17 +56,23 @@ The live site could be accessed through link: https://song-percent.onrender.com
 
 
 ## Features
-### Users
-   - All users can
-     - view/listen to all the playlists and songs
-     - create a new account
-   - Logged-in users can
-     - upload/edit/delete their own songs
-     - create/edit/delete their own playlists
-     - add/remove songs to/from their own playlists
-
 ### Songs
-  - 
-
+  - All users can
+    - view/listen to all the songs
+  - Logged-in users can
+    - upload/edit/delete their own songs
 ### Playlists
-  -
+  - All users can
+    - view/listen to all the playlists
+  - Logged-in users can
+    - create/edit/delete their own playlists
+    - add/remove songs to/from their own playlists
+### Albums
+  - All users can
+    - view/listen to all the albums
+  - Logged-in users can
+    - create/edit/delete their own albums
+    - add/remove their uploaded songs to/from their own albums
+### Favorites
+  - Logged-in users can
+    - add/remove favorite songs/playlists/albums to/from their list

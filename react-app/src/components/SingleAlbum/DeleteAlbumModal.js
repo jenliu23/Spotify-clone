@@ -23,7 +23,7 @@ const DeleteAlbumModal = ({album}) => {
                         
         return dispatch(deleteAlbum(album.id))
             .then(closeModal())
-            .then(history.push('/albums'))
+            // .then(history.push('/albums'))
     }
   
     const handleSubmitno = async (e) => {

@@ -147,6 +147,20 @@
     }
 }
 
+.playlist-song-list-intro {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 0.5fr 5fr 5fr 1fr 2fr 2fr;
+    align-items: center;
+    padding: 0 20px 0 20px;
+    border-bottom: rgb(179, 179, 179) 1px solid;
+}
+
+.playlist-song-list-intro h3 {
+    justify-self: flex-end;
+    color: rgb(179, 179, 179);
+}
+
 .playlist-song-list-details {
     padding-top: 10px;
     /* height: 300px; */
@@ -159,6 +173,28 @@
     color: rgb(179, 179, 179);
     &:hover {
         color: white;
+    }
+    padding: 5px;
+}
+
+.playlist-song-list-each {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 0.5fr 5fr 5fr 1fr 2fr 2fr;
+    align-items: center;
+    padding: 2px 20px 2px 20px;
+    border-radius: 5px 5px;
+}
+
+.playlist-song-list-each:hover {
+    background-color: rgb(83, 83, 83);
+    cursor: default;
+    & .fa-play {
+        display: block;
+        color: green;
+    }
+    & h3 {
+        display: none;
     }
 }
 

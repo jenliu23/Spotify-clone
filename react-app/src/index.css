@@ -1,22 +1,18 @@
 /* TODO Add site wide styles */
 * {
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     color: white;
     font-family: 'Hind Siliguri', sans-serif;
-    padding: 0;
-    margin: 0;
 }
 
-html {
-    padding: 0px;
-    margin: 0px;
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     height: 100%;
     background-color: black;
-}
-
-body {
-    height: 100%;
-    border: 1px rebeccapurple solid;
 }
 
 button:disabled {
@@ -50,30 +46,39 @@ a:hover, button:hover {
 #root {
     width: 100%;
     height: 100%;
+    overflow: hidden;
     display: grid;
-    grid-auto-flow: column;
     grid-template-rows: 7.5fr 1fr;
     position: relative;
 }
 
 .mainContainer {
-    display: grid;
-    grid-auto-flow: row;
-    grid-template-columns: 1fr 3.7fr;
-    /* width: 100%; */
+    width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3.7fr;
     gap: 10px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .bottom-container {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.bottom-container > div {
     width: 100%;
     height: 100%;
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid yellow; */
 }
 
 .leftContainer {
@@ -81,14 +86,14 @@ a:hover, button:hover {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 .rightContainer {
     /* width: 100%; */
     display: flex;
     flex-direction: column;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 .headerContainer {
@@ -149,52 +154,6 @@ a:hover, button:hover {
 
 
 
-
-
 #modal-content {
     background-color: transparent;
-}
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
 }

@@ -1,32 +1,38 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, NavLink } from 'react-router-dom';
 import OpenModalButton from "../OpenModalButton";
 import AudioPlayer from "../AudioPlayer";
-import { fetchAlbums } from "../../store/albums";
-import EditAlbumModal from "./EditAlbumModal";
-import DeleteAlbumModal from "./DeleteAlbumModal";
+import { fetchSongs } from "../../store/songs";
 import FavoriteIcon from "../FavoriteIcon";
-import { editCurrentPlayer } from "../../store/player";
 import AddSongToPLModal from "../AllSongsPage/AddSongToPLModal";
+import { editCurrentPlayer } from "../../store/player";
 import LoginFormModal from "../LoginFormModal";
-import "./SingleAlbum.css"
 
-const SingleAlbum = () => {
+
+const LikedSongsPage = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
-    const { albumId } = useParams();
-    const album = useSelector(state=>state.albums[albumId]);
-
-    let songs
-    if(album && album.songs){
-        songs = Object.values(album.songs);
+    if(!sessionUser){
+        history.push('/')
     }
+    const allSongs = useSelector(state=>state.songs);
+    const likedSongs = sessionUser?.favorite_songs;
+
+    let songs = []
+    if(likedSongs){
+        for(let s of likedSongs){
+            songs.push(allSongs[s])
+        }
+    }
+    
+console.log("what is songs", songs)
     const currentPlayer = useSelector((state) => state.player);
     const current_song = currentPlayer.current_song
     const isPlaying = currentPlayer.isPlaying
     const index = currentPlayer.index
-    const songlist_type = "ALBUM" + albumId;
+    const songlist_type = "Liked Songs";
 
     const playOrPausePL = () => {
         if(isPlaying){
@@ -57,33 +63,22 @@ const SingleAlbum = () => {
     }
 
     useEffect(() => {
-        dispatch(fetchAlbums());
+        dispatch(fetchSongs());
     }, [dispatch]);
 
     return (
         <div className="single-playlist-container">
             <div className="single-playlist-container-info">
                 <div>
-                    <img src={album?.coverImage} alt="cover"/>
+                    <img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/loved-songs.jpeg" alt="cover"/>
                     <ul>
-                        <h3>Album</h3>
-                        <h1>{album?.title}</h1>
-                        <h4>{album?.artist} · {album?.releasedYear} · {songs?.length} {songs?.length > 1 ? "songs":"song"}</h4>
+                        <h3>Playlist</h3>
+                        <h1>Liked Songs</h1>
+                        <h4>{sessionUser?.username} · {songs?.length} {songs?.length > 1 ? "songs":"song"}</h4>
                     </ul>
                 </div>
-                {sessionUser && album?.userId === sessionUser.id && (
-                <section>
-                    <OpenModalButton
-                        buttonText="＋ Edit details"
-                        modalComponent={<EditAlbumModal album={album}/>}
-                    />
-                    <OpenModalButton
-                        buttonText="－ Delete album"
-                        modalComponent={<DeleteAlbumModal album={album}/>}
-                    />
-                </section>
-                )}
             </div>
+
             <div className="playlist-buttons">
                 <div className="play-button">
                     <button onClick={playOrPausePL}>
@@ -94,13 +89,6 @@ const SingleAlbum = () => {
                     )}      
                     </button>
                 </div>
-                <div className="favIcon">
-                    <FavoriteIcon 
-                        sessionUser={sessionUser} 
-                        listId={parseInt(albumId)} 
-                        favType={"favorite_albums"}
-                    />
-                </div>
             </div>
             
             <div className="album-song-list-scroll">
@@ -108,24 +96,24 @@ const SingleAlbum = () => {
                     <h4><i className="fa-solid fa-headphones fa-sm"></i></h4>
                     <h4>Title</h4>
                     <h4></h4>
-                    <h3>＋</h3>
+                    {/* <h3>＋</h3> */}
                 </div>
                 <div className="song-list-details playlist-song-list-details album-song-list-details">
                     {songs?.map((song, index) => (
-                    <div key={song.songId} className="album-song-list-each">
+                    <div key={song?.songId} className="album-song-list-each">
                         <AudioPlayer song={song} songs={songs} index={index} songlist_type={songlist_type} />
                         <section>
-                            <h4>{song.title}</h4>
-                            <h5>{song.artist}</h5>
+                            <h4>{song?.title}</h4>
+                            <h5>{song?.artist}</h5>
                         </section>
-                        <div className="favIcon-songlist">
+                        {/* <div className="favIcon-songlist">
                             <FavoriteIcon                         
                                 sessionUser={sessionUser} 
                                 listId={song.songId} 
                                 favType={"favorite_songs"}
                             />
-                        </div>
-                        {sessionUser? (
+                        </div> */}
+                        {/* {sessionUser? (
                         <div className="add-to-playlist-btn green-info">
                             <OpenModalButton
                                 buttonText="＋ Add to playlist"
@@ -139,7 +127,7 @@ const SingleAlbum = () => {
                                 modalComponent={<LoginFormModal />}
                             />
                         </div>
-                        )}
+                        )} */}
                     </div>
                     ))}
                 </div>
@@ -148,4 +136,4 @@ const SingleAlbum = () => {
     )
 }
 
-export default SingleAlbum
+export default LikedSongsPage

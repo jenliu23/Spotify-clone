@@ -89,7 +89,7 @@ const SideBar = () => {
             )}
 
             <div className="sidebar-playlists">
-                <NavLink exact to={`playlists/liked-songs`} className={displayType === "Playlists" && displayAlbum === "no" ? "":"hidden"}>
+                <NavLink exact to={`/playlists/liked-songs`} className={displayType === "Playlists" && displayAlbum === "no" ? "":"hidden"}>
                     <div className="sidebar-single-playlist">
                         <img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/loved-songs.jpeg" alt="cover"/>
                         <div>
