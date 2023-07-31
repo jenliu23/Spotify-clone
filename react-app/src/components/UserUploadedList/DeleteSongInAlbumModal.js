@@ -42,7 +42,7 @@ const DeleteSongInAlbumModal = ({song, album}) => {
             <h4>This will remove song: {song.title} from Album: {album.title}.</h4>
             <div>
                 <button onClick={handleSubmitno} className="nobtn">Cancel</button>
-                <button onClick={handleSubmityes} className="yesbtn">Delete</button>
+                <button onClick={handleSubmityes} className="yesbtn">Remove</button>
             </div>
         </div>
     )

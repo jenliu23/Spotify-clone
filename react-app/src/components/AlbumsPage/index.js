@@ -20,12 +20,12 @@ const AlbumsPage = () => {
                 <h3>All Albums</h3>
             </div>
            
-            <div className="playlists">
+            <div className="playlists albums">
                 {albums?.map((album) => (
                 <div key={album.id} className="single-playlist single-album">
                     <NavLink exact to={`/albums/${album.id}`}>
-                    <div style={{backgroundImage: `url(${album.coverImage})`}}>Album</div>
-                    {/* <img src={album.coverImage} alt="coverImage"/> */}
+                    {/* <div style={{backgroundImage: `url(${album.coverImage})`}}>Album</div> */}
+                    <img src={album.coverImage} alt="coverImage"/>
                     <h4>{album.title}</h4>
                     <h5>{album.releasedYear} · {album.artist}</h5>
                     </NavLink>

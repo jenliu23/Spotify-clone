@@ -228,7 +228,7 @@ const AudioBar = () => {
 
 
     return (
-        <div >
+        <div>
             <audio ref={audioPlayer} src={current_song.songUrl} preload="metadata" onEnded={()=>setIsEnded(true)} onDurationChange={onDurationChangeHandler}></audio>
             <div className="Audio-Bar">
                 <div id="btn1">

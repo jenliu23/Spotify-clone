@@ -1,6 +1,8 @@
 .home-bar {
     display: flex;
     flex-direction: column;
+    gap: 7px;
+    padding: 7px;
 }
 
 .home-bar a:hover {

@@ -6,6 +6,7 @@ import AddSongToPLModal from "./AddSongToPLModal";
 import LoginFormModal from "../LoginFormModal";
 import AudioPlayer from "../AudioPlayer";
 import './SongList.css'
+import FavoriteIcon from "../FavoriteIcon";
 
 const SongList = ({songs}) => {
     const sessionUser = useSelector((state) => state.session.user);
@@ -14,14 +15,16 @@ const SongList = ({songs}) => {
 
     return (
         <div className="song-list">
-            <h3>All Songs</h3>
+            <h3>Song-percent list:</h3>
+            <div className="song-list-scroll">
             <div className="song-list-intro">
                 <h5><i className="fa-solid fa-headphones"></i></h5>
                 <h4>Title</h4>
                 <h4>Artist</h4>
                 <h4>Album</h4>
+                <h4></h4>
                 {/* <button><i className="fa-regular fa-clock fa-lg"></i></button> */}
-                <h3>＋</h3>
+                <h3 className="green-info">＋</h3>
             </div>
             <div className="song-list-details">
             {songs?.map((song, index) => (
@@ -31,21 +34,31 @@ const SongList = ({songs}) => {
                     <h4>{song.artist}</h4>
                     {song.albumId.length > 0 ? (
                         <NavLink exact to = {`/albums/${song.albumId[0]}`}>
-                        <h4>{albums[song.albumId[0]]?.title}</h4>
+                        <div className="album-info">
+                            <img src={albums[song.albumId[0]]?.coverImage} alt="coverImage" width={22} height={22}/>
+                            <h4 className="album-hover">{albums[song.albumId[0]]?.title}</h4>
+                        </div>
                         </NavLink> 
                     ):(
                         <h4>--</h4>
                     )
                     }
+                    <div className="favIcon-songlist">
+                        <FavoriteIcon                         
+                            sessionUser={sessionUser} 
+                            listId={song.songId} 
+                            favType={"favorite_songs"}
+                        />
+                    </div>
                     {sessionUser? (
-                    <div className="add-to-playlist-btn">
+                    <div className="add-to-playlist-btn green-info">
                         <OpenModalButton
                         buttonText="＋ Add to playlist"
                         modalComponent={<AddSongToPLModal song={song}/>}
                         />
                     </div>
                     ) : (
-                    <div className="add-to-playlist-btn">
+                    <div className="add-to-playlist-btn green-info">
                         <OpenModalButton
                         buttonText="＋ Add to playlist"
                         modalComponent={<LoginFormModal />}
@@ -54,6 +67,7 @@ const SongList = ({songs}) => {
                     )}
                 </div>
             ))}
+            </div>
             </div>
         </div>
     )

@@ -36,7 +36,10 @@ function App() {
       
         <div className="rightContainer">
           <div className="bodyContainer">
-            <Navigation isLoaded={isLoaded} />
+            <div className="navContainer">
+              <Navigation isLoaded={isLoaded} />
+            </div>
+            <div className="infoContainer">
             {isLoaded && (
             <Switch>
               <Route exact path = "/" >
@@ -68,6 +71,7 @@ function App() {
               </Route>
             </Switch>
             )}
+            </div>
           </div>
         </div>
       </div>

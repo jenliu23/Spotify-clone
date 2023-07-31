@@ -109,8 +109,46 @@ def seed_album_songs():
         songId=34,
     )
 
+    list26 = Album_Song(
+        albumId=8,
+        songId=36,
+    )
+
+    list27 = Album_Song(
+        albumId=8,
+        songId=37,
+    )
+    list28 = Album_Song(
+        albumId=9,
+        songId=38,
+    )
+
+    list29 = Album_Song(
+        albumId=10,
+        songId=39,
+    )
+
+    list30 = Album_Song(
+        albumId=11,
+        songId=40,
+    )
+    list31 = Album_Song(
+        albumId=11,
+        songId=41,
+    )
+    list32 = Album_Song(
+        albumId=11,
+        songId=42,
+    )
+
+    list33 = Album_Song(
+        albumId=12,
+        songId=43,
+    )
+
     lists = [list1, list2, list3, list4, list5, list6, list7, list8, list9, list10, list11, list12, list13, list14, list15,
-             list16, list17, list18, list19, list20, list21, list22, list23, list24, list25]
+             list16, list17, list18, list19, list20, list21, list22, list23, list24, list25, list26, list27, list28, list29,
+             list30, list31, list32, list33]
     _ = [db.session.add(list) for list in lists]
     db.session.commit()
 

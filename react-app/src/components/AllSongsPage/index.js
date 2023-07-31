@@ -11,6 +11,7 @@ const AllSongsPage = () => {
 
     useEffect(() => {
       dispatch(fetchSongs());
+      dispatch(fetchAlbums())
     }, [dispatch]);
   
     return (

@@ -48,60 +48,58 @@ const UserUploadedList = () => {
     }, [dispatch]);
   
     return (
-        <div className="uploaded-song-list">
-            <div>
+        <div className="uploaded-page">
+            <div className="uploaded-song-list">
                 <h2>Uploaded Songs List :</h2>
-                <div>
-                    <div className="uploaded-song-list-intro">
-                        <h4>#</h4>
-                        <h4>Title</h4>
-                        <h4>Artist</h4>
-                        <h4>Date added</h4>
-                        <h4><i className="fa-solid fa-pen-to-square"></i>Album</h4>
-                        <button><i className="fa-solid fa-pencil fa-lg"></i></button>
-                        <button><i className="fa-solid fa-trash-can fa-lg"></i></button>
-                        {/* <button><i className="fa-solid fa-compact-disc fa-lg"></i></button> */}
-                    </div>
-                    <div className="uploaded-song-list-details">
-                        {userSongs?.map((song, index) => (
-                        <div key={song.id}  className="uploaded-song-list-each">
-                            <h4>{index+1}</h4>
-                            <h4>{song.title}</h4>
-                            <h4>{song.artist}</h4>
-                            
-                            <h4>{song.createdAt.slice(4, 16)}</h4>
-                            {song.albumId?.length > 0 ? (
-                            <OpenModalButton
-                                buttonText={albums[song.albumId[0]]?.title}
-                                modalComponent={<DeleteSongInAlbumModal song={song} album={albums[song.albumId[0]]}/>}
-                            />
-                            ):(
-                            <OpenModalButton
-                                buttonText="--"
-                                modalComponent={<AddSongToAlbumModal song={song} albums={userAlbums}/>}
-                            />
-                            )}
-                            <OpenModalButton
-                                buttonText="Edit"
-                                modalComponent={<EditSongPage song={song}/>}
-                            />
-                            <OpenModalButton
-                                buttonText="Delete"
-                                modalComponent={<DeleteSongModal song={song}/>}
-                            />
-                            
-                        </div>
-                        ))}
-                    </div>
+                <div className="uploaded-song-list-scroll1">
+                <div className="uploaded-song-list-intro">
+                    <h4 className="grey-info">#</h4>
+                    <h4 className="grey-info">Title</h4>
+                    <h4 className="grey-info">Artist</h4>
+                    <h4 className="grey-info">Date added</h4>
+                    <h4 className="green-info"><i className="fa-solid fa-pen-to-square"></i>Album</h4>
+                    <button className="green-info"><i className="fa-solid fa-pencil fa-lg"></i></button>
+                    <button className="green-info"><i className="fa-solid fa-trash-can fa-lg"></i></button>
                 </div>
-            
-            <div>
+                <div className="uploaded-song-list-details">
+                    {userSongs?.map((song, index) => (
+                    <div key={song.id} className="uploaded-song-list-each">
+                        <h4>{index+1}</h4>
+                        <h4>{song.title}</h4>
+                        <h4>{song.artist}</h4>
+                        <h4>{song.createdAt.slice(4, 16)}</h4>
+                        {song.albumId?.length > 0 ? (
+                        <OpenModalButton
+                            buttonText={albums[song.albumId[0]]?.title}
+                            modalComponent={<DeleteSongInAlbumModal song={song} album={albums[song.albumId[0]]}/>}
+                        />
+                        ):(
+                        <OpenModalButton
+                            buttonText="＋"
+                            modalComponent={<AddSongToAlbumModal song={song} albums={userAlbums}/>}
+                        />
+                        )}
+                        <OpenModalButton
+                            buttonText="Edit"
+                            modalComponent={<EditSongPage song={song}/>}
+                        />
+                        <OpenModalButton
+                            buttonText="Delete"
+                            modalComponent={<DeleteSongModal song={song}/>}
+                        />
+                    </div>
+                    ))}
+                </div>
+                </div>
+            </div>
+
+            <div className="uploaded-album-list">
                 <h2>Created Albums List :</h2>
-                {userAlbums?.map((album, index) => (
-                    <div key={album.id}>
-                        <div>
-                            {/* <div style={{backgroundImage: `url(${album.coverImage})`}}>Album</div> */}
-                            <img src={album.coverImage} alt="coverImage" width={200} height={200}/>
+                <div className="uploaded-song-list-scroll1">
+                    {userAlbums?.map((album, index) => (
+                    <div key={album.id} className="uploaded-album-list-each" >
+                        <div className="uploaded-album-list-each-album">
+                            <img src={album.coverImage} alt="coverImage" width={110} height={110}/>
                             <h4>{album.title}</h4>
                             <h5>{album.releasedYear} · {album.artist}</h5>
                             <OpenModalButton
@@ -113,7 +111,7 @@ const UserUploadedList = () => {
                                 modalComponent={<DeleteAlbumModal album={album}/>}
                             />
                         </div>
-                        <div>
+                        <div className="uploaded-album-list-each-songs">
                             {Object.values(album.songs).map((song, index) => (
                                 <div key={song.id}>
                                     <h4>{index+1}</h4>
@@ -123,8 +121,8 @@ const UserUploadedList = () => {
                             ))}
                         </div>
                     </div>
-                ))}
-            </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

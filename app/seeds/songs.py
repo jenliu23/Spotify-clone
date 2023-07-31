@@ -215,10 +215,58 @@ def seed_songs():
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/XG1GRLGVNG.mp3"
     )
     song35 = Song(
-        userId = 3,
+        userId = 1,
         title = "NIGHT DANCER",
         artist = "imase",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/imase1NIGHTDANCER.mp3"
+    )
+    song36 = Song(
+        userId = 6,
+        title = "Can't Control Myself",
+        artist = "Taeyeon",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/TAEYEON1Can'tControlMyself.mp3"
+    )
+    song37 = Song(
+        userId = 6,
+        title = "INVU",
+        artist = "Taeyeon",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/TAEYEON1INVU.mp3"
+    )
+    song38 = Song(
+        userId = 1,
+        title = "Psycho",
+        artist = "Red Velvet",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/RedVelvet1Psycho.mp3"
+    )
+    song39 = Song(
+        userId = 7,
+        title = "アイドル",
+        artist = "Yoasobi",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/YOASOBI%E3%82%A2%E3%82%A4%E3%83%88%E3%82%99%E3%83%AB.mp3"
+    )
+    song40 = Song(
+        userId = 7,
+        title = "ANTIFRAGILE",
+        artist = "LE SSERAFIM",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LESSERAFIMAntifragile.mp3"
+    )
+    song41 = Song(
+        userId = 7,
+        title = "Eve, Psyche & The Bluebeard's wife",
+        artist = "LE SSERAFIM",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LESSERAFIMEve%2CPsyche%26TheBluebeardswife.mp3"
+    )
+    song42 = Song(
+        userId = 7,
+        title = "Impurities",
+        artist = "LE SSERAFIM",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LESSERAFIMImpurities.mp3"
+    )
+    song43 = Song(
+        userId = 7,
+        title = "POP!",
+        artist = "NAYEON",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/NAYEONPOP!.mp3"
     )
     # song1 = Song(
     #     userId = ,
@@ -229,7 +277,8 @@ def seed_songs():
     all_songs = [song1, song2, song3, song4, song5, song6, song7, song8, song9, song10, 
                  song11, song12, song13, song14, song15, song16, song17, song18, song19,
                  song20, song21, song22, song23, song24, song25, song26, song27, song28,
-                 song29, song30, song31, song32, song33, song34, song35]
+                 song29, song30, song31, song32, song33, song34, song35, song36, song37,
+                 song38, song39, song40, song41, song42, song43]
     _ = [db.session.add(song) for song in all_songs]
     db.session.commit()
 

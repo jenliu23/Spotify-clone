@@ -1,9 +1,8 @@
 .sidebar {
     width: 100%;
-    height: 85vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .sidebar-library {
@@ -29,7 +28,7 @@
     display: flex;
     flex-direction: row;
     padding: 10px;
-    gap: 15px;
+    gap: 25px;
 }
 
 .sidebar-playlists {
@@ -37,12 +36,18 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 63vh;
+    height: 57vh;
+    padding: 0 10px 0 10px;
     overflow-y: scroll;
+}
+
+.sidebar-playlists h4 {
+    font-size: 17px;
 }
 
 .sidebar-playlists h5 {
     color: rgb(179, 179, 179);
+    font-size: 15px;
 }
 
 .sidebar-playlists::-webkit-scrollbar {
@@ -64,6 +69,7 @@
 
 .sidebar-single-playlist {
     /* border: 1px black solid; */
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -76,10 +82,42 @@
 }
 
 .sidebar-single-playlist div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding-right: 0;
     gap: 10px;
+}
+
+.sidebar-single-playlist div h4 {
+    width: 230px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media screen and (max-width: 1700px) {
+        width: 210px;
+    }
+    @media screen and (max-width: 1600px) {
+        width: 190px;
+    }
+    @media screen and (max-width: 1500px) {
+        width: 185px;
+    }
+    @media screen and (max-width: 1450px) {
+        width: 175px;
+    }
+    @media screen and (max-width: 1400px) {
+        width: 160px;
+    }
+    @media screen and (max-width: 1300px) {
+        width: 140px;
+    }
+    @media screen and (max-width: 1200px) {
+        width: 110px;
+    }
+    @media screen and (max-width: 1024px) {
+        width: 100px;
+    }
 }
 
 .sidebar-single-playlist img {
@@ -90,6 +128,7 @@
 .sidebar-fornologin {
     width: 88%;
     border-radius: 10px 10px;
+    margin: 10px;
     padding: 15px;
     /* border: white 1px solid; */
     display: flex;
@@ -190,4 +229,9 @@
     &:hover {
         transform: scale(1.05);
     }
+}
+
+.fa-thumbtack {
+    color: greenyellow;
+    padding-right: 2px;
 }

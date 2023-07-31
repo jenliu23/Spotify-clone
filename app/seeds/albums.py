@@ -7,7 +7,7 @@ def seed_albums():
         title = "Beethoven Collection",
         artist = "Beethoven",
         releasedYear = 2021,
-        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/Beethoven.jpeg",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/BEETHOVEN.jpeg",
     )
     album2 = Album(
         userId = 4,
@@ -51,13 +51,48 @@ def seed_albums():
         releasedYear = 2023,
         coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/XG.png",
     )
-
+    album8 = Album(
+        userId = 6,
+        title = "INVU",
+        artist = "Taeyeon",
+        releasedYear = 2019,
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/TaeyeonINVU.jpeg",
+    )
+    album9 = Album(
+        userId = 1,
+        title = "The ReVe Festival: Finale",
+        artist = "Red Velvet",
+        releasedYear = 2019,
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/RedVelvetTheReVeFestivalFinale.png",
+    )
+    album10 = Album(
+        userId = 7,
+        title = "アイドル",
+        artist = "Yoasobi",
+        releasedYear = 2023,
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/Idol.png",
+    )
+    album11 = Album(
+        userId = 7,
+        title = "UNFORGIVEN",
+        artist = "LE SSERAFIM",
+        releasedYear = 2023,
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/LeSserafimUnforgiven.png",
+    )
+    album12 = Album(
+        userId = 7,
+        title = "IM NAYEON",
+        artist = "NAYEON",
+        releasedYear = 2022,
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/albumscover/Nayeon.jpeg",
+    )
     # album = Album(
     #     userId = ,
     #     title = "",
     #     coverImage = "",
     # )
-    all_albums = [album1, album2, album3, album4, album5, album6, album7]
+    all_albums = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10,
+                  album11, album12]
     _ = [db.session.add(album) for album in all_albums]
     db.session.commit()
 

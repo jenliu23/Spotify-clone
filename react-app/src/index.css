@@ -1,5 +1,6 @@
 /* TODO Add site wide styles */
 * {
+    /* box-sizing: border-box; */
     color: white;
     font-family: 'Hind Siliguri', sans-serif;
     padding: 0;
@@ -7,11 +8,15 @@
 }
 
 html {
+    padding: 0px;
+    margin: 0px;
     height: 100%;
+    background-color: black;
 }
 
 body {
     height: 100%;
+    border: 1px rebeccapurple solid;
 }
 
 button:disabled {
@@ -42,83 +47,154 @@ a:hover, button:hover {
     cursor: pointer;
 }
 
+#root {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 7.5fr 1fr;
+    position: relative;
+}
+
 .mainContainer {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 3.7fr;
+    /* width: 100%; */
+    height: 100%;
+    gap: 10px;
+    border: 1px solid red;
+}
+
+.bottom-container {
     display: flex;
-    flex-direction: row;
-    /* height: 58rem; */
-    height: 100vh;
-    /* justify-items: center; */
-    /* align-items: center; */
-    gap: 8px;
-    background-color: rgb(18, 18, 18);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
 }
 
 .leftContainer {
-    width: 20%;
-    /* height: 771px; */
-    height: 90vh;
+    /* width: 100%; */
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 10px 0 10px 10px;
+    border: 1px solid blue;
+}
+
+.rightContainer {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid blue;
 }
 
 .headerContainer {
-    /* width: 100%; */
-    height: 6rem;
+    width: calc(100% - 10px);
+    height: 16%;
     border: black 1px solid;
     border-radius: 10px 10px;
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    margin: 10px 0 0 10px;
     background-color: rgb(33, 33, 33);
 }
 
 .barContainer {
-    /* height: 700px; */
-    height: 90vh;
+    width: calc(100% - 10px);
+    height: 84%;
     border: black 1px solid;
     border-radius: 10px 10px;
-    padding: 10px 0 10px 10px;
+    margin: 0 0 0 10px;
     background-color: rgb(33, 33, 33);
 }
 
-.rightContainer {
-    width: 80%;
-    /* height: 700px; */
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px 10px 10px 0;
-}
-
 .bodyContainer {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
     border-radius: 10px 10px;
-    padding: 10px 10px 10px 20px;
-    height: 90vh;
-    /* background-color: rgb(33, 33, 33); */
+    margin: 10px 10px 0 0;
+    height: 100%;
     background: linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%);
 }
 
-#root {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+.navContainer {
+    height: 5%;
+    padding: 10px 20px 0 20px;
 }
 
-.bottom-container {
-    background-color: rgb(18, 18, 18);
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    height: 90px;
-    width: 100%;
+.infoContainer {
+    /* display: inline-block; */
+    height: 95%;
+    padding: 10px 20px 0 20px;;
+    overflow-y:scroll;
 }
+
+.infoContainer::-webkit-scrollbar {
+    width: 7px;
+}
+
+.infoContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.infoContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(83, 83, 83);
+    border-radius: 5px 5px;
+}
+
+.infoContainer::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(179, 179, 179);
+}
+
+
+
+
 
 #modal-content {
     background-color: transparent;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }

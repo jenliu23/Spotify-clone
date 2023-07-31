@@ -1,21 +1,47 @@
+.green-info {
+    color: greenyellow;
+    justify-self: flex-end;
+}
+
+.green-info i {
+    color: greenyellow;;
+}
+
+.grey-info {
+    color: rgb(179, 179, 179);
+}
+
+.uploaded-page {
+    height: 99%;
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.uploaded-page h2 {
+    font-size: 22px;
+}
+
 .uploaded-song-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 40px 10px 20px 10px;
-    height: 630px;
+    gap: 10px;
+    outline: rgb(179, 179, 179) solid 2px;
+    outline-offset: 7px;
+    border-radius: 6px 6px;
 }
 
 .uploaded-song-list-intro {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 6fr 3fr 2fr 1.5fr 1fr 1fr;
+    grid-template-columns: 0.5fr 4.5fr 3fr 2fr 3fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     gap: 7px;
-    padding-right: 28px;
-    color: rgb(57, 112, 160);
-    border-bottom: white 1px solid;;
+    padding-right: 12px;
+    border-bottom: white 1px solid;
 }
 
 .uploaded-song-list-intro button {
@@ -29,45 +55,37 @@
 .uploaded-song-list-details {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding-right: 20px;
-    /* height: 630px; */
-    overflow-y:scroll;
-}
-
-.uploaded-song-list-details::-webkit-scrollbar {
-    width: 5px;
-}
-
-.uploaded-song-list-details::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.uploaded-song-list-details::-webkit-scrollbar-thumb {
-    background-color: rgb(83, 83, 83);
-    border-radius: 5px 5px;
-}
-
-.uploaded-song-list-details::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(179, 179, 179);
+    padding-right: 12px;
+    gap: 5px;
 }
 
 .uploaded-song-list-each {
     display: grid;
     grid-auto-flow: row;
-    grid-template-columns: 1fr 6fr 3fr 2fr 1.5fr 1fr 1fr;
+    grid-template-columns: 0.5fr 4.5fr 3fr 2fr 3fr 1fr 1fr;
     justify-content: center;
     align-items: center;
     gap: 7px;
-    color: rgb(57, 112, 160);
-    /* border-bottom: white 1px solid;; */
+    padding: 2.5px 0 2.5px 0;
+}
+
+.uploaded-song-list-each h4 {
+    width: 99%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .uploaded-song-list-each button {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-self: flex-end;
     background-color: transparent;
     font-size: 16px;
     border: none;
-    color: rgb(179, 179, 179);
+    color: greenyellow;  
+    text-decoration: underline;
     &:hover {
         color: white;
         transform: scale(1.05);
@@ -95,4 +113,58 @@
 
 .edit-song-details form button {
     margin-top: 35px;
+}
+
+.uploaded-album-list {
+    outline: rgb(179, 179, 179) solid 2px;
+    outline-offset: 7px;
+    border-radius: 6px 6px;
+}
+
+
+.uploaded-album-list-each {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px white dotted;
+}
+
+.uploaded-album-list-each-album button {
+    background: transparent;
+    border: none;
+    color: greenyellow;
+    text-decoration: underline;
+    padding-right: 5px;
+}
+
+.uploaded-album-list-each-songs div {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr 3fr 3fr;
+    gap: 10px;
+}
+
+.uploaded-song-list-scroll1 {
+    /* height: 100%; */
+    height: 31vh;
+    overflow-y: scroll;
+}
+
+.uploaded-song-list-scroll1::-webkit-scrollbar {
+    width: 5px;
+}
+
+.uploaded-song-list-scroll1::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.uploaded-song-list-scroll1::-webkit-scrollbar-thumb {
+    background-color: rgb(83, 83, 83);
+    border-radius: 5px 5px;
+}
+
+.uploaded-song-list-scroll1::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(179, 179, 179);
 }

@@ -1,0 +1,18 @@
+.favIcon i {
+    font-size: 33px;
+    color: rgb(179, 179, 179);
+}
+
+.favIcon i:hover {
+    color: white;
+}
+
+.green-heart i {
+    color: rgb(29,185,84);
+}
+
+
+.green-heart i:hover {
+    color: rgb(29,185,84);
+    transform: scale(1.1, 1.1);
+}

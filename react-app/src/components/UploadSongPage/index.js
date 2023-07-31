@@ -74,8 +74,8 @@ function UploadSongPage() {
         if(title.trim().length === 0){
             errors.title = "Must enter title"
         }
-        if (title?.length > 50){
-            errors.title = "less than 50 characters"
+        if (title?.length > 30){
+            errors.title = "less than 30 characters"
         }
         if(artist.trim().length === 0){
             errors.artist = "Must enter artist"

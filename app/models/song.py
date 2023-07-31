@@ -19,6 +19,8 @@ class Song(db.Model):
     playlist_songs = db.relationship("Playlist_Song", back_populates="song", cascade="all, delete-orphan")
     album_songs = db.relationship("Album_Song", back_populates="song", cascade="all, delete-orphan")
 
+    favorite_songs = db.relationship("Favorite_Song", back_populates="song", cascade="all, delete-orphan")
+
     def to_dict(self):
         return {
             "id": self.id,
