@@ -1,6 +1,9 @@
 .home-bar {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     gap: 7px;
     padding: 7px;
 }
@@ -9,13 +12,13 @@
     transform: scale(1.05);
 }
 
-.home-bar div {
+.home-bar > div {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    gap: 65px;
+    gap: 10px;
 }
+
 
 .developer {
     display: flex;

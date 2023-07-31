@@ -5,6 +5,7 @@ import { useModal } from "../../context/Modal";
 import { editSong } from "../../store/songs";
 import { editCurrentPlayer } from "../../store/player";
 import { addSongToAlbum } from "../../store/albums";
+import OpenModalButton from "../OpenModalButton";
 
 const AddSongToAlbumModal = ({song, albums}) => {
     const dispatch = useDispatch();
@@ -13,17 +14,17 @@ const AddSongToAlbumModal = ({song, albums}) => {
 
     const currentPlayer = useSelector((state) => state.player);
     const songlist_type = currentPlayer.songlist_type
-
-    const [value, setValue] = useState(albums[0]);
-
+console.log("what is albums", albums)
+    const [value, setValue] = useState(albums[0]?.id);
+console.log("what is value", value)
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(songlist_type.slice(5) == value.id){
+        if(songlist_type.slice(5) == value){
             dispatch(editCurrentPlayer("", [], {}, NaN, false, "delete playlist"))
         }
                         
-        return dispatch(addSongToAlbum(song.songId, value.id))
+        return dispatch(addSongToAlbum(song.songId, value))
             .then(closeModal())
     }
    
@@ -52,8 +53,8 @@ const AddSongToAlbumModal = ({song, albums}) => {
                 <div className="add-to-song-create-playlist">
                     <h3>Please create an album first</h3>
                     {/* <OpenModalButton
-                    buttonText="＋ Create playlist"
-                    modalComponent={<CreatePlaylist />}
+                    buttonText="＋ Create album"
+                    modalComponent={<CreateA />}
                     /> */}
                 </div>
                 )}

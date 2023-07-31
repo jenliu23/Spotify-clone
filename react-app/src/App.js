@@ -13,6 +13,7 @@ import UploadAlbumPage from "./components/UploadAlbumPage";
 import AllSongsPage from "./components/AllSongsPage";
 import UserUploadedList from "./components/UserUploadedList";
 import SinglePlaylist from "./components/SinglePlaylist";
+import LikedSongsPage from "./components/LikedSongsPage";
 import AudioBar from "./components/AudioBar";
 
 function App() {
@@ -59,6 +60,9 @@ function App() {
               </Route>
               <Route exact path = "/songs/new" >
                 <UploadSongPage />
+              </Route>
+              <Route exact path = "/playlists/liked-songs" >
+                <LikedSongsPage />
               </Route>
               <Route exact path = "/playlists/:playlistId" >
                 <SinglePlaylist />

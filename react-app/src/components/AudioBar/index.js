@@ -48,6 +48,8 @@ const AudioBar = () => {
         playlistImgSrc = albums[albumNumber]?.coverImage
         playlistTitle = albums[albumNumber]?.title
         playlistLink = `/albums/${albumNumber}`
+    }else if(songlist_type && songlist_type.startsWith("Liked Songs")){
+        playlistImgSrc = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/loved-songs.jpeg"
     }
     
     const playORpause = () => {

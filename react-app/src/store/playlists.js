@@ -79,7 +79,7 @@ export const deletePlaylist = (playlistId) => async (dispatch) => {
 
 
 export const addSongToPL = (song, playlistId) => async (dispatch) => {
-    const res = await fetch(`/api/playlists/${playlistId}/songs/new/${song.id}`, {
+    const res = await fetch(`/api/playlists/${playlistId}/songs/new/${song.songId}`, {
         method:'PUT',
         headers:{ "Content-Type" : 'application/json' },
         // body: JSON.stringify(song)
