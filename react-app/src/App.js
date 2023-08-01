@@ -15,6 +15,7 @@ import UserUploadedList from "./components/UserUploadedList";
 import SinglePlaylist from "./components/SinglePlaylist";
 import LikedSongsPage from "./components/LikedSongsPage";
 import AudioBar from "./components/AudioBar";
+import NotFoundPage from "./components/404Page";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,7 +72,7 @@ function App() {
                 <UserUploadedList />
               </Route>
               <Route>
-                <h1>Page Not Found</h1>
+                <NotFoundPage />
               </Route>
             </Switch>
             )}

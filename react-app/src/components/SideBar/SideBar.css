@@ -10,7 +10,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    padding: 10px 15px 10px 15px;
 }
 
 .sidebar-library button {
@@ -27,8 +27,30 @@
 .sidebar-title {
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding: 10px;
-    gap: 25px;
+    gap: 14px;
+}
+
+.sidebar-button {
+    background-color: rgb(53, 53, 53);
+    padding: 3px 10px 3px 10px;
+    border: none;
+    border-radius: 25px 25px;
+}
+
+.sidebar-button:hover {
+    background-color: rgb(83, 83, 83);
+}
+
+.sidebar-button-ON {
+    background-color: white;
+    padding: 3px 10px 3px 10px;
+    border: none;
+    border-radius: 25px 25px;
+    & h3 {
+        color: black;
+    }
 }
 
 .sidebar-playlists {
@@ -78,6 +100,7 @@
     &:hover {
         background-color: rgb(43, 43, 43);
         cursor: pointer;
+        border-radius: 5px 5px;
     }
 }
 
