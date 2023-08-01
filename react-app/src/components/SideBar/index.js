@@ -21,7 +21,7 @@ const SideBar = () => {
     const reversedPlaylists = playlists.reverse();
 
     const [ displayType, setDisplayType ] = useState("Playlists");
-    const [ displayAlbum, setDisplayAlbum ] = useState("no");
+    // const [ displayAlbum, setDisplayAlbum ] = useState("no");
 
     let currentUserPlaylists = []
     for (let playlist of reversedPlaylists){
@@ -44,7 +44,7 @@ const SideBar = () => {
     }
     
     let displayed;
-    if(displayAlbum === "ALBUM"){
+    if(displayType === "ALBUM"){
         displayed = currentUserFavAlbums
     }else if(displayType === "Playlists"){
         displayed = currentUserFavPlaylists
@@ -52,14 +52,6 @@ const SideBar = () => {
         displayed = currentUserPlaylists
     }
     
-    const handlePLType = () => {
-        setDisplayAlbum("no")
-        if(displayType === "Playlists"){
-            setDisplayType("PlaylistsByU")
-        }else{
-            setDisplayType("Playlists")
-        }
-    }
 
     useEffect(() => {
         dispatch(fetchPlaylists());
@@ -79,8 +71,15 @@ const SideBar = () => {
             </div>
             {currentUserPlaylists.length > 0 ? (
             <div className="sidebar-title">
-                <h3 onClick={handlePLType}>{displayType}</h3>
-                <h3 onClick={()=>setDisplayAlbum("ALBUM")}>Albums</h3>
+                <button className={displayType === "Playlists"? "sidebar-button-ON":"sidebar-button"}>
+                    <h3 onClick={()=>setDisplayType("Playlists")}>Playlists</h3>
+                </button>
+                <button className={displayType === "PlaylistsByU" ? "sidebar-button-ON":"sidebar-button"}>
+                    <h3 onClick={()=>setDisplayType("PlaylistsByU")}>Playlists byU</h3>
+                </button>
+                <button className={displayType === "ALBUM" ? "sidebar-button-ON":"sidebar-button"}>
+                    <h3 onClick={()=>{setDisplayType("ALBUM")}}>Albums</h3>
+                </button>
             </div>    
             ):(
             <div className="sidebar-title">
@@ -89,7 +88,7 @@ const SideBar = () => {
             )}
 
             <div className="sidebar-playlists">
-                <NavLink exact to={`/playlists/liked-songs`} className={displayType === "Playlists" && displayAlbum === "no" ? "":"hidden"}>
+                <NavLink exact to={`/playlists/liked-songs`} className={displayType === "Playlists" ? "":"hidden"}>
                     <div className="sidebar-single-playlist">
                         <img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/loved-songs.jpeg" alt="cover"/>
                         <div>
@@ -99,7 +98,7 @@ const SideBar = () => {
                     </div>
                 </NavLink>
                 {displayed?.map((playlist) => (
-                <NavLink exact to={`/${displayAlbum === "ALBUM" ? "albums":"playlists"}/${playlist?.id}`} key={playlist?.id} >
+                <NavLink exact to={`/${displayType === "ALBUM" ? "albums":"playlists"}/${playlist?.id}`} key={playlist?.id} >
                     <div className="sidebar-single-playlist">
                         <img src={playlist?.coverImage} alt="cover"/>
                         <div>
