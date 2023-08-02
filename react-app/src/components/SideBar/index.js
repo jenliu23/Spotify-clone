@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { fetchPlaylists } from "../../store/playlists";
+import { fetchAlbums } from "../../store/albums";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import CreatePlaylist from "./CreatePlaylist";
@@ -55,6 +56,7 @@ const SideBar = () => {
 
     useEffect(() => {
         dispatch(fetchPlaylists());
+        dispatch(fetchAlbums());
     }, [dispatch]);
 
 
@@ -103,7 +105,12 @@ const SideBar = () => {
                         <img src={playlist?.coverImage} alt="cover"/>
                         <div>
                             <h4>{playlist?.title}</h4>
-                            <h5>Playlist . {playlist?.username}</h5>
+                            {displayType === "ALBUM" ? (
+                                <h5>Album . {playlist?.artist}</h5>
+                            ):(
+                                <h5>Playlist . {playlist?.username}</h5>
+                            )}
+                            
                         </div>
                     </div>
                 </NavLink>
