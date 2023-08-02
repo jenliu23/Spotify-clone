@@ -27,7 +27,6 @@ const LikedSongsPage = () => {
         }
     }
     
-console.log("what is songs", songs)
     const currentPlayer = useSelector((state) => state.player);
     const current_song = currentPlayer.current_song
     const isPlaying = currentPlayer.isPlaying
@@ -67,7 +66,7 @@ console.log("what is songs", songs)
     }, [dispatch]);
 
     return (
-        <div className="single-playlist-container">
+        <div className="single-playlist-container playlist-background-purple">
             <div className="single-playlist-container-info">
                 <div>
                     <img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/loved-songs.jpeg" alt="cover"/>

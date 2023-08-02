@@ -65,7 +65,7 @@ function UploadSongPage() {
                 setSongUrlLoading("Loading . . . . . .")
             }, 6600))
             .then(setTimeout(() => {
-                history.push('/uploaded-songs')
+                history.push('/uploads')
             }, 7500))
     };
 
