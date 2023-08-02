@@ -19,7 +19,7 @@ function Navigation({ isLoaded }){
 				<NavLink exact to="/songs"><i className="fa-solid fa-music fa-sm"></i> All Songs</NavLink>
 			</li>
 			<li className={sessionUser? "nav-bar-icon":"hidden nav-bar-icon"}>
-              	<NavLink to="/uploaded-songs"><i className="fa-solid fa-cloud-arrow-up"></i> Your Uploads</NavLink>
+              	<NavLink to="/uploads"><i className="fa-solid fa-cloud-arrow-up"></i> Your Uploads</NavLink>
             </li>
 			{isLoaded && (
 			<li>

@@ -34,22 +34,22 @@ function UploadAlbumPage() {
             .then(setSongUrlLoading("Loading ."))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . .")
-            }, 600))
+            }, 500))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . .")
-            }, 1200))
+            }, 1000))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . . .")
-            }, 1800))
+            }, 1500))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . . . .")
-            }, 2400))
+            }, 2000))
             .then(setTimeout(() => {
                 setSongUrlLoading("Loading . . . . . .")
-            }, 3000))
+            }, 2500))
             .then(setTimeout(() => {
-                history.push('/uploaded-songs')
-            }, 3500))
+                history.push('/uploads')
+            }, 2700))
     };
 
     useEffect(() => {
@@ -66,12 +66,15 @@ function UploadAlbumPage() {
         if (artist?.length > 20){
             errors.artist = "less than 20 characters"
         }
+        if (releasedYear > 2024 || releasedYear < 0 || isNaN(releasedYear) ){
+            errors.releasedYear = "invalid released year"
+        }
         setErrors(errors);
         // for (let key of formData.entries()) {
         //     console.log(key[0] + ' ----> ' + key[1])
         // }
         // setSongUrlLoading(true);
-    },[title, artist])
+    },[title, artist, releasedYear])
     
     return (
         <div className="upload-song-page">

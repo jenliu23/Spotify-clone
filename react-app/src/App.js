@@ -68,7 +68,7 @@ function App() {
               <Route exact path = "/playlists/:playlistId" >
                 <SinglePlaylist />
               </Route>
-              <Route exact path = "/uploaded-songs" >
+              <Route exact path = "/uploads" >
                 <UserUploadedList />
               </Route>
               <Route>
