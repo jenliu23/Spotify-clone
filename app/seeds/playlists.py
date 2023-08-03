@@ -72,6 +72,26 @@ def seed_playlists():
         title = "Just relax",
         coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_pink-or-blue.jpg",
     )
+    playlist15 = Playlist(
+        userId = 1,
+        title = "Energy Booster",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_workout.jpg",
+    )
+    playlist16 = Playlist(
+        userId = 2,
+        title = ">_<",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_balloon.jpg",
+    )
+    playlist17 = Playlist(
+        userId = 4,
+        title = "TTESTTESTT",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_default.png",
+    )
+    playlist18 = Playlist(
+        userId = 6,
+        title = "Today's pick",
+        coverImage = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_smile.jpg",
+    )
 
     # playlist = Playlist(
     #     userId = ,
@@ -79,7 +99,8 @@ def seed_playlists():
     #     coverImage = "",
     # )
     all_playlists = [playlist1, playlist2, playlist3, playlist4, playlist5, playlist6, playlist7, 
-                     playlist8, playlist9, playlist10, playlist11, playlist12, playlist13, playlist14]
+                     playlist8, playlist9, playlist10, playlist11, playlist12, playlist13, playlist14,
+                     playlist15, playlist16, playlist17, playlist18]
     _ = [db.session.add(playlist) for playlist in all_playlists]
     db.session.commit()
 

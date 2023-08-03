@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import "./HomePage.css"
 
 const HomePage = () => {
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const currentDate = new Date()
