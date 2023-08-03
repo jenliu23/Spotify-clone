@@ -50,6 +50,11 @@ const EditPlaylistModal = ({playlist}) => {
 
                 <form onSubmit={handleSubmit}>
                     <div>
+                        <ul>
+                        <section>
+                            <h3>Title</h3>
+                            <div className="errors">* {errors}</div>
+                        </section>
                         <label>
                             <input
                             type="text"
@@ -59,7 +64,7 @@ const EditPlaylistModal = ({playlist}) => {
                             required
                             />
                         </label>
-                        <div className="errors">{errors}</div>
+                        </ul>
                         <label>Choose a theme
                             <select 
                             id="coverImage"
@@ -74,11 +79,20 @@ const EditPlaylistModal = ({playlist}) => {
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_smile.jpg">
                                 --smile--
                             </option>
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_piano.jpeg">
+                                --piano--
+                            </option>
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_lofi-study.jpg">
+                                --study--
+                            </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_sleep.jpg">
                                 --sleep--
                             </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_chaos.jpeg">
                                 --chaos--
+                            </option>
+                            <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistcover_winter.png">
+                                --winter--
                             </option>
                             <option value="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/playlistscover/playlistscover_spring.jpg">
                                 --spring--

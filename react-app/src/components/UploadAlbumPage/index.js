@@ -66,6 +66,9 @@ function UploadAlbumPage() {
         if (artist?.length > 20){
             errors.artist = "less than 20 characters"
         }
+        if(!releasedYear){
+            errors.releasedYear = "Must enter released year"
+        }
         if (releasedYear > 2024 || releasedYear < 0 || isNaN(releasedYear) ){
             errors.releasedYear = "invalid released year"
         }
@@ -76,6 +79,8 @@ function UploadAlbumPage() {
         // setSongUrlLoading(true);
     },[title, artist, releasedYear])
     
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
+
     return (
         <div className="upload-song-page">
             <h1>Create Album</h1>

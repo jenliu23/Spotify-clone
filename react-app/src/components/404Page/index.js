@@ -5,6 +5,7 @@ import { fetchAlbums } from "../../store/albums";
 import './404Page.css'
 
 const NotFoundPage = () => {
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
     const dispatch = useDispatch();
     const history = useHistory();
 

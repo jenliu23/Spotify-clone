@@ -71,7 +71,7 @@ const SideBar = () => {
                     modalComponent={<CreatePlaylist />}
                 />
             </div>
-            {currentUserPlaylists.length > 0 ? (
+
             <div className="sidebar-title">
                 <button className={displayType === "Playlists"? "sidebar-button-ON":"sidebar-button"}>
                     <h3 onClick={()=>setDisplayType("Playlists")}>Playlists</h3>
@@ -83,11 +83,6 @@ const SideBar = () => {
                     <h3 onClick={()=>{setDisplayType("ALBUM")}}>Albums</h3>
                 </button>
             </div>    
-            ):(
-            <div className="sidebar-title">
-                <h3>Create your first playlist</h3>
-            </div>  
-            )}
 
             <div className="sidebar-playlists">
                 <NavLink exact to={`/playlists/liked-songs`} className={displayType === "Playlists" ? "":"hidden"}>

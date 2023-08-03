@@ -14,8 +14,16 @@ def seed_favorite_playlists():
         userId=2,
         playlistId=4,
     )
+    list4 = Favorite_Playlist(
+        userId=1,
+        playlistId=5,
+    )
+    list5 = Favorite_Playlist(
+        userId=3,
+        playlistId=14,
+    )
 
-    lists = [list1, list2, list3]
+    lists = [list1, list2, list3, list4, list5]
     _ = [db.session.add(list) for list in lists]
     db.session.commit()
 

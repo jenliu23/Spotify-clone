@@ -199,13 +199,13 @@
 
 .create-playlist {
     background-color: rgb(33, 33, 33);
-    width: 450px;
-    height: 310px;
+    width: 470px;
+    height: 330px;
     display: flex;
     flex-direction: column;
     padding: 25px;
     border-radius: 10px 10px;
-    gap: 30px;
+    gap: 25px;
 }
 
 
@@ -216,7 +216,7 @@
 }
 
 .create-playlist-info img {
-    width: 45%;
+    width: 47%;
     border-radius: 4px 4px;
 }
 
@@ -227,10 +227,20 @@
     gap: 10px;
 }
 
+.create-playlist form section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    & h3 {
+        font-size: 17px;
+    }
+}
+
 .create-playlist form div {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .create-playlist input {

@@ -60,6 +60,9 @@ const SingleAlbum = () => {
         dispatch(fetchAlbums());
     }, [dispatch]);
 
+    
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
+
     return (
         <div className="single-playlist-container">
             <div className="single-playlist-container-info">
