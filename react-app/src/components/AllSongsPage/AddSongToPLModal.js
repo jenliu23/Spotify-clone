@@ -74,7 +74,7 @@ function AddSongToPLModal({song}) {
                 {currentUserPlaylists.length > 0 ? (
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <h3>Choose a playlist</h3>
+                        <h3>Choose a playlist:</h3>
                         <label>
                             <select id="pl" 
                                     onChange={(e)=>setValue(document.getElementById("pl").value)}>

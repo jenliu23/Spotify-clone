@@ -12,7 +12,6 @@ import './SongList.css'
 
 
 const AllSongsPage = () => {
-    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
     const dispatch = useDispatch();
     const songs = Object.values(useSelector((state) => state.songs));
     const sessionUser = useSelector((state) => state.session.user);
@@ -24,6 +23,7 @@ const AllSongsPage = () => {
         dispatch(fetchAlbums())
     }, [dispatch]);
 
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to bottom, rgb(33, 33, 33)75%, rgb(95, 95, 95)100%)"
     return (
         <div className="song-list">
             <h3>Song-percent list:</h3>

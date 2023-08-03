@@ -65,7 +65,7 @@ const LikedSongsPage = () => {
         dispatch(fetchSongs());
     }, [dispatch]);
 
-    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)45%, rgb(63, 4, 172)100%)"
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)45%, rgb(73, 54, 160)100%)"
     
     return (
         <div className="single-playlist-container playlist-background-purple">

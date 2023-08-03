@@ -13,7 +13,6 @@ import AddSongToAlbumModal from "./AddSongToAlbumModal";
 import './UserUploadedSongList.css'
 
 const UserUploadedList = () => {
-    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
@@ -48,6 +47,8 @@ const UserUploadedList = () => {
         dispatch(fetchAlbums());
     }, [dispatch]);
   
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to bottom, rgb(33, 33, 33)85%, rgb(95, 95, 95)100%)"
+    
     return (
         <div className="uploaded-page">
             <div className="uploaded-song-list">

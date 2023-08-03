@@ -79,10 +79,10 @@ function UploadAlbumPage() {
         // setSongUrlLoading(true);
     },[title, artist, releasedYear])
     
-    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to bottom, rgb(33, 33, 33)85%, rgb(95, 95, 95)100%)"
 
     return (
-        <div className="upload-song-page">
+        <div className="upload-song-page upload-album-page">
             <h1>Create Album</h1>
             <form onSubmit={handleSubmit} encType="multipart/form-data"> 
                 <div>

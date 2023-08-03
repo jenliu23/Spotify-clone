@@ -21,7 +21,7 @@ const addFav = (listId, favType) => ({
 	favType
 })
 
-const deleteFav = (listId, favType) => ({
+export const deleteFav = (listId, favType) => ({
 	type: DELETE_FAV,
 	listId,
 	favType
@@ -159,7 +159,9 @@ export default function reducer(state = initialState, action) {
 			newState = {...state, user:{...state.user, [action.favType]:state.user[action.favType]}}
 			let index = newState.user[action.favType].indexOf(action.listId);
 			console.log("what is index", index)
-			newState.user[action.favType].splice(index, 1)
+			if(index >= 0){
+				newState.user[action.favType].splice(index, 1)
+			}
 			return newState
 		default:
 			return state;
