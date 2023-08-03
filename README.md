@@ -1,6 +1,6 @@
 # Song-percent
 
-Song-percent is a light-weight clone of Spotify website.
+Song-percent is a light-weight clone of Spotify website. 
 
 The live site could be accessed through link: https://song-percent.onrender.com
 ## Technologies Used
@@ -18,6 +18,13 @@ The live site could be accessed through link: https://song-percent.onrender.com
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+
+## Splash Page
+![Screenshot 2023-08-03 at 12 36 01](https://github.com/JENLIU2023/Spotify-clone/assets/123348326/3cf9da63-7cbf-4083-9f22-08320fc6bbfa)
+
+## Single Playlist/Album
+![Screenshot 2023-08-03 at 12 43 15](https://github.com/JENLIU2023/Spotify-clone/assets/123348326/d2147a84-1377-4071-bbe8-bc8f4e510b78)
+![Screenshot 2023-08-03 at 12 47 20](https://github.com/JENLIU2023/Spotify-clone/assets/123348326/88b3e7ba-0d40-4b0c-ac0c-317701d1d7d5)
 
 ## Getting started
 1. Clone this repository (https://github.com/JENLIU2023/Spotify-clone.git)
@@ -56,6 +63,17 @@ The live site could be accessed through link: https://song-percent.onrender.com
 
 
 ## Features
+
+### Audio player functions
+  - Play/Pause
+  - Skip/Previous
+  - Shuffle
+  - Repeat
+  - Volume Control
+  - Seek
+  - Queue
+  - Switch among all-songs list, albums and playlists
+    
 ### Songs
   - All users can
     - view/listen to all the songs
