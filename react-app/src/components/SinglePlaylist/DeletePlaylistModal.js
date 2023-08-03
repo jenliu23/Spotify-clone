@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { deletePlaylist } from "../../store/playlists";
 import { editCurrentPlayer } from "../../store/player";
+import { deleteFav } from "../../store/session";
 
 const DeletePlaylistModal = ({playlist}) => {
     const history = useHistory()
@@ -20,7 +21,8 @@ const DeletePlaylistModal = ({playlist}) => {
             dispatch(editCurrentPlayer("", [], {}, NaN, false, "delete playlist"))
         }
                         
-        return dispatch(deletePlaylist(playlist.id))
+        dispatch(deleteFav(playlist.id, "favorite_playlists"))
+        return (dispatch(deletePlaylist(playlist.id)))
             .then(closeModal())
             .then(history.push('/'))
     }

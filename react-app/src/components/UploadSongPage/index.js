@@ -6,7 +6,6 @@ import { uploadSong } from "../../store/songs";
 import './UploadSongPage.css'
 
 function UploadSongPage() {
-    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to top, rgb(33, 33, 33)75%, rgb(4, 37, 6)100%)"
     const dispatch = useDispatch();
     const history = useHistory();
     const { closeModal } = useModal();
@@ -91,6 +90,8 @@ function UploadSongPage() {
         // setSongUrlLoading(true);
     },[title, artist])
     
+    document.getElementsByClassName('bodyContainer')[0].style.background="linear-gradient(to bottom, rgb(33, 33, 33)85%, rgb(95, 95, 95)100%)"
+
     return (
         <div className="upload-song-page">
             <h1>Upload Song</h1>

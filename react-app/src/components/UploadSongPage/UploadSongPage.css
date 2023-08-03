@@ -1,6 +1,6 @@
 .upload-song-page {
     padding: 40px 0 80px 0;
-    margin-top: 50px;
+    margin-top: 30px;
     border: white 2px solid;
     border-radius: 20px 20px;
     display: flex;
@@ -76,4 +76,9 @@
 #loading {
     font-size: 22px;
     color: rgb(29,185,84);
+}
+
+.upload-album-page {
+    padding: 30px 0 20px 0;
+    margin-top: 30px;
 }
