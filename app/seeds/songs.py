@@ -274,6 +274,12 @@ def seed_songs():
         artist = "XG",
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/XG1TGIF.mp3"
     )
+    song45 = Song(
+        userId = 3,
+        title = "NEW DANCE",
+        artist = "XG",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/XG1NEWDANCE.mp3"
+    )
     # song1 = Song(
     #     userId = ,
     #     title = "",
@@ -284,7 +290,7 @@ def seed_songs():
                  song11, song12, song13, song14, song15, song16, song17, song18, song19,
                  song20, song21, song22, song23, song24, song25, song26, song27, song28,
                  song29, song30, song31, song32, song33, song34, song35, song36, song37,
-                 song38, song39, song40, song41, song42, song43, song44]
+                 song38, song39, song40, song41, song42, song43, song44, song45]
     _ = [db.session.add(song) for song in all_songs]
     db.session.commit()
 
