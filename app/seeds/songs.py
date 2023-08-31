@@ -209,10 +209,10 @@ def seed_songs():
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/AvaMax1SweetbutPsycho.mp3"
     )
     song34 = Song(
-        userId = 3,
-        title = "GRL GVNG",
-        artist = "XG",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/XG1GRLGVNG.mp3"
+        userId = 7,
+        title = "POP!",
+        artist = "NAYEON",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/NAYEONPOP!.mp3"
     )
     song35 = Song(
         userId = 1,
@@ -263,10 +263,10 @@ def seed_songs():
         songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LESSERAFIMImpurities.mp3"
     )
     song43 = Song(
-        userId = 7,
-        title = "POP!",
-        artist = "NAYEON",
-        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/NAYEONPOP!.mp3"
+        userId = 3,
+        title = "GRL GVNG",
+        artist = "XG",
+        songUrl = "https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/XG1GRLGVNG.mp3"
     )
     song44 = Song(
         userId = 3,
