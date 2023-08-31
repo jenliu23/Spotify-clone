@@ -105,7 +105,7 @@ def seed_album_songs():
     )
 
     list25 = Album_Song(
-        albumId=7,
+        albumId=12,
         songId=34,
     )
 
@@ -142,7 +142,7 @@ def seed_album_songs():
     )
 
     list33 = Album_Song(
-        albumId=12,
+        albumId=7,
         songId=43,
     )
     list34 = Album_Song(
