@@ -17,7 +17,7 @@
 
 .log-in-modal h1 {
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     border-bottom: rgb(179, 179, 179) 1px solid;
     width: 400px;
     font-size: 38px;
@@ -38,7 +38,7 @@
 }
 
 .log-in-modal nav {
-    padding-top: 28px;
+    padding-top: 25px;
     display: flex;
     flex-direction: row;
     justify-content: center;
