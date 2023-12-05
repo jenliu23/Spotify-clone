@@ -14,7 +14,7 @@ function HomeBar( ){
 				{/* <i className="fa-solid fa-at fa-xl"></i> */}
 				{/* <h4>Developed by Jen Liu</h4> */}
 				<a href="https://github.com/JENLIU2023/Spotify-clone.git" target="_blank"><img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LOGO/GitHub-Mark.png" alt="GitHub Logo" width="32px"/></a>
-				<a href="https://www.linkedin.com/in/jen-liu-8862b9281/" target="_blank"><img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LOGO/LinkedIn_logo.png" alt="Linkedin Logo" width="32px"/></a>
+				<a href="https://www.linkedin.com/in/jen-l-8862b9281/" target="_blank"><img src="https://spotify-clone-song-percent.s3.us-west-1.amazonaws.com/LOGO/LinkedIn_logo.png" alt="Linkedin Logo" width="32px"/></a>
 			</nav>
 		</div>
 	);
